@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CoverStitch — Free Game & Movie Cover Stitcher | Printable Full Covers</title>
+<meta name="description" content="Free online tool to stitch game and movie cover art. Combine front, back, and spine images into printable full covers for PS2, PS5, Switch, DVD, Blu-ray, Steelbook cases. 100% browser-based.">
+<meta name="keywords" content="game cover maker, movie cover maker, printable game cover, custom game case, box art stitcher, game cover template, DVD cover maker, Blu-ray cover, PS5 cover, Switch cover, steelbook cover, full cover art, retro game cover">
+<meta property="og:title" content="CoverStitch — Stitch Game & Movie Covers Instantly">
+<meta property="og:description" content="Free browser-based tool to combine front, back, and spine into printable full covers for games and movies.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CoverStitch — Free Cover Art Stitcher">
+<meta name="twitter:description" content="Stitch game & movie cover art into print-ready full covers. No uploads, no signups.">
+<link rel="canonical" href="https://coverstitch.io">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --bg:#0a0a0c;
+  --surface:#121216;
+  --surface-2:#1a1a20;
+  --surface-3:#22222a;
+  --border:#2a2a35;
+  --border-hover:#3a3a48;
+  --text:#e8e6f0;
+  --text-muted:#8887a0;
+  --text-dim:#5a5972;
+  --accent:#c4f04d;
+  --accent-dim:#8aad2a;
+  --accent-glow:rgba(196,240,77,0.12);
+  --accent-glow-strong:rgba(196,240,77,0.22);
+  --danger:#ff6b6b;
+  --radius:14px;
+  --radius-sm:8px;
+  --font-display:'Instrument Serif', Georgia, serif;
+  --font-body:'DM Sans', system-ui, sans-serif;
+  --transition:0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+body::before{
+  content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  background-repeat:repeat;
+}
+
+/* === SCROLLBAR === */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--border-hover)}
+
+/* === HEADER === */
+header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(10,10,12,0.8);
+  backdrop-filter:blur(20px) saturate(1.4);
+  border-bottom:1px solid var(--border);
+  padding:0 2rem;
+}
+.header-inner{
+  max-width:1200px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  height:64px;
+}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{
+  width:32px;height:32px;
+  background:var(--accent);
+  border-radius:6px;
+  position:relative;overflow:hidden;
+  flex-shrink:0;
+}
+.logo-icon::before{
+  content:'';position:absolute;
+  width:2px;height:100%;background:var(--bg);
+  left:40%;
+}
+.logo-icon::after{
+  content:'';position:absolute;
+  width:2px;height:100%;background:var(--bg);
+  left:66%;
+}
+.logo-text{
+  font-family:var(--font-display);
+  font-size:1.35rem;color:var(--text);
+  letter-spacing:-0.02em;
+}
+.logo-text span{color:var(--accent)}
+.header-right{display:flex;align-items:center;gap:12px}
+.header-badge{
+  font-size:0.68rem;font-weight:600;
+  color:var(--accent);
+  background:var(--accent-glow);
+  padding:4px 10px;border-radius:20px;
+  letter-spacing:0.06em;text-transform:uppercase;
+}
+
+/* === NAV TABS === */
+.nav-tabs{
+  display:flex;gap:2px;
+  background:var(--surface);
+  border-radius:10px;
+  padding:3px;
+  border:1px solid var(--border);
+}
+.nav-tab{
+  padding:7px 18px;
+  font-family:var(--font-body);
+  font-size:0.8rem;font-weight:500;
+  color:var(--text-dim);
+  background:transparent;
+  border:none;border-radius:8px;
+  cursor:pointer;
+  transition:var(--transition);
+}
+.nav-tab:hover{color:var(--text-muted)}
+.nav-tab.active{
+  background:var(--surface-3);
+  color:var(--text);
+}
+
+/* === HERO === */
+.hero{
+  text-align:center;
+  padding:3.5rem 2rem 1.5rem;
+  position:relative;
+}
+.hero::before{
+  content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);
+  width:600px;height:400px;
+  background:radial-gradient(ellipse,var(--accent-glow) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero h1{
+  font-family:var(--font-display);
+  font-size:clamp(2rem,5vw,3.4rem);
+  font-weight:400;line-height:1.15;
+  letter-spacing:-0.03em;
+  margin-bottom:0.75rem;
+  position:relative;
+}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero p{
+  color:var(--text-muted);font-size:1rem;
+  max-width:540px;margin:0 auto;line-height:1.6;
+}
+
+/* === MAIN WORKSPACE === */
+.workspace{
+  max-width:1100px;margin:0 auto;
+  padding:1.5rem 2rem;
+}
+
+/* === MODE PANELS === */
+.mode-panel{display:none}
+.mode-panel.active{display:block;animation:fadeIn 0.3s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* === PRESET SELECTOR === */
+.preset-bar{
+  display:flex;align-items:center;gap:0.75rem;
+  margin-bottom:1.5rem;
+  flex-wrap:wrap;
+}
+.preset-bar-label{
+  font-size:0.78rem;font-weight:600;
+  color:var(--text-dim);
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  white-space:nowrap;
+}
+.preset-chips{display:flex;gap:6px;flex-wrap:wrap}
+.preset-chip{
+  padding:6px 14px;
+  font-family:var(--font-body);
+  font-size:0.78rem;font-weight:500;
+  color:var(--text-muted);
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:20px;
+  cursor:pointer;
+  transition:var(--transition);
+  white-space:nowrap;
+}
+.preset-chip:hover{
+  border-color:var(--border-hover);
+  color:var(--text);
+}
+.preset-chip.active{
+  border-color:var(--accent-dim);
+  color:var(--accent);
+  background:var(--accent-glow);
+}
+.preset-info{
+  font-size:0.72rem;
+  color:var(--text-dim);
+  margin-bottom:1.25rem;
+  padding:8px 14px;
+  background:var(--surface);
+  border-radius:var(--radius-sm);
+  border-left:3px solid var(--accent-dim);
+  display:none;
+}
+.preset-info.visible{display:block}
+
+/* === UPLOAD ZONE === */
+.upload-grid{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  gap:1.25rem;
+  margin-bottom:1.5rem;
+  align-items:start;
+}
+@media(max-width:768px){
+  .upload-grid{grid-template-columns:1fr;gap:1rem}
+}
+
+.upload-card{
+  background:var(--surface);
+  border:1.5px dashed var(--border);
+  border-radius:var(--radius);
+  padding:2rem 1.5rem;
+  text-align:center;
+  cursor:pointer;
+  transition:var(--transition);
+  position:relative;overflow:hidden;
+}
+.upload-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--accent-glow),transparent 60%);
+  opacity:0;transition:var(--transition);
+}
+.upload-card:hover{
+  border-color:var(--border-hover);
+  transform:translateY(-2px);
+}
+.upload-card:hover::before{opacity:1}
+.upload-card.has-image{
+  border-style:solid;
+  border-color:var(--accent-dim);
+  padding:0.75rem;
+}
+.upload-card.dragover{
+  border-color:var(--accent);
+  background:rgba(196,240,77,0.04);
+}
+.upload-card.spine-card{grid-column:2}
+@media(max-width:768px){.upload-card.spine-card{grid-column:1}}
+
+.upload-label{
+  font-weight:600;font-size:0.82rem;
+  text-transform:uppercase;letter-spacing:0.08em;
+  color:var(--text-muted);margin-bottom:0.75rem;
+  position:relative;
+}
+.upload-label .tag{
+  display:inline-block;font-size:0.62rem;
+  color:var(--accent);background:var(--accent-glow);
+  padding:2px 7px;border-radius:4px;
+  margin-left:6px;vertical-align:middle;
+  text-transform:uppercase;letter-spacing:0.05em;
+}
+.upload-label .tag.optional{color:var(--text-dim);background:var(--surface-3)}
+
+.upload-icon{
+  width:48px;height:48px;margin:0 auto 0.75rem;
+  border-radius:12px;background:var(--surface-2);
+  display:grid;place-items:center;position:relative;
+}
+.upload-icon svg{
+  width:22px;height:22px;stroke:var(--text-dim);
+  fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;
+}
+.upload-hint{font-size:0.8rem;color:var(--text-dim);line-height:1.5}
+.upload-hint strong{color:var(--text-muted)}
+
+.upload-card input[type="file"]{display:none}
+
+.preview-wrapper{
+  position:relative;border-radius:var(--radius-sm);overflow:hidden;
+}
+.preview-wrapper img{
+  width:100%;display:block;border-radius:var(--radius-sm);
+  max-height:320px;object-fit:contain;background:var(--surface-2);
+}
+.preview-name{
+  font-size:0.72rem;color:var(--text-muted);
+  margin-top:0.5rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.remove-btn{
+  position:absolute;top:8px;right:8px;
+  width:28px;height:28px;border-radius:50%;border:none;
+  background:rgba(0,0,0,0.7);color:#fff;cursor:pointer;
+  display:grid;place-items:center;font-size:1rem;
+  backdrop-filter:blur(8px);transition:var(--transition);opacity:0;
+}
+.preview-wrapper:hover .remove-btn{opacity:1}
+.remove-btn:hover{background:var(--danger)}
+
+/* === FILENAME INPUT === */
+.filename-row{
+  display:flex;align-items:center;gap:0.75rem;
+  margin-bottom:1.5rem;
+}
+.filename-row label{
+  font-size:0.78rem;font-weight:600;
+  color:var(--text-dim);text-transform:uppercase;
+  letter-spacing:0.06em;white-space:nowrap;
+}
+.filename-input{
+  flex:1;max-width:400px;
+  padding:9px 14px;
+  font-family:var(--font-body);
+  font-size:0.85rem;
+  color:var(--text);
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius-sm);
+  outline:none;
+  transition:var(--transition);
+}
+.filename-input:focus{border-color:var(--accent-dim)}
+.filename-input::placeholder{color:var(--text-dim)}
+.filename-ext{
+  font-size:0.82rem;color:var(--text-dim);font-weight:500;
+}
+
+/* === ACTION BAR === */
+.action-bar{
+  display:flex;align-items:center;justify-content:center;
+  gap:1rem;margin-bottom:2rem;
+}
+.stitch-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 36px;
+  font-family:var(--font-body);font-size:0.95rem;font-weight:600;
+  color:var(--bg);background:var(--accent);
+  border:none;border-radius:50px;cursor:pointer;
+  transition:var(--transition);letter-spacing:0.01em;
+  position:relative;overflow:hidden;
+}
+.stitch-btn::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,transparent 40%,rgba(255,255,255,0.2) 50%,transparent 60%);
+  transform:translateX(-100%);transition:0.6s ease;
+}
+.stitch-btn:hover::before{transform:translateX(100%)}
+.stitch-btn:hover{transform:translateY(-1px);box-shadow:0 8px 30px rgba(196,240,77,0.25)}
+.stitch-btn:disabled{opacity:0.35;cursor:not-allowed;transform:none;box-shadow:none}
+.stitch-btn:disabled::before{display:none}
+.stitch-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.reset-btn{
+  padding:14px 24px;
+  font-family:var(--font-body);font-size:0.85rem;font-weight:500;
+  color:var(--text-muted);background:var(--surface-2);
+  border:1px solid var(--border);border-radius:50px;
+  cursor:pointer;transition:var(--transition);
+}
+.reset-btn:hover{border-color:var(--border-hover);color:var(--text)}
+
+/* === RESULT === */
+.result-area{display:none;animation:fadeUp 0.5s ease}
+.result-area.visible{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+.result-header{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:1rem;flex-wrap:wrap;gap:1rem;
+}
+.result-header h2{font-family:var(--font-display);font-size:1.5rem;font-weight:400}
+.result-actions{display:flex;gap:8px;flex-wrap:wrap}
+
+.download-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 22px;
+  font-family:var(--font-body);font-size:0.82rem;font-weight:600;
+  color:var(--bg);background:var(--accent);
+  border:none;border-radius:50px;cursor:pointer;transition:var(--transition);
+}
+.download-btn:hover{box-shadow:0 4px 20px rgba(196,240,77,0.3);transform:translateY(-1px)}
+.download-btn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.download-btn.secondary{
+  color:var(--text-muted);background:var(--surface-2);border:1px solid var(--border);
+}
+.download-btn.secondary:hover{border-color:var(--border-hover);color:var(--text);box-shadow:none}
+
+.result-canvas-wrap{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1rem;overflow:hidden;
+}
+.result-canvas-wrap canvas{width:100%;border-radius:var(--radius-sm);display:block}
+.result-meta{
+  display:flex;gap:2rem;margin-top:0.75rem;
+  font-size:0.76rem;color:var(--text-dim);
+}
+
+/* === BATCH MODE === */
+.batch-zone{
+  background:var(--surface);
+  border:1.5px dashed var(--border);
+  border-radius:var(--radius);
+  padding:3rem 2rem;text-align:center;
+  cursor:pointer;transition:var(--transition);
+  position:relative;
+  margin-bottom:1.5rem;
+}
+.batch-zone:hover{border-color:var(--border-hover);transform:translateY(-1px)}
+.batch-zone.dragover{border-color:var(--accent);background:rgba(196,240,77,0.04)}
+.batch-zone input[type="file"]{display:none}
+.batch-zone .upload-icon{margin:0 auto 1rem}
+.batch-zone h3{font-size:1rem;font-weight:600;margin-bottom:0.5rem}
+.batch-zone p{font-size:0.82rem;color:var(--text-dim);line-height:1.6;max-width:480px;margin:0 auto}
+.batch-zone code{
+  display:inline-block;margin-top:0.75rem;
+  font-size:0.75rem;color:var(--accent);
+  background:var(--surface-3);padding:6px 12px;
+  border-radius:6px;font-family:'DM Sans',monospace;
+}
+
+.batch-queue{margin-bottom:1.5rem}
+.batch-queue-header{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:0.75rem;
+}
+.batch-queue-header h3{font-size:0.9rem;font-weight:600}
+.batch-queue-header span{font-size:0.78rem;color:var(--text-dim)}
+
+.batch-item{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 14px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius-sm);
+  margin-bottom:6px;
+  font-size:0.82rem;
+  transition:var(--transition);
+}
+.batch-item:hover{border-color:var(--border-hover)}
+.batch-item-name{color:var(--text);font-weight:500}
+.batch-item-parts{color:var(--text-dim);font-size:0.75rem}
+.batch-item-parts .has{color:var(--accent)}
+.batch-item-parts .missing{color:var(--danger);opacity:0.6}
+.batch-item-status{font-size:0.72rem;padding:3px 8px;border-radius:4px}
+.batch-item-status.ready{color:var(--accent);background:var(--accent-glow)}
+.batch-item-status.incomplete{color:var(--danger);background:rgba(255,107,107,0.1)}
+.batch-item-status.done{color:var(--text-dim);background:var(--surface-3)}
+
+.batch-results{margin-top:1.5rem}
+.batch-result-item{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:1rem;
+  margin-bottom:1rem;
+}
+.batch-result-item canvas{
+  width:100%;border-radius:var(--radius-sm);display:block;margin-bottom:0.75rem;
+}
+.batch-result-meta{
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:0.5rem;
+}
+.batch-result-meta span{font-size:0.78rem;color:var(--text-muted);font-weight:500}
+
+/* === FEATURES === */
+.features{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1rem;margin:3rem 0 2rem;
+}
+.feature-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.25rem;
+  transition:var(--transition);
+}
+.feature-card:hover{border-color:var(--border-hover)}
+.feature-icon{
+  width:34px;height:34px;border-radius:8px;
+  background:var(--surface-3);display:grid;place-items:center;
+  margin-bottom:0.65rem;
+}
+.feature-icon svg{width:17px;height:17px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.feature-card h3{font-size:0.85rem;font-weight:600;margin-bottom:0.3rem}
+.feature-card p{font-size:0.78rem;color:var(--text-dim);line-height:1.55}
+
+/* === AD SPACE === */
+.ad-space{
+  margin:2rem 0;padding:2.5rem 2rem;
+  background:var(--surface);
+  border:1px dashed var(--border);
+  border-radius:var(--radius);
+  text-align:center;color:var(--text-dim);font-size:0.78rem;
+}
+
+/* === FOOTER === */
+footer{
+  margin-top:3rem;padding:2rem;
+  border-top:1px solid var(--border);
+  text-align:center;color:var(--text-dim);font-size:0.76rem;
+}
+footer a{color:var(--text-muted);text-decoration:none}
+footer a:hover{color:var(--accent)}
+.footer-seo{
+  max-width:700px;margin:1rem auto 0;
+  font-size:0.72rem;color:var(--text-dim);
+  line-height:1.7;opacity:0.6;
+}
+
+/* === PROCESSING === */
+.processing{
+  position:fixed;inset:0;z-index:200;
+  background:rgba(10,10,12,0.85);
+  backdrop-filter:blur(12px);
+  display:none;place-items:center;
+}
+.processing.active{display:grid}
+.processing-inner{text-align:center}
+.spinner{
+  width:48px;height:48px;margin:0 auto 1rem;
+  border:3px solid var(--border);border-top-color:var(--accent);
+  border-radius:50%;animation:spin 0.8s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.processing-inner p{color:var(--text-muted);font-size:0.9rem}
+.processing-inner .progress{
+  margin-top:0.75rem;font-size:0.78rem;color:var(--text-dim);
+}
+
+/* === RESPONSIVE === */
+@media(max-width:600px){
+  .hero{padding:2rem 1.5rem 1rem}
+  .workspace{padding:1rem}
+  .upload-card{padding:1.5rem 1rem}
+  .features{grid-template-columns:1fr}
+  .header-right{gap:8px}
+  .header-badge{display:none}
+  .nav-tab{padding:6px 12px;font-size:0.75rem}
+  .batch-zone{padding:2rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon"></div>
+      <div class="logo-text">Cover<span>Stitch</span></div>
+    </a>
+    <div class="header-right">
+      <nav class="nav-tabs">
+        <button class="nav-tab active" onclick="switchMode('single')">Single</button>
+        <button class="nav-tab" onclick="switchMode('batch')">Batch</button>
+      </nav>
+      <div class="header-badge">100% Browser-Based</div>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Stitch your <em>game, movie</em><br>covers in seconds</h1>
+  <p>Drop your front, back, and spine art — get a print-ready full cover. Works with PS2, PS5, Switch, DVD, Blu-ray, Steelbook and more. Everything stays on your device.</p>
+</section>
+
+<!-- WORKSPACE -->
+<main class="workspace">
+
+  <!-- ==================== SINGLE MODE ==================== -->
+  <div class="mode-panel active" id="panel-single">
+
+    <!-- PRESET SELECTOR -->
+    <div class="preset-bar">
+      <span class="preset-bar-label">Template</span>
+      <div class="preset-chips">
+        <button class="preset-chip active" data-preset="custom" onclick="setPreset('custom')">Custom</button>
+        <button class="preset-chip" data-preset="ps2" onclick="setPreset('ps2')">PS2</button>
+        <button class="preset-chip" data-preset="ps5" onclick="setPreset('ps5')">PS5</button>
+        <button class="preset-chip" data-preset="switch" onclick="setPreset('switch')">Switch</button>
+        <button class="preset-chip" data-preset="dvd" onclick="setPreset('dvd')">DVD</button>
+        <button class="preset-chip" data-preset="bluray" onclick="setPreset('bluray')">Blu-ray</button>
+        <button class="preset-chip" data-preset="steelbook" onclick="setPreset('steelbook')">Steelbook</button>
+      </div>
+    </div>
+    <div class="preset-info" id="presetInfo"></div>
+
+    <!-- UPLOAD GRID -->
+    <div class="upload-grid">
+      <div class="upload-card" id="card-back" onclick="document.getElementById('input-back').click()">
+        <input type="file" id="input-back" accept="image/*">
+        <div class="upload-placeholder">
+          <div class="upload-label">Back Cover <span class="tag">Required</span></div>
+          <div class="upload-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 16l5-5 4 4 3-3 6 6"/></svg></div>
+          <div class="upload-hint"><strong>Click or drag</strong> to add image</div>
+        </div>
+      </div>
+      <div class="upload-card spine-card" id="card-spine" onclick="document.getElementById('input-spine').click()">
+        <input type="file" id="input-spine" accept="image/*">
+        <div class="upload-placeholder">
+          <div class="upload-label">Spine <span class="tag optional">Optional</span></div>
+          <div class="upload-icon"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="18" rx="2"/></svg></div>
+          <div class="upload-hint"><strong>Click or drag</strong> to add</div>
+        </div>
+      </div>
+      <div class="upload-card" id="card-front" onclick="document.getElementById('input-front').click()">
+        <input type="file" id="input-front" accept="image/*">
+        <div class="upload-placeholder">
+          <div class="upload-label">Front Cover <span class="tag">Required</span></div>
+          <div class="upload-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="15" cy="9" r="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/></svg></div>
+          <div class="upload-hint"><strong>Click or drag</strong> to add image</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FILENAME -->
+    <div class="filename-row">
+      <label for="filenameInput">Filename</label>
+      <input type="text" class="filename-input" id="filenameInput" placeholder="My_Full_Cover" spellcheck="false">
+      <span class="filename-ext">.png</span>
+    </div>
+
+    <!-- ACTIONS -->
+    <div class="action-bar">
+      <button class="stitch-btn" id="stitchBtn" disabled onclick="stitchImages()">
+        <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        Stitch Cover
+      </button>
+      <button class="reset-btn" onclick="resetAll()">Reset All</button>
+    </div>
+
+    <!-- RESULT -->
+    <div class="result-area" id="resultArea">
+      <div class="result-header">
+        <h2>Your Stitched Cover</h2>
+        <div class="result-actions">
+          <button class="download-btn" onclick="downloadResult('png')">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            PNG
+          </button>
+          <button class="download-btn secondary" onclick="downloadResult('jpg')">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            JPG
+          </button>
+        </div>
+      </div>
+      <div class="result-canvas-wrap">
+        <canvas id="resultCanvas"></canvas>
+      </div>
+      <div class="result-meta" id="resultMeta"></div>
+    </div>
+  </div>
+
+  <!-- ==================== BATCH MODE ==================== -->
+  <div class="mode-panel" id="panel-batch">
+
+    <div class="batch-zone" id="batchZone" onclick="document.getElementById('batchInput').click()">
+      <input type="file" id="batchInput" accept="image/*" multiple>
+      <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg></div>
+      <h3>Drop an entire folder of images</h3>
+      <p>Name your files with suffixes and CoverStitch will auto-group and stitch them.</p>
+      <code>GameName - front.png &nbsp;|&nbsp; GameName - back.png &nbsp;|&nbsp; GameName - spine.png</code>
+    </div>
+
+    <div class="batch-queue" id="batchQueue" style="display:none">
+      <div class="batch-queue-header">
+        <h3>Detected Sets</h3>
+        <span id="batchCount"></span>
+      </div>
+      <div id="batchItems"></div>
+      <div class="action-bar" style="margin-top:1rem">
+        <button class="stitch-btn" id="batchStitchBtn" onclick="batchStitch()">
+          <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          Stitch All
+        </button>
+        <button class="reset-btn" onclick="resetBatch()">Clear All</button>
+      </div>
+    </div>
+
+    <div class="batch-results" id="batchResults"></div>
+  </div>
+
+  <!-- AD SPACE -->
+  <div class="ad-space">
+    <!-- Replace with Google AdSense or ad network code -->
+    <p>Advertisement Space &mdash; <a href="#">Advertise with CoverStitch</a></p>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="features">
+    <div class="feature-card">
+      <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <h3>100% Private</h3>
+      <p>Images never leave your device. All processing happens in your browser.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+      <h3>Instant Results</h3>
+      <p>No servers, no waiting. Canvas API stitches in milliseconds.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+      <h3>Case Presets</h3>
+      <p>Templates for PS2, PS5, Switch, DVD, Blu-ray, and Steelbook cases.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
+      <h3>Batch Processing</h3>
+      <p>Drop a whole folder. Auto-detects sets and stitches them all at once.</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>CoverStitch &copy; 2026 &mdash; Free game &amp; movie cover stitching tool. Built for collectors.</p>
+  <p style="margin-top:0.5rem"><a href="#">About</a> &middot; <a href="#">Privacy</a> &middot; <a href="#">Contact</a></p>
+  <div class="footer-seo">
+    CoverStitch is a free online tool for creating printable full game and movie covers. Supports PlayStation 2, PlayStation 5, Nintendo Switch, DVD, Blu-ray, and Steelbook case formats. Combine front cover, back cover, and spine art into a single print-ready image. Perfect for retro game collectors, custom case projects, and media archiving.
+  </div>
+</footer>
+
+<!-- PROCESSING -->
+<div class="processing" id="processing">
+  <div class="processing-inner">
+    <div class="spinner"></div>
+    <p id="processingText">Stitching your cover...</p>
+    <div class="progress" id="processingProgress"></div>
+  </div>
+</div>
+
+<script>
+// ===========================
+// STATE
+// ===========================
+const state = { front: null, back: null, spine: null };
+let currentPreset = 'custom';
+let batchSets = {};
+
+// ===========================
+// PRESETS (dimensions in mm at 300 DPI → pixels)
+// ===========================
+const PRESETS = {
+  custom: { name: 'Custom', desc: 'No resizing — images stitched at original dimensions.', front: null, back: null, spine: null },
+  ps2:    { name: 'PS2 / DVD Game', desc: 'Standard PS2 case: 130×184mm covers, 14mm spine.', front: [1535, 2173], back: [1535, 2173], spine: [165, 2173] },
+  ps5:    { name: 'PS5', desc: 'PS5 Blu-ray case: 128×148mm covers, 14mm spine.', front: [1512, 1748], back: [1512, 1748], spine: [165, 1748] },
+  switch: { name: 'Nintendo Switch', desc: 'Switch game case: 128×160mm covers, 10mm spine.', front: [1512, 1890], back: [1512, 1890], spine: [118, 1890] },
+  dvd:    { name: 'DVD', desc: 'Standard DVD case: 130×184mm covers, 14mm spine.', front: [1535, 2173], back: [1535, 2173], spine: [165, 2173] },
+  bluray: { name: 'Blu-ray', desc: 'Standard Blu-ray case: 128×148mm covers, 12mm spine.', front: [1512, 1748], back: [1512, 1748], spine: [142, 1748] },
+  steelbook: { name: 'Steelbook', desc: 'Standard Steelbook: 138×172mm covers, 14mm spine.', front: [1630, 2031], back: [1630, 2031], spine: [165, 2031] },
+};
+
+// ===========================
+// MODE SWITCHING
+// ===========================
+function switchMode(mode) {
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.mode-panel').forEach(p => p.classList.remove('active'));
+  document.querySelector(`.nav-tab:nth-child(${mode === 'single' ? 1 : 2})`).classList.add('active');
+  document.getElementById(`panel-${mode}`).classList.add('active');
+}
+
+// ===========================
+// PRESET HANDLING
+// ===========================
+function setPreset(key) {
+  currentPreset = key;
+  document.querySelectorAll('.preset-chip').forEach(c => {
+    c.classList.toggle('active', c.dataset.preset === key);
+  });
+  const info = document.getElementById('presetInfo');
+  const p = PRESETS[key];
+  if (key === 'custom') {
+    info.classList.remove('visible');
+  } else {
+    info.textContent = `${p.name}: ${p.desc} Front: ${p.front[0]}×${p.front[1]}px | Spine: ${p.spine[0]}×${p.spine[1]}px | Back: ${p.back[0]}×${p.back[1]}px`;
+    info.classList.add('visible');
+  }
+}
+
+// ===========================
+// SINGLE MODE — FILE HANDLERS
+// ===========================
+['front','back','spine'].forEach(type => {
+  const input = document.getElementById(`input-${type}`);
+  const card = document.getElementById(`card-${type}`);
+  input.addEventListener('change', e => { e.stopPropagation(); if(e.target.files[0]) loadImage(type, e.target.files[0]); });
+  card.addEventListener('dragover', e => { e.preventDefault(); card.classList.add('dragover'); });
+  card.addEventListener('dragleave', () => card.classList.remove('dragover'));
+  card.addEventListener('drop', e => {
+    e.preventDefault(); card.classList.remove('dragover');
+    if(e.dataTransfer.files[0]) loadImage(type, e.dataTransfer.files[0]);
+  });
+});
+
+function loadImage(type, file) {
+  if (!file.type.startsWith('image/')) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const img = new Image();
+    img.onload = () => {
+      state[type] = { img, name: file.name, width: img.naturalWidth, height: img.naturalHeight };
+      updateCard(type);
+      updateStitchBtn();
+      // Auto-populate filename from front cover
+      if (type === 'front' && !document.getElementById('filenameInput').value) {
+        const clean = file.name.replace(/\.(png|jpg|jpeg|webp|bmp)$/i, '').replace(/\s*-\s*(front|back|spine)/i, '');
+        document.getElementById('filenameInput').value = clean + '_Full_Cover';
+      }
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function updateCard(type) {
+  const card = document.getElementById(`card-${type}`);
+  const data = state[type];
+  if (!data) return;
+  card.classList.add('has-image');
+  card.innerHTML = `
+    <input type="file" id="input-${type}" accept="image/*" style="display:none">
+    <div class="preview-wrapper">
+      <img src="${data.img.src}" alt="${type} cover">
+      <button class="remove-btn" onclick="event.stopPropagation();removeImage('${type}')">&times;</button>
+    </div>
+    <div class="preview-name">${data.name} (${data.width}&times;${data.height})</div>
+  `;
+  card.querySelector(`#input-${type}`).addEventListener('change', e => {
+    e.stopPropagation(); if(e.target.files[0]) loadImage(type, e.target.files[0]);
+  });
+}
+
+function removeImage(type) {
+  state[type] = null;
+  const card = document.getElementById(`card-${type}`);
+  card.classList.remove('has-image');
+  const labels = {front:'Front Cover',back:'Back Cover',spine:'Spine'};
+  const req = type !== 'spine';
+  const icons = {
+    back:'<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 16l5-5 4 4 3-3 6 6"/></svg>',
+    spine:'<svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="18" rx="2"/></svg>',
+    front:'<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="15" cy="9" r="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/></svg>'
+  };
+  card.innerHTML = `
+    <input type="file" id="input-${type}" accept="image/*" style="display:none">
+    <div class="upload-placeholder">
+      <div class="upload-label">${labels[type]} <span class="tag ${req?'':'optional'}">${req?'Required':'Optional'}</span></div>
+      <div class="upload-icon">${icons[type]}</div>
+      <div class="upload-hint"><strong>Click or drag</strong> to add${type==='spine'?'':' image'}</div>
+    </div>
+  `;
+  card.querySelector(`#input-${type}`).addEventListener('change', e => {
+    e.stopPropagation(); if(e.target.files[0]) loadImage(type, e.target.files[0]);
+  });
+  updateStitchBtn();
+}
+
+function updateStitchBtn() {
+  document.getElementById('stitchBtn').disabled = !(state.front && state.back);
+}
+
+// ===========================
+// STITCHING ENGINE
+// ===========================
+function stitchImages() {
+  showProcessing('Stitching your cover...');
+  requestAnimationFrame(() => setTimeout(() => {
+    try {
+      const preset = PRESETS[currentPreset];
+      const usePreset = currentPreset !== 'custom' && preset.front;
+      const targetHeight = usePreset ? preset.front[1] : state.front.img.naturalHeight;
+      const parts = [];
+
+      // Back
+      if (usePreset) {
+        parts.push(resizeToExact(state.back.img, preset.back[0], preset.back[1]));
+      } else {
+        parts.push(resizeToHeight(state.back.img, targetHeight));
+      }
+
+      // Spine
+      if (state.spine) {
+        if (usePreset) {
+          parts.push(resizeToExact(state.spine.img, preset.spine[0], preset.spine[1]));
+        } else {
+          parts.push(resizeToHeight(state.spine.img, targetHeight));
+        }
+      }
+
+      // Front
+      if (usePreset) {
+        parts.push(resizeToExact(state.front.img, preset.front[0], preset.front[1]));
+      } else {
+        parts.push(resizeToHeight(state.front.img, targetHeight));
+      }
+
+      const totalWidth = parts.reduce((s,c) => s + c.width, 0);
+      const canvas = document.getElementById('resultCanvas');
+      canvas.width = totalWidth;
+      canvas.height = targetHeight;
+      const ctx = canvas.getContext('2d');
+
+      let x = 0;
+      parts.forEach(c => { ctx.drawImage(c, x, 0); x += c.width; });
+
+      document.getElementById('resultArea').classList.add('visible');
+      document.getElementById('resultMeta').innerHTML =
+        `<span>${totalWidth} &times; ${targetHeight}px</span>` +
+        `<span>${state.spine ? '3 panels' : '2 panels'}</span>` +
+        `<span>Preset: ${PRESETS[currentPreset].name}</span>`;
+      document.getElementById('resultArea').scrollIntoView({behavior:'smooth',block:'start'});
+    } catch(err) {
+      alert('Error: ' + err.message);
+    }
+    hideProcessing();
+  }, 80));
+}
+
+function resizeToHeight(img, targetH) {
+  const aspect = img.naturalWidth / img.naturalHeight;
+  const w = Math.round(targetH * aspect);
+  return drawToCanvas(img, w, targetH);
+}
+
+function resizeToExact(img, w, h) {
+  return drawToCanvas(img, w, h);
+}
+
+function drawToCanvas(img, w, h) {
+  const c = document.createElement('canvas');
+  c.width = w; c.height = h;
+  const ctx = c.getContext('2d');
+  ctx.imageSmoothingEnabled = true;
+  ctx.imageSmoothingQuality = 'high';
+  ctx.drawImage(img, 0, 0, w, h);
+  return c;
+}
+
+// ===========================
+// DOWNLOAD
+// ===========================
+function downloadResult(format) {
+  const canvas = document.getElementById('resultCanvas');
+  const fname = document.getElementById('filenameInput').value.trim() || 'CoverStitch_Full_Cover';
+  const safe = fname.replace(/[^a-zA-Z0-9_\-\s]/g, '').replace(/\s+/g, '_');
+  const link = document.createElement('a');
+  if (format === 'jpg') {
+    link.download = safe + '.jpg';
+    link.href = canvas.toDataURL('image/jpeg', 0.95);
+  } else {
+    link.download = safe + '.png';
+    link.href = canvas.toDataURL('image/png');
+  }
+  link.click();
+}
+
+// ===========================
+// RESET
+// ===========================
+function resetAll() {
+  ['front','back','spine'].forEach(removeImage);
+  document.getElementById('resultArea').classList.remove('visible');
+  document.getElementById('filenameInput').value = '';
+  setPreset('custom');
+}
+
+// ===========================
+// BATCH MODE
+// ===========================
+const batchZone = document.getElementById('batchZone');
+const batchInput = document.getElementById('batchInput');
+
+batchInput.addEventListener('change', e => { if(e.target.files.length) processBatchFiles(e.target.files); });
+batchZone.addEventListener('dragover', e => { e.preventDefault(); batchZone.classList.add('dragover'); });
+batchZone.addEventListener('dragleave', () => batchZone.classList.remove('dragover'));
+batchZone.addEventListener('drop', e => {
+  e.preventDefault(); batchZone.classList.remove('dragover');
+  if(e.dataTransfer.files.length) processBatchFiles(e.dataTransfer.files);
+});
+
+function processBatchFiles(files) {
+  batchSets = {};
+  const suffixes = {' - front':'front',' - back':'back',' - spine':'spine'};
+
+  Array.from(files).forEach(file => {
+    if (!file.type.startsWith('image/')) return;
+    const nameNoExt = file.name.replace(/\.(png|jpg|jpeg|webp|bmp|gif)$/i, '');
+    for (const [suffix, key] of Object.entries(suffixes)) {
+      if (nameNoExt.toLowerCase().endsWith(suffix)) {
+        const gameName = nameNoExt.slice(0, -suffix.length);
+        if (!batchSets[gameName]) batchSets[gameName] = {};
+        batchSets[gameName][key] = file;
+        break;
+      }
+    }
+  });
+
+  renderBatchQueue();
+}
+
+function renderBatchQueue() {
+  const names = Object.keys(batchSets);
+  if (!names.length) return;
+
+  document.getElementById('batchQueue').style.display = 'block';
+  const ready = names.filter(n => batchSets[n].front && batchSets[n].back).length;
+  document.getElementById('batchCount').textContent = `${ready} of ${names.length} sets ready`;
+
+  document.getElementById('batchItems').innerHTML = names.map(name => {
+    const s = batchSets[name];
+    const hasF = !!s.front, hasB = !!s.back, hasSp = !!s.spine;
+    const isReady = hasF && hasB;
+    return `
+      <div class="batch-item">
+        <span class="batch-item-name">${name}</span>
+        <span class="batch-item-parts">
+          <span class="${hasB?'has':'missing'}">Back${hasB?'✓':'✗'}</span> &middot;
+          <span class="${hasSp?'has':'missing'}">Spine${hasSp?'✓':'–'}</span> &middot;
+          <span class="${hasF?'has':'missing'}">Front${hasF?'✓':'✗'}</span>
+        </span>
+        <span class="batch-item-status ${isReady?'ready':'incomplete'}">${isReady?'Ready':'Missing files'}</span>
+      </div>
+    `;
+  }).join('');
+
+  document.getElementById('batchStitchBtn').disabled = ready === 0;
+}
+
+async function batchStitch() {
+  const names = Object.keys(batchSets).filter(n => batchSets[n].front && batchSets[n].back);
+  if (!names.length) return;
+
+  showProcessing('Stitching covers...', `0 / ${names.length}`);
+  const resultsDiv = document.getElementById('batchResults');
+  resultsDiv.innerHTML = '';
+
+  for (let i = 0; i < names.length; i++) {
+    updateProcessing(`Stitching: ${names[i]}`, `${i+1} / ${names.length}`);
+    const set = batchSets[names[i]];
+
+    try {
+      const imgs = {};
+      for (const [key, file] of Object.entries(set)) {
+        imgs[key] = await loadImageFromFile(file);
+      }
+
+      const targetH = imgs.front.naturalHeight;
+      const parts = [];
+      parts.push(resizeToHeight(imgs.back, targetH));
+      if (imgs.spine) parts.push(resizeToHeight(imgs.spine, targetH));
+      parts.push(resizeToHeight(imgs.front, targetH));
+
+      const totalW = parts.reduce((s,c) => s + c.width, 0);
+      const canvas = document.createElement('canvas');
+      canvas.width = totalW; canvas.height = targetH;
+      const ctx = canvas.getContext('2d');
+      let x = 0;
+      parts.forEach(c => { ctx.drawImage(c, x, 0); x += c.width; });
+
+      const safeName = names[i].replace(/[^a-zA-Z0-9_\-\s]/g,'').replace(/\s+/g,'_');
+
+      resultsDiv.innerHTML += `
+        <div class="batch-result-item" id="batch-result-${i}">
+          <canvas id="batch-canvas-${i}" style="display:none"></canvas>
+          <div class="batch-result-meta">
+            <span>${names[i]} — ${totalW}×${targetH}px</span>
+            <div class="result-actions">
+              <button class="download-btn" onclick="downloadBatchItem(${i},'png','${safeName}')">
+                <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>PNG
+              </button>
+              <button class="download-btn secondary" onclick="downloadBatchItem(${i},'jpg','${safeName}')">
+                <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>JPG
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+
+      // Copy canvas data
+      const target = document.getElementById(`batch-canvas-${i}`);
+      target.width = totalW; target.height = targetH;
+      target.getContext('2d').drawImage(canvas, 0, 0);
+
+      // Also render a visible preview via img
+      const previewImg = document.createElement('img');
+      previewImg.src = canvas.toDataURL('image/jpeg', 0.8);
+      previewImg.style.cssText = 'width:100%;border-radius:8px;display:block;margin-bottom:0.75rem';
+      document.getElementById(`batch-result-${i}`).prepend(previewImg);
+
+      // Update queue status
+      const items = document.querySelectorAll('.batch-item');
+      if (items[i]) {
+        const statusEl = items[i].querySelector('.batch-item-status');
+        statusEl.className = 'batch-item-status done';
+        statusEl.textContent = 'Done ✓';
+      }
+
+    } catch(err) {
+      resultsDiv.innerHTML += `<div class="batch-item" style="border-color:var(--danger)"><span>❌ ${names[i]}: ${err.message}</span></div>`;
+    }
+
+    // Small delay to let UI update
+    await new Promise(r => setTimeout(r, 50));
+  }
+
+  hideProcessing();
+}
+
+function downloadBatchItem(index, format, name) {
+  const canvas = document.getElementById(`batch-canvas-${index}`);
+  const link = document.createElement('a');
+  if (format === 'jpg') {
+    link.download = name + '_Full_Cover.jpg';
+    link.href = canvas.toDataURL('image/jpeg', 0.95);
+  } else {
+    link.download = name + '_Full_Cover.png';
+    link.href = canvas.toDataURL('image/png');
+  }
+  link.click();
+}
+
+function loadImageFromFile(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = e => {
+      const img = new Image();
+      img.onload = () => resolve(img);
+      img.onerror = () => reject(new Error('Failed to load ' + file.name));
+      img.src = e.target.result;
+    };
+    reader.onerror = () => reject(new Error('Failed to read ' + file.name));
+    reader.readAsDataURL(file);
+  });
+}
+
+function resetBatch() {
+  batchSets = {};
+  document.getElementById('batchQueue').style.display = 'none';
+  document.getElementById('batchResults').innerHTML = '';
+  document.getElementById('batchInput').value = '';
+}
+
+// ===========================
+// PROCESSING OVERLAY
+// ===========================
+function showProcessing(text, progress) {
+  document.getElementById('processingText').textContent = text || 'Processing...';
+  document.getElementById('processingProgress').textContent = progress || '';
+  document.getElementById('processing').classList.add('active');
+}
+function updateProcessing(text, progress) {
+  if (text) document.getElementById('processingText').textContent = text;
+  if (progress) document.getElementById('processingProgress').textContent = progress;
+}
+function hideProcessing() {
+  document.getElementById('processing').classList.remove('active');
+}
+</script>
+
+<!-- JSON-LD Structured Data for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "CoverStitch",
+  "description": "Free online tool to stitch game and movie cover art into printable full covers. Supports PS2, PS5, Switch, DVD, Blu-ray, and Steelbook formats.",
+  "url": "https://coverstitch.io",
+  "applicationCategory": "DesignApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "browserRequirements": "Requires a modern web browser with JavaScript and Canvas support"
+}
+</script>
+
+</body>
+</html>
