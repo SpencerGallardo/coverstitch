@@ -1073,53 +1073,66 @@ async function batchStitch() {
     const set = batchSets[names[i]];
 
     try {
-      const imgs = {};
-      for (const [key, file] of Object.entries(set)) {
-        imgs[key] = await loadImageFromFile(file);
-      }
+      // Load images explicitly — spine may not exist
+      const frontImg = await loadImageFromFile(set.front);
+      const backImg = await loadImageFromFile(set.back);
+      const spineImg = set.spine ? await loadImageFromFile(set.spine) : null;
 
-      const targetH = imgs.front.naturalHeight;
+      const targetH = frontImg.naturalHeight;
       const parts = [];
-      parts.push(resizeToHeight(imgs.back, targetH));
-      if (imgs.spine) parts.push(resizeToHeight(imgs.spine, targetH));
-      parts.push(resizeToHeight(imgs.front, targetH));
+
+      parts.push(resizeToHeight(backImg, targetH));
+      if (spineImg) {
+        parts.push(resizeToHeight(spineImg, targetH));
+      }
+      parts.push(resizeToHeight(frontImg, targetH));
 
       const totalW = parts.reduce((s,c) => s + c.width, 0);
-      const canvas = document.createElement('canvas');
-      canvas.width = totalW; canvas.height = targetH;
-      const ctx = canvas.getContext('2d');
+
+      // Create stitched canvas
+      const stitchedCanvas = document.createElement('canvas');
+      stitchedCanvas.width = totalW;
+      stitchedCanvas.height = targetH;
+      const stitchedCtx = stitchedCanvas.getContext('2d');
       let x = 0;
-      parts.forEach(c => { ctx.drawImage(c, x, 0); x += c.width; });
+      parts.forEach(c => { stitchedCtx.drawImage(c, x, 0); x += c.width; });
 
       const safeName = names[i].replace(/[^a-zA-Z0-9_\-\s]/g,'').replace(/\s+/g,'_');
+      const panelCount = spineImg ? 3 : 2;
 
-      resultsDiv.innerHTML += `
-        <div class="batch-result-item" id="batch-result-${i}">
-          <canvas id="batch-canvas-${i}" style="display:none"></canvas>
-          <div class="batch-result-meta">
-            <span>${names[i]} — ${totalW}×${targetH}px</span>
-            <div class="result-actions">
-              <button class="download-btn" onclick="downloadBatchItem(${i},'png','${safeName}')">
-                <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>PNG
-              </button>
-              <button class="download-btn secondary" onclick="downloadBatchItem(${i},'jpg','${safeName}')">
-                <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>JPG
-              </button>
-            </div>
-          </div>
+      // Build result using DOM methods (not innerHTML) to preserve canvas data
+      const resultItem = document.createElement('div');
+      resultItem.className = 'batch-result-item';
+      resultItem.id = `batch-result-${i}`;
+
+      const previewImg = document.createElement('img');
+      previewImg.style.cssText = 'width:100%;border-radius:8px;display:block;margin-bottom:0.75rem';
+      previewImg.src = stitchedCanvas.toDataURL('image/jpeg', 0.85);
+      resultItem.appendChild(previewImg);
+
+      const hiddenCanvas = document.createElement('canvas');
+      hiddenCanvas.id = `batch-canvas-${i}`;
+      hiddenCanvas.width = totalW;
+      hiddenCanvas.height = targetH;
+      hiddenCanvas.style.display = 'none';
+      hiddenCanvas.getContext('2d').drawImage(stitchedCanvas, 0, 0);
+      resultItem.appendChild(hiddenCanvas);
+
+      const metaDiv = document.createElement('div');
+      metaDiv.className = 'batch-result-meta';
+      metaDiv.innerHTML = `
+        <span>${names[i]} — ${totalW}×${targetH}px (${panelCount} panels)</span>
+        <div class="result-actions">
+          <button class="download-btn" onclick="downloadBatchItem(${i},'png','${safeName}')">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>PNG
+          </button>
+          <button class="download-btn secondary" onclick="downloadBatchItem(${i},'jpg','${safeName}')">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>JPG
+          </button>
         </div>
       `;
-
-      // Copy canvas data
-      const target = document.getElementById(`batch-canvas-${i}`);
-      target.width = totalW; target.height = targetH;
-      target.getContext('2d').drawImage(canvas, 0, 0);
-
-      // Also render a visible preview via img
-      const previewImg = document.createElement('img');
-      previewImg.src = canvas.toDataURL('image/jpeg', 0.8);
-      previewImg.style.cssText = 'width:100%;border-radius:8px;display:block;margin-bottom:0.75rem';
-      document.getElementById(`batch-result-${i}`).prepend(previewImg);
+      resultItem.appendChild(metaDiv);
+      resultsDiv.appendChild(resultItem);
 
       // Update queue status
       const items = document.querySelectorAll('.batch-item');
@@ -1130,10 +1143,13 @@ async function batchStitch() {
       }
 
     } catch(err) {
-      resultsDiv.innerHTML += `<div class="batch-item" style="border-color:var(--danger)"><span>❌ ${names[i]}: ${err.message}</span></div>`;
+      const errDiv = document.createElement('div');
+      errDiv.className = 'batch-item';
+      errDiv.style.borderColor = 'var(--danger)';
+      errDiv.innerHTML = `<span>❌ ${names[i]}: ${err.message}</span>`;
+      resultsDiv.appendChild(errDiv);
     }
 
-    // Small delay to let UI update
     await new Promise(r => setTimeout(r, 50));
   }
 
