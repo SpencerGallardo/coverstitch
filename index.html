@@ -489,6 +489,163 @@ header{
 }
 .batch-result-meta span{font-size:0.78rem;color:var(--text-muted);font-weight:500}
 
+/* === VISUAL BATCH MODE === */
+.vb-layout{
+  display:grid;
+  grid-template-columns:260px 1fr;
+  gap:1.5rem;
+  align-items:start;
+}
+@media(max-width:900px){.vb-layout{grid-template-columns:1fr}}
+
+.vb-panel-label{
+  font-size:0.78rem;font-weight:600;
+  color:var(--text-dim);text-transform:uppercase;
+  letter-spacing:0.06em;margin-bottom:0.75rem;
+}
+
+.pool-drop{
+  background:var(--surface);
+  border:1.5px dashed var(--border);
+  border-radius:var(--radius);
+  padding:1.25rem;
+  cursor:pointer;transition:var(--transition);
+  min-height:160px;
+}
+.pool-drop:hover{border-color:var(--border-hover)}
+.pool-drop.dragover{border-color:var(--accent);background:rgba(196,240,77,0.04)}
+.pool-drop input[type="file"]{display:none}
+.pool-empty{text-align:center;padding:1.5rem 0.5rem}
+.pool-empty p{font-size:0.82rem;color:var(--text-dim);line-height:1.6}
+
+.pool-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(76px,1fr));
+  gap:7px;
+}
+
+.pool-thumb{
+  position:relative;border-radius:8px;overflow:hidden;
+  border:2px solid var(--border);
+  cursor:grab;transition:var(--transition);
+  aspect-ratio:1;background:var(--surface-2);
+}
+.pool-thumb:hover{border-color:var(--border-hover);transform:scale(1.04)}
+.pool-thumb.dragging{opacity:0.4;transform:scale(0.96)}
+.pool-thumb img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.pool-thumb-label{
+  position:absolute;bottom:0;left:0;right:0;
+  background:rgba(0,0,0,0.72);
+  font-size:0.58rem;color:#fff;
+  padding:2px 4px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.pool-thumb-remove{
+  position:absolute;top:3px;right:3px;
+  width:18px;height:18px;border-radius:50%;border:none;
+  background:rgba(0,0,0,0.7);color:#fff;
+  cursor:pointer;font-size:0.7rem;
+  display:grid;place-items:center;
+  opacity:0;transition:var(--transition);
+}
+.pool-thumb:hover .pool-thumb-remove{opacity:1}
+.pool-thumb-remove:hover{background:var(--danger)}
+
+.vb-sets-area{display:flex;flex-direction:column;gap:1rem}
+
+.vb-set-row{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:1rem;
+  transition:var(--transition);
+}
+.vb-set-row:hover{border-color:var(--border-hover)}
+.vb-set-row-header{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:0.75rem;
+}
+.vb-set-row-title{font-size:0.8rem;font-weight:600;color:var(--text-muted)}
+.vb-set-remove{
+  width:24px;height:24px;border-radius:50%;
+  border:1px solid var(--border);
+  background:transparent;color:var(--text-dim);
+  cursor:pointer;font-size:0.9rem;
+  display:grid;place-items:center;
+  transition:var(--transition);
+}
+.vb-set-remove:hover{border-color:var(--danger);color:var(--danger)}
+
+.vb-slot-group{
+  display:grid;
+  grid-template-columns:1fr 80px 1fr;
+  gap:8px;
+}
+@media(max-width:600px){.vb-slot-group{grid-template-columns:1fr}}
+
+.vb-slot{
+  background:var(--surface-2);
+  border:1.5px dashed var(--border);
+  border-radius:var(--radius-sm);
+  padding:0.85rem 0.6rem;
+  text-align:center;
+  transition:var(--transition);
+  min-height:90px;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  position:relative;
+}
+.vb-slot:hover{border-color:var(--border-hover)}
+.vb-slot.dragover{border-color:var(--accent);background:rgba(196,240,77,0.07)}
+.vb-slot.filled{border-style:solid;border-color:var(--accent-dim);padding:0.5rem}
+.vb-slot-label{
+  font-size:0.68rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.07em;
+  color:var(--text-dim);margin-bottom:0.35rem;
+}
+.vb-slot-hint{font-size:0.7rem;color:var(--text-dim)}
+.vb-slot img{
+  width:100%;max-height:100px;object-fit:contain;
+  border-radius:4px;display:block;pointer-events:none;
+}
+.vb-slot-name{
+  font-size:0.62rem;color:var(--text-dim);
+  margin-top:0.3rem;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;
+}
+.vb-slot-clear{
+  position:absolute;top:5px;right:5px;
+  width:20px;height:20px;border-radius:50%;
+  border:none;background:rgba(0,0,0,0.6);color:#fff;
+  cursor:pointer;font-size:0.75rem;
+  display:grid;place-items:center;
+  opacity:0;transition:var(--transition);
+}
+.vb-slot:hover .vb-slot-clear{opacity:1}
+.vb-slot-clear:hover{background:var(--danger)}
+
+.vb-add-set{
+  display:flex;align-items:center;gap:8px;
+  padding:12px 20px;
+  background:var(--surface);
+  border:1.5px dashed var(--border);
+  border-radius:var(--radius);
+  color:var(--text-dim);
+  font-family:var(--font-body);font-size:0.84rem;
+  cursor:pointer;transition:var(--transition);
+  width:100%;justify-content:center;margin-top:0.75rem;
+}
+.vb-add-set:hover{border-color:var(--accent-dim);color:var(--accent)}
+
+.vb-result-item{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1rem;margin-bottom:1rem;
+}
+.vb-result-item img{
+  width:100%;border-radius:var(--radius-sm);
+  display:block;margin-bottom:0.75rem;
+}
+
 /* === FEATURES === */
 .features{
   display:grid;
@@ -577,8 +734,8 @@ footer a:hover{color:var(--accent)}
     </a>
     <div class="header-right">
       <nav class="nav-tabs">
-        <button class="nav-tab active" onclick="switchMode('single')">Single</button>
-        <button class="nav-tab" onclick="switchMode('batch')">Batch</button>
+        <button class="nav-tab active" data-mode="single" onclick="switchMode('single')">Single</button>
+        <button class="nav-tab" data-mode="batch" onclick="switchMode('batch')">Batch</button>
       </nav>
       <div class="header-badge">100% Browser-Based</div>
     </div>
@@ -588,7 +745,7 @@ footer a:hover{color:var(--accent)}
 <!-- HERO -->
 <section class="hero">
   <h1>Stitch your <em>game, movie</em><br>covers in seconds</h1>
-  <p>Drop your front, back, and spine art — get a print-ready full cover. Works with PS2, PS5, Switch, DVD, Blu-ray, Steelbook and more. Everything stays on your device.</p>
+  <p>Drop your front, back, and spine art — get a print-ready full cover. Use Batch mode to drag-and-drop any images into cover sets. Supports PS2, PS5, Switch, DVD, Blu-ray, Steelbook and more.</p>
 </section>
 
 <!-- WORKSPACE -->
@@ -681,30 +838,58 @@ footer a:hover{color:var(--accent)}
   <!-- ==================== BATCH MODE ==================== -->
   <div class="mode-panel" id="panel-batch">
 
-    <div class="batch-zone" id="batchZone" onclick="document.getElementById('batchInput').click()">
-      <input type="file" id="batchInput" accept="image/*" multiple>
-      <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg></div>
-      <h3>Drop an entire folder of images</h3>
-      <p>Name your files with suffixes and CoverStitch will auto-group and stitch them.</p>
-      <code>GameName - front.png &nbsp;|&nbsp; GameName - back.png &nbsp;|&nbsp; GameName - spine.png</code>
-    </div>
-
-    <div class="batch-queue" id="batchQueue" style="display:none">
-      <div class="batch-queue-header">
-        <h3>Detected Sets</h3>
-        <span id="batchCount"></span>
+    <!-- Preset selector -->
+    <div class="preset-bar">
+      <span class="preset-bar-label">Template</span>
+      <div class="preset-chips" id="vbPresetChips">
+        <button class="preset-chip active" data-preset="custom" onclick="setVbPreset('custom')">Custom</button>
+        <button class="preset-chip" data-preset="ps2" onclick="setVbPreset('ps2')">PS2</button>
+        <button class="preset-chip" data-preset="ps5" onclick="setVbPreset('ps5')">PS5</button>
+        <button class="preset-chip" data-preset="switch" onclick="setVbPreset('switch')">Switch</button>
+        <button class="preset-chip" data-preset="dvd" onclick="setVbPreset('dvd')">DVD</button>
+        <button class="preset-chip" data-preset="bluray" onclick="setVbPreset('bluray')">Blu-ray</button>
+        <button class="preset-chip" data-preset="steelbook" onclick="setVbPreset('steelbook')">Steelbook</button>
       </div>
-      <div id="batchItems"></div>
-      <div class="action-bar" style="margin-top:1rem">
-        <button class="stitch-btn" id="batchStitchBtn" onclick="batchStitch()">
-          <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-          Stitch All
+    </div>
+    <div class="preset-info" id="vbPresetInfo"></div>
+
+    <div class="vb-layout">
+
+      <!-- IMAGE POOL -->
+      <div>
+        <div class="vb-panel-label">Image Pool</div>
+        <div class="pool-drop" id="poolDrop">
+          <input type="file" id="poolInput" accept="image/*" multiple>
+          <div id="poolEmpty" class="pool-empty">
+            <div class="upload-icon" style="margin:0 auto 0.75rem">
+              <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+            </div>
+            <p><strong>Drop images here</strong><br>or click to browse</p>
+          </div>
+          <div class="pool-grid" id="poolGrid"></div>
+        </div>
+      </div>
+
+      <!-- COVER SETS -->
+      <div>
+        <div class="vb-panel-label">Cover Sets</div>
+        <div class="vb-sets-area" id="vbSetsArea"></div>
+        <button class="vb-add-set" onclick="vbAddSet()">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+          Add Cover Set
         </button>
-        <button class="reset-btn" onclick="resetBatch()">Clear All</button>
       </div>
     </div>
 
-    <div class="batch-results" id="batchResults"></div>
+    <div class="action-bar" style="margin-top:1.5rem">
+      <button class="stitch-btn" id="vbStitchBtn" onclick="vbStitchAll()" disabled>
+        <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        Stitch All
+      </button>
+      <button class="reset-btn" onclick="vbReset()">Clear All</button>
+    </div>
+
+    <div id="vbResults" style="margin-top:1.5rem"></div>
   </div>
 
 <div class="ad-space">
@@ -737,8 +922,8 @@ footer a:hover{color:var(--accent)}
     </div>
     <div class="feature-card">
       <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
-      <h3>Batch Processing</h3>
-      <p>Drop a whole folder. Auto-detects sets and stitches them all at once.</p>
+      <h3>Visual Batch Mode</h3>
+      <p>Drop any images into a pool, drag them into Back/Spine/Front slots, stitch multiple covers at once.</p>
     </div>
   </div>
 
@@ -768,7 +953,6 @@ footer a:hover{color:var(--accent)}
 // ===========================
 const state = { front: null, back: null, spine: null };
 let currentPreset = 'custom';
-let batchSets = {};
 
 // ===========================
 // PRESETS (dimensions in mm at 300 DPI → pixels)
@@ -789,7 +973,7 @@ const PRESETS = {
 function switchMode(mode) {
   document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
   document.querySelectorAll('.mode-panel').forEach(p => p.classList.remove('active'));
-  document.querySelector(`.nav-tab:nth-child(${mode === 'single' ? 1 : 2})`).classList.add('active');
+  document.querySelector(`.nav-tab[data-mode="${mode}"]`).classList.add('active');
   document.getElementById(`panel-${mode}`).classList.add('active');
 }
 
@@ -999,174 +1183,326 @@ function resetAll() {
 }
 
 // ===========================
-// BATCH MODE
+// VISUAL BATCH MODE
 // ===========================
-const batchZone = document.getElementById('batchZone');
-const batchInput = document.getElementById('batchInput');
+let vbPool = [];       // { id, dataUrl, name, img }
+let vbSets = [];       // { id, back: poolId|null, spine: poolId|null, front: poolId|null }
+let vbIdCounter = 0;
+let vbPreset = 'custom';
+let vbDraggedId = null;
 
-batchInput.addEventListener('change', e => { if(e.target.files.length) processBatchFiles(e.target.files); });
-batchZone.addEventListener('dragover', e => { e.preventDefault(); batchZone.classList.add('dragover'); });
-batchZone.addEventListener('dragleave', () => batchZone.classList.remove('dragover'));
-batchZone.addEventListener('drop', e => {
-  e.preventDefault(); batchZone.classList.remove('dragover');
-  if(e.dataTransfer.files.length) processBatchFiles(e.dataTransfer.files);
+const poolDrop = document.getElementById('poolDrop');
+const poolInput = document.getElementById('poolInput');
+
+poolDrop.addEventListener('click', e => {
+  if (!e.target.closest('.pool-thumb')) poolInput.click();
+});
+poolInput.addEventListener('change', e => {
+  if (e.target.files.length) vbAddToPool(e.target.files);
+  poolInput.value = '';
+});
+poolDrop.addEventListener('dragover', e => {
+  e.preventDefault();
+  if (!vbDraggedId) poolDrop.classList.add('dragover');
+});
+poolDrop.addEventListener('dragleave', e => {
+  if (!poolDrop.contains(e.relatedTarget)) poolDrop.classList.remove('dragover');
+});
+poolDrop.addEventListener('drop', e => {
+  e.preventDefault(); poolDrop.classList.remove('dragover');
+  if (e.dataTransfer.files.length) vbAddToPool(e.dataTransfer.files);
 });
 
-function processBatchFiles(files) {
-  batchSets = {};
-  const suffixes = {' - front':'front',' - back':'back',' - spine':'spine'};
+async function vbAddToPool(files) {
+  const newItems = [];
+  const promises = Array.from(files).filter(f => f.type.startsWith('image/')).map(file =>
+    new Promise(resolve => {
+      const reader = new FileReader();
+      reader.onload = ev => {
+        const img = new Image();
+        img.onload = () => {
+          const item = { id: ++vbIdCounter, dataUrl: ev.target.result, name: file.name, img };
+          vbPool.push(item);
+          newItems.push(item);
+          resolve();
+        };
+        img.src = ev.target.result;
+      };
+      reader.readAsDataURL(file);
+    })
+  );
+  await Promise.all(promises);
 
-  Array.from(files).forEach(file => {
-    if (!file.type.startsWith('image/')) return;
-    const nameNoExt = file.name.replace(/\.(png|jpg|jpeg|webp|bmp|gif)$/i, '');
-    for (const [suffix, key] of Object.entries(suffixes)) {
-      if (nameNoExt.toLowerCase().endsWith(suffix)) {
-        const gameName = nameNoExt.slice(0, -suffix.length);
-        if (!batchSets[gameName]) batchSets[gameName] = {};
-        batchSets[gameName][key] = file;
+  // Auto-detect suffix-named pairs and assign to sets
+  const slotMap = { ' - back': 'back', ' - spine': 'spine', ' - front': 'front' };
+  const groups = {};
+  newItems.forEach(item => {
+    const base = item.name.replace(/\.(png|jpg|jpeg|webp|bmp|gif)$/i, '');
+    const lower = base.toLowerCase();
+    for (const [suffix, slot] of Object.entries(slotMap)) {
+      if (lower.endsWith(suffix)) {
+        const key = base.slice(0, -suffix.length);
+        if (!groups[key]) groups[key] = {};
+        groups[key][slot] = item.id;
         break;
       }
     }
   });
 
-  renderBatchQueue();
+  Object.entries(groups).forEach(([name, group]) => {
+    let set = vbSets.find(s => !s.back && !s.spine && !s.front);
+    if (!set) { set = { id: ++vbIdCounter, back: null, spine: null, front: null, name: '' }; vbSets.push(set); }
+    Object.assign(set, group, { name });
+  });
+
+  // Fallback: ensure at least 1 set per 3 pool images for unmatched images
+  const target = Math.max(1, Math.floor(vbPool.length / 3));
+  while (vbSets.length < target) vbSets.push({ id: ++vbIdCounter, back: null, spine: null, front: null });
+
+  vbRenderPool();
+  vbRenderSets();
+  vbUpdateBtn();
 }
 
-function renderBatchQueue() {
-  const names = Object.keys(batchSets);
-  if (!names.length) return;
+function vbRenderPool() {
+  const grid = document.getElementById('poolGrid');
+  const empty = document.getElementById('poolEmpty');
+  if (!vbPool.length) {
+    empty.style.display = 'block';
+    grid.innerHTML = '';
+    return;
+  }
+  empty.style.display = 'none';
+  grid.innerHTML = vbPool.map(item => `
+    <div class="pool-thumb" data-pid="${item.id}" draggable="true"
+         title="${item.name}">
+      <img src="${item.dataUrl}" alt="">
+      <div class="pool-thumb-label">${item.name.replace(/\.[^.]+$/, '')}</div>
+      <button class="pool-thumb-remove" data-remove="${item.id}">&times;</button>
+    </div>
+  `).join('');
 
-  document.getElementById('batchQueue').style.display = 'block';
-  const ready = names.filter(n => batchSets[n].front && batchSets[n].back).length;
-  document.getElementById('batchCount').textContent = `${ready} of ${names.length} sets ready`;
+  grid.querySelectorAll('.pool-thumb').forEach(thumb => {
+    thumb.addEventListener('dragstart', e => {
+      vbDraggedId = parseInt(thumb.dataset.pid);
+      thumb.classList.add('dragging');
+      e.dataTransfer.setData('text/plain', String(vbDraggedId));
+      e.dataTransfer.effectAllowed = 'copy';
+    });
+    thumb.addEventListener('dragend', () => {
+      thumb.classList.remove('dragging');
+      vbDraggedId = null;
+    });
+    thumb.querySelector('[data-remove]').addEventListener('click', e => {
+      e.stopPropagation();
+      const pid = parseInt(e.target.dataset.remove);
+      vbPool = vbPool.filter(p => p.id !== pid);
+      vbSets.forEach(s => {
+        if (s.back === pid) s.back = null;
+        if (s.spine === pid) s.spine = null;
+        if (s.front === pid) s.front = null;
+      });
+      vbRenderPool();
+      vbRenderSets();
+      vbUpdateBtn();
+    });
+  });
+}
 
-  document.getElementById('batchItems').innerHTML = names.map(name => {
-    const s = batchSets[name];
-    const hasF = !!s.front, hasB = !!s.back, hasSp = !!s.spine;
-    const isReady = hasF && hasB;
-    return `
-      <div class="batch-item">
-        <span class="batch-item-name">${name}</span>
-        <span class="batch-item-parts">
-          <span class="${hasB?'has':'missing'}">Back${hasB?'✓':'✗'}</span> &middot;
-          <span class="${hasSp?'has':'missing'}">Spine${hasSp?'✓':'–'}</span> &middot;
-          <span class="${hasF?'has':'missing'}">Front${hasF?'✓':'✗'}</span>
-        </span>
-        <span class="batch-item-status ${isReady?'ready':'incomplete'}">${isReady?'Ready':'Missing files'}</span>
+function vbAddSet() {
+  vbSets.push({ id: ++vbIdCounter, back: null, spine: null, front: null });
+  vbRenderSets();
+  vbUpdateBtn();
+}
+
+function vbRemoveSet(setId) {
+  vbSets = vbSets.filter(s => s.id !== setId);
+  vbRenderSets();
+  vbUpdateBtn();
+}
+
+function vbRenderSets() {
+  const area = document.getElementById('vbSetsArea');
+  area.innerHTML = vbSets.map((set, idx) => `
+    <div class="vb-set-row" data-sid="${set.id}">
+      <div class="vb-set-row-header">
+        <span class="vb-set-row-title">Set ${idx + 1}</span>
+        <button class="vb-set-remove" data-remove-set="${set.id}">&times;</button>
       </div>
-    `;
-  }).join('');
+      <div class="vb-slot-group">
+        ${vbSlotHTML(set, 'back', 'Back')}
+        ${vbSlotHTML(set, 'spine', 'Spine')}
+        ${vbSlotHTML(set, 'front', 'Front')}
+      </div>
+    </div>
+  `).join('');
 
-  document.getElementById('batchStitchBtn').disabled = ready === 0;
+  area.querySelectorAll('[data-remove-set]').forEach(btn => {
+    btn.addEventListener('click', () => vbRemoveSet(parseInt(btn.dataset.removeSet)));
+  });
+
+  area.querySelectorAll('.vb-slot').forEach(slot => {
+    const setId = parseInt(slot.closest('.vb-set-row').dataset.sid);
+    const slotType = slot.dataset.slot;
+    slot.addEventListener('dragover', e => { e.preventDefault(); slot.classList.add('dragover'); });
+    slot.addEventListener('dragleave', () => slot.classList.remove('dragover'));
+    slot.addEventListener('drop', e => {
+      e.preventDefault(); slot.classList.remove('dragover');
+      const pid = parseInt(e.dataTransfer.getData('text/plain'));
+      if (!pid) return;
+      const set = vbSets.find(s => s.id === setId);
+      if (set) { set[slotType] = pid; vbRenderSets(); vbUpdateBtn(); }
+    });
+    const clearBtn = slot.querySelector('[data-clear-slot]');
+    if (clearBtn) {
+      clearBtn.addEventListener('click', e => {
+        e.stopPropagation();
+        const set = vbSets.find(s => s.id === setId);
+        if (set) { set[slotType] = null; vbRenderSets(); vbUpdateBtn(); }
+      });
+    }
+  });
 }
 
-async function batchStitch() {
-  const names = Object.keys(batchSets).filter(n => batchSets[n].front && batchSets[n].back);
-  if (!names.length) return;
+function vbSlotHTML(set, type, label) {
+  const pid = set[type];
+  const item = pid ? vbPool.find(p => p.id === pid) : null;
+  const opt = type === 'spine';
+  if (item) {
+    return `
+      <div class="vb-slot filled" data-slot="${type}">
+        <div class="vb-slot-label">${label}</div>
+        <img src="${item.dataUrl}" alt="">
+        <div class="vb-slot-name">${item.name.replace(/\.[^.]+$/, '')}</div>
+        <button class="vb-slot-clear" data-clear-slot="1">&times;</button>
+      </div>`;
+  }
+  return `
+    <div class="vb-slot" data-slot="${type}">
+      <div class="vb-slot-label">${label}${opt ? ' <span style="font-size:0.58rem;color:var(--text-dim)">(opt)</span>' : ''}</div>
+      <div class="vb-slot-hint">Drop here</div>
+    </div>`;
+}
 
-  showProcessing('Stitching covers...', `0 / ${names.length}`);
-  const resultsDiv = document.getElementById('batchResults');
+function vbUpdateBtn() {
+  document.getElementById('vbStitchBtn').disabled = !vbSets.some(s => s.front && s.back);
+}
+
+function setVbPreset(key) {
+  vbPreset = key;
+  document.querySelectorAll('#vbPresetChips .preset-chip').forEach(c => {
+    c.classList.toggle('active', c.dataset.preset === key);
+  });
+  const info = document.getElementById('vbPresetInfo');
+  const p = PRESETS[key];
+  if (key === 'custom') {
+    info.classList.remove('visible');
+  } else {
+    info.textContent = `${p.name}: ${p.desc} Front: ${p.front[0]}×${p.front[1]}px | Spine: ${p.spine[0]}×${p.spine[1]}px | Back: ${p.back[0]}×${p.back[1]}px`;
+    info.classList.add('visible');
+  }
+}
+
+async function vbStitchAll() {
+  const ready = vbSets.filter(s => s.front && s.back);
+  if (!ready.length) return;
+
+  showProcessing('Stitching covers...', `0 / ${ready.length}`);
+  const resultsDiv = document.getElementById('vbResults');
   resultsDiv.innerHTML = '';
 
-  for (let i = 0; i < names.length; i++) {
-    updateProcessing(`Stitching: ${names[i]}`, `${i+1} / ${names.length}`);
-    const set = batchSets[names[i]];
+  for (let i = 0; i < ready.length; i++) {
+    const set = ready[i];
+    const frontItem = vbPool.find(p => p.id === set.front);
+    const backItem  = vbPool.find(p => p.id === set.back);
+    const spineItem = set.spine ? vbPool.find(p => p.id === set.spine) : null;
+    updateProcessing(`Stitching set ${i + 1}...`, `${i + 1} / ${ready.length}`);
 
     try {
-      // Load images explicitly — spine may not exist
-      const frontImg = await loadImageFromFile(set.front);
-      const backImg = await loadImageFromFile(set.back);
-      const spineImg = set.spine ? await loadImageFromFile(set.spine) : null;
-
-      const targetH = frontImg.naturalHeight;
+      const preset = PRESETS[vbPreset];
+      const usePreset = vbPreset !== 'custom' && preset.front;
+      const targetH = usePreset ? preset.front[1] : frontItem.img.naturalHeight;
       const parts = [];
 
-      parts.push(resizeToHeight(backImg, targetH));
-      if (spineImg) {
-        parts.push(resizeToHeight(spineImg, targetH));
+      if (usePreset) {
+        parts.push(resizeToExact(backItem.img, preset.back[0], preset.back[1]));
+        if (spineItem) parts.push(resizeToExact(spineItem.img, preset.spine[0], preset.spine[1]));
+        parts.push(resizeToExact(frontItem.img, preset.front[0], preset.front[1]));
+      } else {
+        parts.push(resizeToHeight(backItem.img, targetH));
+        if (spineItem) parts.push(resizeToHeight(spineItem.img, targetH));
+        parts.push(resizeToHeight(frontItem.img, targetH));
       }
-      parts.push(resizeToHeight(frontImg, targetH));
 
-      const totalW = parts.reduce((s,c) => s + c.width, 0);
-
-      // Create stitched canvas
-      const stitchedCanvas = document.createElement('canvas');
-      stitchedCanvas.width = totalW;
-      stitchedCanvas.height = targetH;
-      const stitchedCtx = stitchedCanvas.getContext('2d');
+      const totalW = parts.reduce((s, c) => s + c.width, 0);
+      const stitched = document.createElement('canvas');
+      stitched.width = totalW; stitched.height = targetH;
+      const ctx = stitched.getContext('2d');
       let x = 0;
-      parts.forEach(c => { stitchedCtx.drawImage(c, x, 0); x += c.width; });
+      parts.forEach(c => { ctx.drawImage(c, x, 0); x += c.width; });
 
-      const safeName = names[i].replace(/[^a-zA-Z0-9_\-\s]/g,'').replace(/\s+/g,'_');
-      const panelCount = spineImg ? 3 : 2;
+      const rawName = set.name || `CoverStitch_Set_${i + 1}`;
+      const safeName = rawName.replace(/[^a-zA-Z0-9_\-\s()]/g, '').trim();
+      const panelCount = spineItem ? 3 : 2;
+      const setIdx = vbSets.indexOf(set);
 
-      // Build result using DOM methods (not innerHTML) to preserve canvas data
-      const resultItem = document.createElement('div');
-      resultItem.className = 'batch-result-item';
-      resultItem.id = `batch-result-${i}`;
+      const item = document.createElement('div');
+      item.className = 'vb-result-item';
 
-      const previewImg = document.createElement('img');
-      previewImg.style.cssText = 'width:100%;border-radius:8px;display:block;margin-bottom:0.75rem';
-      previewImg.src = stitchedCanvas.toDataURL('image/jpeg', 0.85);
-      resultItem.appendChild(previewImg);
+      const preview = document.createElement('img');
+      preview.src = stitched.toDataURL('image/jpeg', 0.85);
+      item.appendChild(preview);
 
-      const hiddenCanvas = document.createElement('canvas');
-      hiddenCanvas.id = `batch-canvas-${i}`;
-      hiddenCanvas.width = totalW;
-      hiddenCanvas.height = targetH;
-      hiddenCanvas.style.display = 'none';
-      hiddenCanvas.getContext('2d').drawImage(stitchedCanvas, 0, 0);
-      resultItem.appendChild(hiddenCanvas);
+      const hc = document.createElement('canvas');
+      hc.id = `vb-canvas-${i}`; hc.width = totalW; hc.height = targetH;
+      hc.style.display = 'none';
+      hc.getContext('2d').drawImage(stitched, 0, 0);
+      item.appendChild(hc);
 
-      const metaDiv = document.createElement('div');
-      metaDiv.className = 'batch-result-meta';
-      metaDiv.innerHTML = `
-        <span>${names[i]} — ${totalW}×${targetH}px (${panelCount} panels)</span>
+      const meta = document.createElement('div');
+      meta.className = 'batch-result-meta';
+      meta.innerHTML = `
+        <span>Set ${setIdx + 1} — ${totalW}×${targetH}px (${panelCount} panels)</span>
         <div class="result-actions">
-          <button class="download-btn" onclick="downloadBatchItem(${i},'png','${safeName}')">
+          <button class="download-btn" onclick="vbDownload(${i},'png','${safeName}')">
             <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>PNG
           </button>
-          <button class="download-btn secondary" onclick="downloadBatchItem(${i},'jpg','${safeName}')">
+          <button class="download-btn secondary" onclick="vbDownload(${i},'jpg','${safeName}')">
             <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>JPG
           </button>
-        </div>
-      `;
-      resultItem.appendChild(metaDiv);
-      resultsDiv.appendChild(resultItem);
-
-      // Update queue status
-      const items = document.querySelectorAll('.batch-item');
-      if (items[i]) {
-        const statusEl = items[i].querySelector('.batch-item-status');
-        statusEl.className = 'batch-item-status done';
-        statusEl.textContent = 'Done ✓';
-      }
-
+        </div>`;
+      item.appendChild(meta);
+      resultsDiv.appendChild(item);
     } catch(err) {
       const errDiv = document.createElement('div');
       errDiv.className = 'batch-item';
       errDiv.style.borderColor = 'var(--danger)';
-      errDiv.innerHTML = `<span>❌ ${names[i]}: ${err.message}</span>`;
+      errDiv.innerHTML = `<span>Set ${i + 1} failed: ${err.message}</span>`;
       resultsDiv.appendChild(errDiv);
     }
-
     await new Promise(r => setTimeout(r, 50));
   }
 
   hideProcessing();
+  resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-function downloadBatchItem(index, format, name) {
-  const canvas = document.getElementById(`batch-canvas-${index}`);
+function vbDownload(index, format, name) {
+  const canvas = document.getElementById(`vb-canvas-${index}`);
   const link = document.createElement('a');
-  if (format === 'jpg') {
-    link.download = name + '_Full_Cover.jpg';
-    link.href = canvas.toDataURL('image/jpeg', 0.95);
-  } else {
-    link.download = name + '_Full_Cover.png';
-    link.href = canvas.toDataURL('image/png');
-  }
+  link.download = name + (format === 'jpg' ? '.jpg' : '.png');
+  link.href = format === 'jpg' ? canvas.toDataURL('image/jpeg', 0.95) : canvas.toDataURL('image/png');
   link.click();
+}
+
+function vbReset() {
+  vbPool = []; vbSets = [];
+  document.getElementById('poolGrid').innerHTML = '';
+  document.getElementById('poolEmpty').style.display = 'block';
+  document.getElementById('vbSetsArea').innerHTML = '';
+  document.getElementById('vbResults').innerHTML = '';
+  vbUpdateBtn();
+  setVbPreset('custom');
 }
 
 function loadImageFromFile(file) {
@@ -1181,13 +1517,6 @@ function loadImageFromFile(file) {
     reader.onerror = () => reject(new Error('Failed to read ' + file.name));
     reader.readAsDataURL(file);
   });
-}
-
-function resetBatch() {
-  batchSets = {};
-  document.getElementById('batchQueue').style.display = 'none';
-  document.getElementById('batchResults').innerHTML = '';
-  document.getElementById('batchInput').value = '';
 }
 
 // ===========================
