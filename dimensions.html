@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Game & Movie Case Dimensions: Complete Reference Guide — CoverStitch</title>
-<meta name="description" content="Complete reference for game and movie case cover dimensions. PS2, PS5, Nintendo Switch, DVD, Blu-ray, and Steelbook cover dimensions in mm and pixels at 300 DPI, including spine widths and printing notes.">
-<meta name="keywords" content="PS2 cover dimensions, game case dimensions, PS5 cover size, Switch cover dimensions, DVD cover dimensions, Blu-ray cover size, Steelbook dimensions, game cover mm, printable cover dimensions">
-<meta property="og:title" content="Game & Movie Case Dimensions — CoverStitch Reference">
-<meta property="og:description" content="Complete dimension reference for PS2, PS5, Switch, DVD, Blu-ray, and Steelbook cases. Includes mm measurements and 300 DPI pixel sizes.">
+<title>Game & Movie Case Dimensions: Complete Reference (PS2, PS5, Switch, DVD, Blu-ray, Steelbook) — CoverStitch</title>
+<meta name="description" content="The complete reference guide to game and movie case cover dimensions. PS2, PS5, Nintendo Switch, DVD, Blu-ray, and Steelbook cover sizes in millimeters and pixels at 300 DPI, with spine widths, format history, bleed/safe-zone guidance, and printing notes for each.">
+<meta name="keywords" content="PS2 cover dimensions, game case dimensions, PS5 cover size, Switch cover dimensions, DVD cover dimensions, Blu-ray cover size, Steelbook dimensions, game cover mm, printable cover dimensions, cover bleed, DPI explained, measure game case">
+<meta property="og:title" content="Game & Movie Case Dimensions Reference — CoverStitch">
+<meta property="og:description" content="Complete dimension reference for PS2, PS5, Switch, DVD, Blu-ray, and Steelbook cases — millimeters, 300 DPI pixel sizes, format history, and printing notes.">
 <meta property="og:type" content="article">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Game & Movie Case Dimensions Reference — CoverStitch">
@@ -110,14 +110,15 @@ header{
 }
 .logo-text span{color:var(--accent)}
 .header-right{display:flex;align-items:center;gap:12px}
-.header-nav{display:flex;align-items:center;gap:4px}
+.header-nav{display:flex;align-items:center;gap:2px;flex-wrap:wrap}
 .header-nav a{
-  padding:7px 14px;
-  font-size:0.8rem;font-weight:500;
+  padding:7px 12px;
+  font-size:0.78rem;font-weight:500;
   color:var(--text-dim);
   text-decoration:none;
   border-radius:8px;
   transition:var(--transition);
+  white-space:nowrap;
 }
 .header-nav a:hover{color:var(--text-muted)}
 .header-nav a.active{color:var(--text);background:var(--surface-3)}
@@ -162,7 +163,7 @@ header{
 .hero h1 em{font-style:italic;color:var(--accent)}
 .hero p{
   color:var(--text-muted);font-size:1rem;
-  max-width:580px;margin:0 auto 2rem;line-height:1.6;
+  max-width:640px;margin:0 auto 2rem;line-height:1.6;
 }
 
 /* === MAIN CONTENT === */
@@ -170,6 +171,41 @@ header{
   max-width:1000px;margin:0 auto;
   padding:2rem 2rem 4rem;
 }
+
+/* === SECTION === */
+.section{
+  margin-bottom:3rem;
+  scroll-margin-top:80px;
+}
+.section h2{
+  font-family:var(--font-display);
+  font-size:1.7rem;font-weight:400;
+  letter-spacing:-0.02em;
+  margin-bottom:1rem;
+  padding-bottom:0.75rem;
+  border-bottom:1px solid var(--border);
+}
+.section h2 em{font-style:italic;color:var(--accent)}
+.section h3{
+  font-size:1rem;font-weight:600;
+  margin:1.25rem 0 0.5rem;
+  color:var(--text);
+}
+.section p{
+  color:var(--text-muted);font-size:0.92rem;
+  line-height:1.75;margin-bottom:1rem;
+}
+.section p strong{color:var(--text)}
+.section ul,.section ol{
+  padding-left:1.5rem;margin-bottom:1.25rem;
+}
+.section li{
+  color:var(--text-muted);font-size:0.92rem;
+  line-height:1.75;margin-bottom:0.5rem;
+}
+.section li strong{color:var(--text)}
+.section a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:var(--transition)}
+.section a:hover{border-bottom-color:var(--accent)}
 
 /* === DIM GRID === */
 .dim-grid{
@@ -224,15 +260,46 @@ header{
   font-size:0.72rem;font-weight:400;
   color:var(--text-dim);margin-left:6px;
 }
-.dim-value .accent{color:var(--accent)}
+.dim-value.accent{color:var(--accent)}
 
 .dim-card-footer{
-  padding:0.75rem 1.25rem;
+  padding:0.85rem 1.25rem;
   background:var(--surface-2);
-  font-size:0.76rem;color:var(--text-dim);
-  line-height:1.5;
+  font-size:0.78rem;color:var(--text-dim);
+  line-height:1.6;
 }
-.dim-card-footer strong{color:var(--text-muted)}
+.dim-card-footer strong{color:var(--text-muted);display:block;margin-bottom:0.25rem;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.07em}
+
+/* === DETAIL PANEL (per-format context) === */
+.format-detail{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:1.5rem 1.75rem;
+  margin-bottom:1.25rem;
+  scroll-margin-top:80px;
+}
+.format-detail h3{
+  font-family:var(--font-display);
+  font-size:1.4rem;font-weight:400;
+  letter-spacing:-0.02em;
+  margin-bottom:0.5rem;
+  display:flex;align-items:baseline;gap:0.6rem;flex-wrap:wrap;
+}
+.format-detail h3 em{font-style:italic;color:var(--accent)}
+.format-detail h3 .badge{
+  font-family:var(--font-body);font-size:0.62rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.07em;
+  color:var(--accent);background:var(--accent-glow);
+  padding:3px 9px;border-radius:20px;
+  vertical-align:middle;
+}
+.format-detail p{
+  color:var(--text-muted);font-size:0.9rem;line-height:1.75;
+  margin-bottom:0.75rem;
+}
+.format-detail p:last-child{margin-bottom:0}
+.format-detail p strong{color:var(--text)}
 
 /* === VISUAL WRAP DIAGRAM === */
 .wrap-diagram{
@@ -249,7 +316,7 @@ header{
 
 /* === INTRO TEXT === */
 .intro-text{
-  color:var(--text-muted);font-size:0.92rem;
+  color:var(--text-muted);font-size:0.95rem;
   line-height:1.75;margin-bottom:1rem;
 }
 .intro-text strong{color:var(--text)}
@@ -262,11 +329,53 @@ header{
   border-radius:var(--radius-sm);
   padding:1rem 1.25rem;
   margin:1.5rem 0;
-  font-size:0.85rem;
+  font-size:0.88rem;
   color:var(--text-muted);
-  line-height:1.6;
+  line-height:1.7;
 }
-.note-box strong{color:var(--accent);display:block;margin-bottom:0.25rem;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.07em}
+.note-box strong.label{color:var(--accent);display:block;margin-bottom:0.3rem;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em}
+.note-box strong{color:var(--text)}
+.note-box a{color:var(--accent);text-decoration:none}
+
+/* === FAQ === */
+.faq-item{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius-sm);
+  margin-bottom:0.75rem;
+  overflow:hidden;
+  transition:var(--transition);
+}
+.faq-item:hover{border-color:var(--border-hover)}
+.faq-q{
+  display:block;width:100%;
+  text-align:left;
+  padding:1rem 1.25rem;
+  font-family:var(--font-body);
+  font-size:0.92rem;font-weight:600;
+  color:var(--text);
+  background:transparent;
+  border:none;cursor:pointer;
+  position:relative;
+}
+.faq-q::after{
+  content:'+';
+  position:absolute;right:1.25rem;top:50%;transform:translateY(-50%);
+  color:var(--accent);font-size:1.25rem;font-weight:300;
+  transition:var(--transition);
+}
+.faq-item.open .faq-q::after{transform:translateY(-50%) rotate(45deg)}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height 0.3s ease;
+}
+.faq-item.open .faq-a{max-height:600px}
+.faq-a-inner{
+  padding:0 1.25rem 1.25rem;
+  font-size:0.88rem;color:var(--text-muted);
+  line-height:1.7;
+}
+.faq-a-inner a{color:var(--accent);text-decoration:none}
 
 /* === CTA === */
 .cta-block{
@@ -342,8 +451,18 @@ footer{
 }
 footer a{color:var(--text-muted);text-decoration:none}
 footer a:hover{color:var(--accent)}
+.footer-nav{
+  display:flex;align-items:center;justify-content:center;
+  gap:1rem;flex-wrap:wrap;
+  margin-top:0.75rem;
+}
+.footer-nav a{
+  font-weight:500;color:var(--text-muted);
+  font-size:0.82rem;
+}
+.footer-sep{color:var(--text-dim);opacity:0.5}
 .footer-seo{
-  max-width:700px;margin:1rem auto 0;
+  max-width:700px;margin:1.25rem auto 0;
   font-size:0.72rem;color:var(--text-dim);
   line-height:1.7;opacity:0.6;
 }
@@ -351,9 +470,12 @@ footer a:hover{color:var(--accent)}
 @media(max-width:600px){
   .hero{padding:2rem 1.5rem 1rem}
   .content{padding:1.5rem 1rem 3rem}
+  header{padding:0 1rem}
   .header-right{gap:8px}
   .header-badge{display:none}
+  .header-nav a{padding:6px 8px;font-size:0.72rem}
   .dim-grid{grid-template-columns:1fr}
+  .format-detail{padding:1.25rem}
 }
 </style>
 </head>
@@ -371,6 +493,8 @@ footer a:hover{color:var(--accent)}
         <a href="https://coverstitch.io">Tool</a>
         <a href="how-to-print.html">Print Guide</a>
         <a href="dimensions.html" class="active">Dimensions</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
       </nav>
       <div class="header-badge">Free Tool</div>
     </div>
@@ -381,17 +505,26 @@ footer a:hover{color:var(--accent)}
 <section class="hero">
   <div class="hero-badge">Reference Guide</div>
   <h1>Game &amp; Movie Case <em>Dimensions</em></h1>
-  <p>Exact cover dimensions for every major case format — in millimeters, pixels at 300 DPI, and spine widths. Use these when choosing a preset in CoverStitch.</p>
+  <p>Exact cover dimensions for every major case format — in millimeters, pixels at 300 DPI, and spine widths — plus context on each format's history, printing quirks, and how to measure your own non-standard cases.</p>
 </section>
 
 <main class="content">
 
-  <p class="intro-text">All pixel values are calculated at <strong>300 DPI</strong> — the standard for high-quality print output. CoverStitch uses these exact dimensions in its built-in presets, so your output will fit any of these cases without trimming.</p>
+  <!-- INTRO SECTION -->
+  <section class="section">
+    <h2>Why <em>Dimensions</em> Matter for Printing</h2>
 
-  <div class="note-box">
-    <strong>How to use this guide</strong>
-    Match your physical case to a format below, then select that preset in CoverStitch before stitching. The tool will resize your front, back, and spine images to the exact pixel dimensions shown — ready to print at 100% scale with no resizing in your print dialog.
-  </div>
+    <p>Cover dimensions are the difference between a print that slides cleanly behind a case window and one that overhangs the edges, leaves the spine title misaligned, or loses the back-cover barcode in the trim. Unlike screen-based design where pixel sizes are flexible, printed inserts have to match the physical case to the millimetre — there is no "close enough" because the case window is rigid plastic and either the cover fits or it doesn't.</p>
+
+    <p>All pixel values on this page are calculated at <strong>300 DPI</strong>, the print industry standard for photo-quality output. CoverStitch's built-in presets use these exact dimensions, so when you stitch a cover with a preset selected, the output is already the correct physical size — no resizing needed in your print dialog. Just print at 100% / Actual Size and the result will fit.</p>
+
+    <p>Dimensions vary slightly between manufacturers and regions, so if your specific case differs by a millimetre or two from the standard, that's normal. The values below match the most common retail-issued cases for each format. For unusual cases (PAL/NTSC region variants, third-party replacement cases, custom collector editions), measure yours with a ruler and use CoverStitch's <strong>Custom</strong> preset with your exact dimensions.</p>
+
+    <div class="note-box">
+      <strong class="label">How to use this guide</strong>
+      Match your physical case to one of the formats below, then select that preset in CoverStitch before stitching. The tool resizes your front, back, and spine images to the exact pixel dimensions shown — ready to print at 100% scale with no resizing in your print dialog.
+    </div>
+  </section>
 
   <div class="ad-space">
     <ins class="adsbygoogle"
@@ -403,223 +536,385 @@ footer a:hover{color:var(--accent)}
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 
-  <!-- DIMENSION CARDS GRID -->
-  <div class="dim-grid">
+  <!-- QUICK REFERENCE GRID -->
+  <section class="section">
+    <h2>Quick <em>Reference</em></h2>
 
-    <!-- PS2 -->
-    <div class="dim-card">
-      <div class="dim-card-header">
-        <div class="dim-card-title">PS2 / DVD Game</div>
-        <div class="dim-card-badge">PlayStation 2</div>
+    <div class="dim-grid">
+
+      <!-- PS2 -->
+      <div class="dim-card">
+        <div class="dim-card-header">
+          <div class="dim-card-title">PS2 / DVD Game</div>
+          <div class="dim-card-badge">PlayStation 2</div>
+        </div>
+        <div class="dim-card-body">
+          <div class="wrap-diagram">
+            <div class="wrap-back">Back</div>
+            <div class="wrap-spine">Spine</div>
+            <div class="wrap-front">Front</div>
+          </div>
+          <div class="dim-row">
+            <span class="dim-label">Front cover</span>
+            <span class="dim-value">130 × 184 mm <span class="px">1535 × 2173 px</span></span>
+          </div>
+          <div class="dim-row">
+            <span class="dim-label">Back cover</span>
+            <span class="dim-value">130 × 184 mm <span class="px">1535 × 2173 px</span></span>
+          </div>
+          <div class="dim-row">
+            <span class="dim-label">Spine width</span>
+            <span class="dim-value accent">14 mm <span class="px">165 px</span></span>
+          </div>
+          <div class="dim-row">
+            <span class="dim-label">Full wrap</span>
+            <span class="dim-value">274 × 184 mm <span class="px">3235 × 2173 px</span></span>
+          </div>
+        </div>
+        <div class="dim-card-footer">
+          <strong>Printing note</strong>
+          A4 landscape. Full wrap is narrower than A4 (297mm), so it fits with margin.
+        </div>
       </div>
-      <div class="dim-card-body">
-        <div class="wrap-diagram">
-          <div class="wrap-back">Back</div>
-          <div class="wrap-spine">Spine</div>
-          <div class="wrap-front">Front</div>
+
+      <!-- PS5 -->
+      <div class="dim-card">
+        <div class="dim-card-header">
+          <div class="dim-card-title">PS5</div>
+          <div class="dim-card-badge">PlayStation 5</div>
         </div>
-        <div class="dim-row">
-          <span class="dim-label">Front cover</span>
-          <span class="dim-value">130 × 184 mm <span class="px">1535 × 2173 px</span></span>
+        <div class="dim-card-body">
+          <div class="wrap-diagram">
+            <div class="wrap-back">Back</div>
+            <div class="wrap-spine">Spine</div>
+            <div class="wrap-front">Front</div>
+          </div>
+          <div class="dim-row">
+            <span class="dim-label">Front cover</span>
+            <span class="dim-value">128 × 148 mm <span class="px">1512 × 1748 px</span></span>
+          </div>
+          <div class="dim-row">
+            <span class="dim-label">Back cover</span>
+            <span class="dim-value">128 × 148 mm <span class="px">1512 × 1748 px</span></span>
+          </div>
+          <div class="dim-row">
+            <span class="dim-label">Spine width</span>
+            <span class="dim-value accent">14 mm <span class="px">165 px</span></span>
+          </div>
+          <div class="dim-row">
+            <span class="dim-label">Full wrap</span>
+            <span class="dim-value">270 × 148 mm <span class="px">3189 × 1748 px</span></span>
+          </div>
         </div>
-        <div class="dim-row">
-          <span class="dim-label">Back cover</span>
-          <span class="dim-value">130 × 184 mm <span class="px">1535 × 2173 px</span></span>
-        </div>
-        <div class="dim-row">
-          <span class="dim-label">Spine width</span>
-          <span class="dim-value accent">14 mm <span class="px">165 px</span></span>
-        </div>
-        <div class="dim-row">
-          <span class="dim-label">Full wrap width</span>
-          <span class="dim-value">274 × 184 mm <span class="px">3235 × 2173 px</span></span>
+        <div class="dim-card-footer">
+          <strong>Printing note</strong>
+          Shorter than PS2 (148mm vs 184mm). A4 landscape, ample margins.
         </div>
       </div>
-      <div class="dim-card-footer">
-        <strong>Printing note</strong>
-        Fits standard black PS2 cases and most third-party DVD game cases. Print on A4 landscape. The full wrap is slightly narrower than A4 width (297mm) so it fits with a small margin.
+
+      <!-- Switch -->
+      <div class="dim-card">
+        <div class="dim-card-header">
+          <div class="dim-card-title">Nintendo Switch</div>
+          <div class="dim-card-badge">Switch</div>
+        </div>
+        <div class="dim-card-body">
+          <div class="wrap-diagram">
+            <div class="wrap-back">Back</div>
+            <div class="wrap-spine">Spine</div>
+            <div class="wrap-front">Front</div>
+          </div>
+          <div class="dim-row">
+            <span class="dim-label">Front cover</span>
+            <span class="dim-value">128 × 160 mm <span class="px">1512 × 1890 px</span></span>
+          </div>
+          <div class="dim-row">
+            <span class="dim-label">Back cover</span>
+            <span class="dim-value">128 × 160 mm <span class="px">1512 × 1890 px</span></span>
+          </div>
+          <div class="dim-row">
+            <span class="dim-label">Spine width</span>
+            <span class="dim-value accent">10 mm <span class="px">118 px</span></span>
+          </div>
+          <div class="dim-row">
+            <span class="dim-label">Full wrap</span>
+            <span class="dim-value">266 × 160 mm <span class="px">3142 × 1890 px</span></span>
+          </div>
+        </div>
+        <div class="dim-card-footer">
+          <strong>Printing note</strong>
+          Narrowest spine of any modern format (10mm). A4 landscape.
+        </div>
       </div>
+
+      <!-- DVD -->
+      <div class="dim-card">
+        <div class="dim-card-header">
+          <div class="dim-card-title">DVD</div>
+          <div class="dim-card-badge">Standard DVD</div>
+        </div>
+        <div class="dim-card-body">
+          <div class="wrap-diagram">
+            <div class="wrap-back">Back</div>
+            <div class="wrap-spine">Spine</div>
+            <div class="wrap-front">Front</div>
+          </div>
+          <div class="dim-row">
+            <span class="dim-label">Front cover</span>
+            <span class="dim-value">130 × 184 mm <span class="px">1535 × 2173 px</span></span>
+          </div>
+          <div class="dim-row">
+            <span class="dim-label">Back cover</span>
+            <span class="dim-value">130 × 184 mm <span class="px">1535 × 2173 px</span></span>
+          </div>
+          <div class="dim-row">
+            <span class="dim-label">Spine width</span>
+            <span class="dim-value accent">14 mm <span class="px">165 px</span></span>
+          </div>
+          <div class="dim-row">
+            <span class="dim-label">Full wrap</span>
+            <span class="dim-value">274 × 184 mm <span class="px">3235 × 2173 px</span></span>
+          </div>
+        </div>
+        <div class="dim-card-footer">
+          <strong>Printing note</strong>
+          Identical to PS2 — same preset works for both.
+        </div>
+      </div>
+
+      <!-- Blu-ray -->
+      <div class="dim-card">
+        <div class="dim-card-header">
+          <div class="dim-card-title">Blu-ray</div>
+          <div class="dim-card-badge">Standard Blu-ray</div>
+        </div>
+        <div class="dim-card-body">
+          <div class="wrap-diagram">
+            <div class="wrap-back">Back</div>
+            <div class="wrap-spine">Spine</div>
+            <div class="wrap-front">Front</div>
+          </div>
+          <div class="dim-row">
+            <span class="dim-label">Front cover</span>
+            <span class="dim-value">128 × 148 mm <span class="px">1512 × 1748 px</span></span>
+          </div>
+          <div class="dim-row">
+            <span class="dim-label">Back cover</span>
+            <span class="dim-value">128 × 148 mm <span class="px">1512 × 1748 px</span></span>
+          </div>
+          <div class="dim-row">
+            <span class="dim-label">Spine width</span>
+            <span class="dim-value accent">12 mm <span class="px">142 px</span></span>
+          </div>
+          <div class="dim-row">
+            <span class="dim-label">Full wrap</span>
+            <span class="dim-value">268 × 148 mm <span class="px">3166 × 1748 px</span></span>
+          </div>
+        </div>
+        <div class="dim-card-footer">
+          <strong>Printing note</strong>
+          Same height as PS5, narrower spine (12mm vs 14mm).
+        </div>
+      </div>
+
+      <!-- Steelbook -->
+      <div class="dim-card">
+        <div class="dim-card-header">
+          <div class="dim-card-title">Steelbook</div>
+          <div class="dim-card-badge">Limited Edition</div>
+        </div>
+        <div class="dim-card-body">
+          <div class="wrap-diagram">
+            <div class="wrap-back">Back</div>
+            <div class="wrap-spine">Spine</div>
+            <div class="wrap-front">Front</div>
+          </div>
+          <div class="dim-row">
+            <span class="dim-label">Front cover</span>
+            <span class="dim-value">138 × 172 mm <span class="px">1630 × 2031 px</span></span>
+          </div>
+          <div class="dim-row">
+            <span class="dim-label">Back cover</span>
+            <span class="dim-value">138 × 172 mm <span class="px">1630 × 2031 px</span></span>
+          </div>
+          <div class="dim-row">
+            <span class="dim-label">Spine width</span>
+            <span class="dim-value accent">14 mm <span class="px">165 px</span></span>
+          </div>
+          <div class="dim-row">
+            <span class="dim-label">Full wrap</span>
+            <span class="dim-value">290 × 172 mm <span class="px">3425 × 2031 px</span></span>
+          </div>
+        </div>
+        <div class="dim-card-footer">
+          <strong>Printing note</strong>
+          290mm wrap is close to A4 limit (297mm) — borderless or A3.
+        </div>
+      </div>
+
+    </div><!-- end dim-grid -->
+  </section>
+
+  <!-- ============== PER-FORMAT DEEP DIVES ============== -->
+
+  <section class="section">
+    <h2>Format-by-Format <em>Deep Dive</em></h2>
+    <p>Each case format has its own history, design quirks, and printing considerations. Knowing the context helps you understand why dimensions are what they are — and helps you spot when a "PS2 case" you're holding is actually an oversized region variant or a third-party replacement that won't quite match the standard preset.</p>
+
+    <!-- PS2 detail -->
+    <div class="format-detail" id="ps2">
+      <h3>PlayStation 2 <em>(DVD Game)</em> <span class="badge">130 × 184 mm</span></h3>
+      <p>Sony adopted the DVD-style case for the PlayStation 2 launch in 2000, abandoning the long-box CD jewel-case format used for the PS1. The decision was practical — PS2 games shipped on DVD media, and using the same case format as the movie industry meant retailers could stock games and DVDs on the same shelving. That's why PS2 cases and standard DVD cases share identical exterior dimensions and the same cover preset works for both.</p>
+      <p>The 130×184mm panel size and 14mm spine became the de facto template for an entire generation of disc-based media. Original PS2 cases are recognisable by their distinctive black plastic with a rounded "PlayStation 2" logo embossed on the spine. Third-party replacement cases (TalkBack, MAM-A, BluCase) use the same external dimensions but vary slightly in window cutouts, which can affect where the safe-zone falls on the front cover.</p>
+      <p><strong>Printing considerations:</strong> The full wrap at 274mm fits comfortably on A4 landscape (297mm) with a margin to spare. Older PS2 cases often have a thin clear plastic overlay on the front — the printed cover sits behind it, so colours look slightly muted compared to what you saw on screen. Aim for slightly more saturated artwork to compensate, or accept the muted look as part of the retail-style finish.</p>
     </div>
 
-    <!-- PS5 -->
-    <div class="dim-card">
-      <div class="dim-card-header">
-        <div class="dim-card-title">PS5</div>
-        <div class="dim-card-badge">PlayStation 5</div>
-      </div>
-      <div class="dim-card-body">
-        <div class="wrap-diagram">
-          <div class="wrap-back">Back</div>
-          <div class="wrap-spine">Spine</div>
-          <div class="wrap-front">Front</div>
-        </div>
-        <div class="dim-row">
-          <span class="dim-label">Front cover</span>
-          <span class="dim-value">128 × 148 mm <span class="px">1512 × 1748 px</span></span>
-        </div>
-        <div class="dim-row">
-          <span class="dim-label">Back cover</span>
-          <span class="dim-value">128 × 148 mm <span class="px">1512 × 1748 px</span></span>
-        </div>
-        <div class="dim-row">
-          <span class="dim-label">Spine width</span>
-          <span class="dim-value accent">14 mm <span class="px">165 px</span></span>
-        </div>
-        <div class="dim-row">
-          <span class="dim-label">Full wrap width</span>
-          <span class="dim-value">270 × 148 mm <span class="px">3189 × 1748 px</span></span>
-        </div>
-      </div>
-      <div class="dim-card-footer">
-        <strong>Printing note</strong>
-        PS5 cases are shorter than PS2/DVD — the height is 148mm vs 184mm. Check your source art matches this shorter format. Print A4 landscape.
-      </div>
+    <!-- PS5 detail -->
+    <div class="format-detail" id="ps5">
+      <h3>PlayStation 5 <span class="badge">128 × 148 mm</span></h3>
+      <p>The PS5 case dropped to the shorter Blu-ray format used since the PS3 (2006), reflecting the move away from DVD-sized cases industry-wide as Blu-ray became the dominant disc standard. At 148mm tall vs the PS2's 184mm, PS5 cases are noticeably more compact on the shelf — about 20% less vertical space per game. The transparent blue plastic that defined the PS4 era continued into the PS5, with the white-on-blue branding lending the case a distinctive look that printed covers need to account for.</p>
+      <p>The 14mm spine width is the same as the PS2/DVD format, giving designers familiar room for spine artwork and title text. Full wrap is 270mm wide — fits A4 landscape comfortably. Colour profiles for the PS5 case insert window are slightly cooler than the PS2/DVD plastic, so prints can look very subtly more blue than the on-screen preview.</p>
+      <p><strong>Printing considerations:</strong> If you're reprinting a cover for a digital-only game (where Sony never released a physical box), you'll often start from a Steam/PlayStation Store key art file at 1080×1920 or similar. That's portrait orientation, so use the front cover slot only and design custom back/spine separately, or use the Custom preset to skip resizing if you've prepared everything to spec yourself.</p>
     </div>
 
-    <!-- Switch -->
-    <div class="dim-card">
-      <div class="dim-card-header">
-        <div class="dim-card-title">Nintendo Switch</div>
-        <div class="dim-card-badge">Switch</div>
-      </div>
-      <div class="dim-card-body">
-        <div class="wrap-diagram">
-          <div class="wrap-back">Back</div>
-          <div class="wrap-spine">Spine</div>
-          <div class="wrap-front">Front</div>
-        </div>
-        <div class="dim-row">
-          <span class="dim-label">Front cover</span>
-          <span class="dim-value">128 × 160 mm <span class="px">1512 × 1890 px</span></span>
-        </div>
-        <div class="dim-row">
-          <span class="dim-label">Back cover</span>
-          <span class="dim-value">128 × 160 mm <span class="px">1512 × 1890 px</span></span>
-        </div>
-        <div class="dim-row">
-          <span class="dim-label">Spine width</span>
-          <span class="dim-value accent">10 mm <span class="px">118 px</span></span>
-        </div>
-        <div class="dim-row">
-          <span class="dim-label">Full wrap width</span>
-          <span class="dim-value">266 × 160 mm <span class="px">3142 × 1890 px</span></span>
-        </div>
-      </div>
-      <div class="dim-card-footer">
-        <strong>Printing note</strong>
-        Switch cases have a narrower spine (10mm vs 14mm for PS2). The cartridge format makes them more compact overall. Print A4 landscape with a small border.
-      </div>
+    <!-- Switch detail -->
+    <div class="format-detail" id="switch">
+      <h3>Nintendo Switch <span class="badge">128 × 160 mm</span></h3>
+      <p>Nintendo broke from disc-case conventions when the Switch launched in 2017 by adopting a smaller, cartridge-friendly case. The 128×160mm panel size sits between PS5 (148mm tall) and PS2 (184mm tall), and the 10mm spine is the narrowest of any current-generation case — a direct consequence of housing a small cartridge instead of an optical disc. Switch cases are also notably lighter and rougher-textured than Sony's cases, often with a matte finish.</p>
+      <p>The narrow spine creates a real design challenge: 10mm leaves very little room for title text without crowding. Most retail Switch covers handle this with bold, condensed type and minimal logo treatment. When making custom Switch covers, design your spine art knowing the title may need to be smaller than feels natural — or use sideways "stacked" lettering as Nintendo's first-party titles often do.</p>
+      <p><strong>Printing considerations:</strong> The unusual 160mm height means Switch covers don't share dimensions with any other major format — you can't reuse a PS5 or DVD template. Always select the Switch preset specifically. The full wrap at 266mm fits A4 landscape with generous margin. Many collectors who buy digital-only Switch games print custom covers to fill out their physical collection — the small case format makes this especially common.</p>
     </div>
 
-    <!-- DVD -->
-    <div class="dim-card">
-      <div class="dim-card-header">
-        <div class="dim-card-title">DVD</div>
-        <div class="dim-card-badge">Standard DVD</div>
-      </div>
-      <div class="dim-card-body">
-        <div class="wrap-diagram">
-          <div class="wrap-back">Back</div>
-          <div class="wrap-spine">Spine</div>
-          <div class="wrap-front">Front</div>
-        </div>
-        <div class="dim-row">
-          <span class="dim-label">Front cover</span>
-          <span class="dim-value">130 × 184 mm <span class="px">1535 × 2173 px</span></span>
-        </div>
-        <div class="dim-row">
-          <span class="dim-label">Back cover</span>
-          <span class="dim-value">130 × 184 mm <span class="px">1535 × 2173 px</span></span>
-        </div>
-        <div class="dim-row">
-          <span class="dim-label">Spine width</span>
-          <span class="dim-value accent">14 mm <span class="px">165 px</span></span>
-        </div>
-        <div class="dim-row">
-          <span class="dim-label">Full wrap width</span>
-          <span class="dim-value">274 × 184 mm <span class="px">3235 × 2173 px</span></span>
-        </div>
-      </div>
-      <div class="dim-card-footer">
-        <strong>Printing note</strong>
-        DVD cases share the same dimensions as PS2 game cases — the same preset works for both. Widely used for movie collections and DVD-format game titles.
-      </div>
+    <!-- DVD detail -->
+    <div class="format-detail" id="dvd">
+      <h3>DVD <span class="badge">130 × 184 mm</span></h3>
+      <p>The standard DVD case (sometimes called an "Amaray case" after the original manufacturer) became the universal home video format after DVD launched in 1996. Its 130×184mm panel size and 14mm spine were chosen partly for shelf compatibility with VHS tapes, which were taller but similar in width. The format proved so durable that it outlived the move from DVD to Blu-ray for most retailers' shelving — DVD and Blu-ray sections still share the same fixtures because Blu-ray cases are smaller.</p>
+      <p>DVD cases share exact exterior dimensions with PS2 cases, so the same CoverStitch preset works for both. There are variants worth knowing about: <strong>slim DVD cases</strong> (7mm spine) used for budget releases and TV box sets, <strong>double-DVD cases</strong> (~22mm spine) for two-disc releases, and the rare <strong>quad-disc DVD case</strong> for full-season TV releases. None of those match the standard preset — use Custom dimensions for them.</p>
+      <p><strong>Printing considerations:</strong> Almost identical to PS2 printing. The DVD format also has decades of community-scanned cover art available across The Cover Project, MobyGames, and movie-database sites, so finding source material for older releases is easier than for any other format. The 184mm height means DVD covers fit comfortably on A4 landscape with room for trim margins.</p>
     </div>
 
-    <!-- Blu-ray -->
-    <div class="dim-card">
-      <div class="dim-card-header">
-        <div class="dim-card-title">Blu-ray</div>
-        <div class="dim-card-badge">Standard Blu-ray</div>
-      </div>
-      <div class="dim-card-body">
-        <div class="wrap-diagram">
-          <div class="wrap-back">Back</div>
-          <div class="wrap-spine">Spine</div>
-          <div class="wrap-front">Front</div>
-        </div>
-        <div class="dim-row">
-          <span class="dim-label">Front cover</span>
-          <span class="dim-value">128 × 148 mm <span class="px">1512 × 1748 px</span></span>
-        </div>
-        <div class="dim-row">
-          <span class="dim-label">Back cover</span>
-          <span class="dim-value">128 × 148 mm <span class="px">1512 × 1748 px</span></span>
-        </div>
-        <div class="dim-row">
-          <span class="dim-label">Spine width</span>
-          <span class="dim-value accent">12 mm <span class="px">142 px</span></span>
-        </div>
-        <div class="dim-row">
-          <span class="dim-label">Full wrap width</span>
-          <span class="dim-value">268 × 148 mm <span class="px">3166 × 1748 px</span></span>
-        </div>
-      </div>
-      <div class="dim-card-footer">
-        <strong>Printing note</strong>
-        Blu-ray cases are the same height as PS5 cases (148mm) but have a slightly narrower spine (12mm vs 14mm). Double-check spine width when mixing PS5 and Blu-ray covers.
-      </div>
+    <!-- Blu-ray detail -->
+    <div class="format-detail" id="bluray">
+      <h3>Blu-ray <span class="badge">128 × 148 mm</span></h3>
+      <p>Blu-ray cases (officially the "Elite case" specification) launched alongside the format in 2006 with a deliberately smaller footprint than DVD — 148mm tall vs 184mm — partly as a visible signal that the format was new and partly to fit more units on retail shelving. The signature blue tint on the case plastic gives Blu-ray its identity; some collector editions ship in clear or transparent black instead. The case dimensions are identical to PS3, PS4, and PS5 cases, since Sony designed the PlayStation cases around the Blu-ray format.</p>
+      <p>The spine is 12mm — narrower than DVD's 14mm — which gives Blu-ray titles a noticeably tighter look on the spine. Custom designers should account for this: a layout that worked for DVD will look cramped on Blu-ray without resizing the title text. Steelbook variants of Blu-ray releases are common but use entirely different dimensions (see Steelbook section).</p>
+      <p><strong>Printing considerations:</strong> Don't confuse Blu-ray and PS5 dimensions — they share the panel size (128×148mm) but Blu-ray's spine is 12mm vs PS5's 14mm. Mixing them up means a 2mm offset on the spine, which is enough to throw off a centred title. The full wrap at 268mm fits A4 landscape well. The blue case tint subtly shifts colours in print preview, so very pale colours (light blues, pinks) can disappear behind the case window — boost saturation slightly for these.</p>
     </div>
 
-    <!-- Steelbook -->
-    <div class="dim-card">
-      <div class="dim-card-header">
-        <div class="dim-card-title">Steelbook</div>
-        <div class="dim-card-badge">Limited Edition</div>
-      </div>
-      <div class="dim-card-body">
-        <div class="wrap-diagram">
-          <div class="wrap-back">Back</div>
-          <div class="wrap-spine">Spine</div>
-          <div class="wrap-front">Front</div>
-        </div>
-        <div class="dim-row">
-          <span class="dim-label">Front cover</span>
-          <span class="dim-value">138 × 172 mm <span class="px">1630 × 2031 px</span></span>
-        </div>
-        <div class="dim-row">
-          <span class="dim-label">Back cover</span>
-          <span class="dim-value">138 × 172 mm <span class="px">1630 × 2031 px</span></span>
-        </div>
-        <div class="dim-row">
-          <span class="dim-label">Spine width</span>
-          <span class="dim-value accent">14 mm <span class="px">165 px</span></span>
-        </div>
-        <div class="dim-row">
-          <span class="dim-label">Full wrap width</span>
-          <span class="dim-value">290 × 172 mm <span class="px">3425 × 2031 px</span></span>
-        </div>
-      </div>
-      <div class="dim-card-footer">
-        <strong>Printing note</strong>
-        Steelbooks are wider and shorter than DVD cases. The full wrap at 290mm is close to the limit of A4 (297mm) — print borderless or use A3 for comfortable margins. Note: these dimensions apply to standard Steelbook editions; oversized variants may differ.
-      </div>
+    <!-- Steelbook detail -->
+    <div class="format-detail" id="steelbook">
+      <h3>Steelbook <span class="badge">138 × 172 mm</span></h3>
+      <p>Steelbooks are the premium-edition format used for collector releases of films and major game launches, manufactured by Scanavo since the late 1990s. The case is metal (typically embossed and lithographed steel) rather than plastic, which makes them heavier, more durable, and significantly more expensive than standard cases. Dimensions vary slightly between manufacturers and editions, but the standard "G2 Steelbook" used by most major releases measures 138×172mm with a 14mm spine.</p>
+      <p>Crucially, Steelbook artwork is usually <strong>printed directly on the metal</strong> rather than slotted behind a clear plastic window. That means the case itself displays the artwork, and any cover insert you print is for the inside of the case (J-card style) rather than the outside. Some collectors also print spare Steelbook-style covers to protect the metal artwork from scratching. Custom Steelbook printing is more involved than standard case printing — most home setups can't print directly on metal.</p>
+      <p><strong>Printing considerations:</strong> Standard Steelbook prints (J-cards) at 290mm wide push the absolute limit of A4 (297mm) — most printers will need borderless mode enabled, or consider stepping up to A3 paper for a more comfortable margin. The 172mm height also exceeds the comfortable inner-margin of US Letter (216mm wide × 279mm tall) at any landscape orientation. If your printer can handle A3, that's the cleaner choice for Steelbook prints. Note that "oversized" Steelbook variants (used for some collector editions) can be 145mm or wider — measure first, then use Custom dimensions if your case isn't standard.</p>
+    </div>
+  </section>
+
+  <div class="ad-space">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-3564278316450647"
+         data-ad-slot="auto"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <!-- MEASURE OWN -->
+  <section class="section">
+    <h2>How to Measure Your Own <em>Cases</em></h2>
+
+    <p>Plenty of cases don't fit any of the standard formats — old PC big-boxes, region-specific PAL/NTSC variants, third-party replacement cases, multi-disc collector editions, digipaks, and oversized Steelbooks all need custom measurements. Here's how to measure accurately so the print actually fits.</p>
+
+    <h3>What you need</h3>
+    <ul>
+      <li><strong>A metal ruler</strong> with millimetre markings. A plastic ruler works but is harder to read at fine detail.</li>
+      <li><strong>The empty case open and laid flat</strong>, inside-up, on a hard surface.</li>
+      <li><strong>Optional: digital callipers</strong> — far more accurate than a ruler. Cheap callipers (£10) measure to 0.1mm.</li>
+    </ul>
+
+    <h3>What to measure</h3>
+    <ol>
+      <li><strong>Front panel width:</strong> from the inside spine fold to the inside outer edge of the front panel. This is the printable width of the front cover.</li>
+      <li><strong>Front panel height:</strong> from the inside top to the inside bottom of the front panel. Most cases are symmetric — this matches the back panel height.</li>
+      <li><strong>Back panel width:</strong> same as front, but on the back side. Should match the front panel exactly.</li>
+      <li><strong>Spine width:</strong> the flat strip between front and back panels. This is the narrowest measurement and also the most error-prone — measure at the centre, not near the rounded fold corners.</li>
+    </ol>
+
+    <p>Round each measurement to the nearest millimetre for printing purposes — sub-millimetre precision is meaningless because your printer's mechanical accuracy is around ±0.5mm anyway. Once you have the dimensions in mm, convert to pixels at 300 DPI: <strong>pixels = mm × 11.811</strong> (since 300 dots per inch = 11.811 dots per mm). Or just use CoverStitch's Custom preset and let it handle the conversion.</p>
+  </section>
+
+  <!-- BLEED + SAFE ZONES -->
+  <section class="section">
+    <h2>Bleed and <em>Safe Zones</em></h2>
+
+    <p><strong>Bleed</strong> is extra image area that extends past where the paper will be cut, so that small inaccuracies in the cutting process don't leave a thin white edge on the print. In professional printing, the standard bleed is 3mm on each side. For home-printed covers, bleed is less critical because you're cutting one cover at a time and can trim conservatively, but understanding it helps avoid white edges.</p>
+
+    <p><strong>Safe zones</strong> are the opposite — the area inside the cover where important content (titles, logos, key artwork) should sit, leaving margin so it doesn't get accidentally trimmed off or hidden by the case window. For most cases, keep critical content at least <strong>5mm from the trim edge</strong> and at least <strong>3mm from the spine fold</strong> on both sides.</p>
+
+    <p>CoverStitch produces output sized to the exact preset dimensions — no extra bleed is added. If you need bleed for a particular project, expand your source images by 3mm on each edge before uploading, or use the Custom preset with adjusted dimensions. For home printing on photo paper, most users skip bleed entirely and just trim carefully — works fine 95% of the time.</p>
+  </section>
+
+  <!-- DPI EXPLAINED -->
+  <section class="section">
+    <h2>DPI <em>Explained</em> for Non-Designers</h2>
+
+    <p>DPI stands for <strong>dots per inch</strong> and measures how densely a printer lays down ink (or how densely an image stores pixel information per unit of physical size). The print industry standard is <strong>300 DPI</strong> — at that density, individual dots are too small for the human eye to see at typical viewing distance, so the print looks smooth and sharp.</p>
+
+    <p>Why 300 specifically? It's a balance between visual quality and practical file size. Higher DPI (600, 1200) produces marginal quality improvements that most viewers can't distinguish, at the cost of much larger files and longer print times. Lower DPI (150, 200) is acceptable for posters viewed from a few feet away but visibly soft on something held in your hand like a game cover.</p>
+
+    <p><strong>The pixel-to-print conversion:</strong> a 300 DPI image at 130mm wide needs to be 1535 pixels wide (130mm × 11.811 pixels per mm). If your source image is only 800 pixels wide, the printer will spread those 800 pixels across 130mm of paper — which means each "pixel" gets enlarged and the print looks soft or pixelated. This is why source-image resolution matters so much.</p>
+
+    <p><strong>Bottom line:</strong> always start with high-resolution source art (300 DPI or higher at the target print size). CoverStitch outputs all presets at exactly 300 DPI, so the file you download is already correctly sized for printing. If your source art is below the target resolution, the tool will upscale it — but upscaling can't add detail that wasn't there, so the print will be softer than ideal.</p>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <h2>Case Dimension <em>FAQ</em></h2>
+
+    <div class="faq-item">
+      <button class="faq-q">Are PS2 and DVD cases really the same size?</button>
+      <div class="faq-a"><div class="faq-a-inner">Yes, identical. Sony deliberately chose the standard DVD-style "Amaray" case for the PS2 launch in 2000 so that retailers could stock games on the same shelving as movies. The same CoverStitch preset works for both — pick PS2 if you're stitching a game cover, DVD if you're stitching a movie cover. The output is identical.</div></div>
     </div>
 
-  </div><!-- end dim-grid -->
+    <div class="faq-item">
+      <button class="faq-q">Why is my Switch cover spine smaller than my PS5 cover spine?</button>
+      <div class="faq-a"><div class="faq-a-inner">Switch cases use a 10mm spine vs PS5's 14mm. The Switch case houses a small cartridge while the PS5 case houses a larger Blu-ray disc — the spine width reflects the depth needed for the media inside. This is normal and intentional, not a manufacturing defect.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">My Steelbook is wider than 138mm. Is that normal?</button>
+      <div class="faq-a"><div class="faq-a-inner">Standard "G2 Steelbook" cases measure 138×172mm, but oversized variants exist for some collector editions (often 145×172mm or larger). Manufacturers also vary — Scanavo, the original Steelbook maker, has slightly different dimensions from some imitators. Measure your specific case and use the Custom preset if it doesn't match the standard.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">What about PS3 and PS4 case dimensions?</button>
+      <div class="faq-a"><div class="faq-a-inner">PS3 and PS4 cases use the same dimensions as PS5 — 128×148mm panels with a 14mm spine. Sony has used the Blu-ray case format since the PS3 in 2006. So the PS5 preset works for PS3 and PS4 covers too. (Earlier PS3 cases were taller, matching DVD dimensions, but those were quickly phased out.)</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">Are there standard dimensions for Xbox or GameCube covers?</button>
+      <div class="faq-a"><div class="faq-a-inner">Original Xbox and Xbox 360 used standard DVD case dimensions (130×184mm, 14mm spine) — use the PS2/DVD preset. Xbox One, Series X, and Series S use Blu-ray case dimensions — use the PS5/Blu-ray preset. GameCube cases were unusual: 145×123mm with a 14mm spine, which doesn't match any current preset. For GameCube, use the Custom preset with those measurements.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">My printed cover doesn't quite fit. What went wrong?</button>
+      <div class="faq-a"><div class="faq-a-inner">Most likely you printed with "Fit to Page" or "Scale to Fit" enabled, which shrank the print by a few percent. Reprint at exactly 100% / Actual Size with no scaling. If it still doesn't fit, your case may be a non-standard variant — measure it and use the Custom preset. See the <a href="how-to-print.html">printing guide</a> for full troubleshooting.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">Why are some dimensions in pixels and some in millimeters?</button>
+      <div class="faq-a"><div class="faq-a-inner">Pixels are for digital editing (preparing source files in Photoshop, GIMP, etc.) and millimeters are for the physical case. Both are needed because a 1535-pixel image at 300 DPI is exactly 130mm wide — but only when printed at 300 DPI. Print the same file at 150 DPI and it would be 260mm wide. CoverStitch handles the conversion: pick a preset, and the output is sized correctly in both pixels and intended print size.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">Can I use these dimensions for case sticker labels or disc art?</button>
+      <div class="faq-a"><div class="faq-a-inner">No — these dimensions are for the cover insert that slides behind the case window. Disc labels are circular (about 116mm diameter for standard CD/DVD/Blu-ray) and use a different template entirely. Case spine labels are also a different size. CoverStitch is built specifically for case cover wraps, not for disc-face printing.</div></div>
+    </div>
+  </section>
 
   <div class="note-box">
-    <strong>About these measurements</strong>
+    <strong class="label">About these measurements</strong>
     Dimensions are based on standard retail case sizes measured from physical cases. Minor variations exist between manufacturers and regions — if a cover comes out slightly off, measure your specific case and use the Custom preset in CoverStitch with your exact dimensions.
   </div>
 
@@ -643,6 +938,7 @@ footer a:hover{color:var(--accent)}
     </a>
     <div class="secondary-links">
       <a href="how-to-print.html">How to Print Covers →</a>
+      <a href="about.html">About CoverStitch →</a>
     </div>
   </div>
 
@@ -651,9 +947,21 @@ footer a:hover{color:var(--accent)}
 <!-- FOOTER -->
 <footer>
   <p>CoverStitch &copy; 2026 &mdash; Free game &amp; movie cover stitching tool. Built for collectors.</p>
-  <p style="margin-top:0.5rem"><a href="https://coverstitch.io">Home</a> &middot; <a href="how-to-print.html">Print Guide</a> &middot; <a href="dimensions.html">Dimensions</a> &middot; <a href="#privacy">Privacy</a> &middot; <a href="mailto:spencergallardo@gmail.com">Contact</a></p>
+  <nav class="footer-nav">
+    <a href="https://coverstitch.io">Home</a>
+    <span class="footer-sep">&middot;</span>
+    <a href="how-to-print.html">How to Print</a>
+    <span class="footer-sep">&middot;</span>
+    <a href="dimensions.html">Dimensions</a>
+    <span class="footer-sep">&middot;</span>
+    <a href="about.html">About</a>
+    <span class="footer-sep">&middot;</span>
+    <a href="contact.html">Contact</a>
+    <span class="footer-sep">&middot;</span>
+    <a href="#privacy">Privacy</a>
+  </nav>
   <div class="footer-seo">
-    Complete game and movie case dimension reference. PS2 cover dimensions: 130×184mm (1535×2173px). PS5 cover dimensions: 128×148mm (1512×1748px). Nintendo Switch cover: 128×160mm (1512×1890px). DVD: 130×184mm. Blu-ray: 128×148mm (12mm spine). Steelbook: 138×172mm. All measurements at 300 DPI.
+    Complete game and movie case dimension reference at 300 DPI. PS2 cover: 130×184mm (1535×2173px), 14mm spine. PS5 cover: 128×148mm (1512×1748px), 14mm spine. Nintendo Switch cover: 128×160mm (1512×1890px), 10mm spine. DVD: 130×184mm. Blu-ray: 128×148mm with 12mm spine. Steelbook: 138×172mm with 14mm spine. Includes format history, bleed and safe-zone guidance, DPI explanation, and how to measure non-standard cases.
   </div>
 </footer>
 
@@ -671,7 +979,7 @@ footer a:hover{color:var(--accent)}
       <p><strong style="color:var(--text)">Google Analytics:</strong> We use Google Analytics to understand how visitors use our site (page views, time on site, general location). This service uses cookies. You can opt out by installing the Google Analytics Opt-out Browser Add-on.</p><br>
       <p><strong style="color:var(--text)">Google AdSense:</strong> We display ads through Google AdSense, which may use cookies to serve ads based on your browsing history. You can manage your ad preferences at Google's Ad Settings page.</p><br>
       <p><strong style="color:var(--text)">Cookies:</strong> CoverStitch itself does not set cookies. However, the third-party services above (Google Analytics and Google AdSense) may set cookies on your device.</p><br>
-      <p><strong style="color:var(--text)">Contact:</strong> If you have any questions about this privacy policy, please contact us via the link in the footer.</p>
+      <p><strong style="color:var(--text)">Contact:</strong> If you have any questions about this privacy policy, please <a href="contact.html" style="color:var(--accent)">contact us</a>.</p>
     </div>
   </div>
 </div>
@@ -680,6 +988,13 @@ footer a:hover{color:var(--accent)}
 document.querySelector('a[href="#privacy"]').addEventListener('click', function(e) {
   e.preventDefault();
   document.getElementById('privacy').style.display = 'block';
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    btn.parentElement.classList.toggle('open');
+  });
 });
 </script>
 </body>

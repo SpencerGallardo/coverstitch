@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>How to Print Game & Movie Covers (2026 Guide) — CoverStitch</title>
-<meta name="description" content="Step-by-step guide to printing game and movie covers at home. Find cover art, use CoverStitch to combine panels, and get perfect results with photo paper, correct scale, and laminating.">
-<meta name="keywords" content="how to print game covers, printable game cover, print movie cover, game case art printing, custom game cover printing, PS2 cover print, game cover paper, print box art">
-<meta property="og:title" content="How to Print Game & Movie Covers (2026 Guide) — CoverStitch">
-<meta property="og:description" content="Find cover art, stitch it with CoverStitch, and print perfect game covers at home. Full guide covering paper, scale, cutting, and laminating.">
+<title>How to Print Game & Movie Covers at Home (2026 Complete Guide) — CoverStitch</title>
+<meta name="description" content="The most thorough guide to printing custom game and movie covers at home. Where to find high-resolution cover art, DPI and scanning tips, paper choices, print settings, cutting, laminating, and the most common mistakes to avoid.">
+<meta name="keywords" content="how to print game covers, printable game cover, print movie cover, custom game cover printing, PS2 cover print, DVD cover printing, game case art, scan game cover, cover art DPI, photo paper for game covers">
+<meta property="og:title" content="How to Print Game & Movie Covers at Home — CoverStitch Guide">
+<meta property="og:description" content="A complete walkthrough: source the art, scan your own covers, stitch with CoverStitch, then print, cut, and laminate covers that look factory-made.">
 <meta property="og:type" content="article">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="How to Print Game & Movie Covers — CoverStitch">
@@ -110,14 +110,15 @@ header{
 }
 .logo-text span{color:var(--accent)}
 .header-right{display:flex;align-items:center;gap:12px}
-.header-nav{display:flex;align-items:center;gap:4px}
+.header-nav{display:flex;align-items:center;gap:2px;flex-wrap:wrap}
 .header-nav a{
-  padding:7px 14px;
-  font-size:0.8rem;font-weight:500;
+  padding:7px 12px;
+  font-size:0.78rem;font-weight:500;
   color:var(--text-dim);
   text-decoration:none;
   border-radius:8px;
   transition:var(--transition);
+  white-space:nowrap;
 }
 .header-nav a:hover{color:var(--text-muted)}
 .header-nav a.active{color:var(--text);background:var(--surface-3)}
@@ -162,41 +163,82 @@ header{
 .hero h1 em{font-style:italic;color:var(--accent)}
 .hero p{
   color:var(--text-muted);font-size:1rem;
-  max-width:580px;margin:0 auto 2rem;line-height:1.6;
+  max-width:640px;margin:0 auto 2rem;line-height:1.6;
 }
 
 /* === MAIN CONTENT === */
 .content{
-  max-width:800px;margin:0 auto;
+  max-width:820px;margin:0 auto;
   padding:2rem 2rem 4rem;
 }
+
+/* === TABLE OF CONTENTS === */
+.toc{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:1.25rem 1.5rem;
+  margin-bottom:2.5rem;
+}
+.toc-label{
+  font-size:0.7rem;font-weight:700;
+  color:var(--accent);
+  text-transform:uppercase;letter-spacing:0.08em;
+  margin-bottom:0.75rem;
+}
+.toc ol{
+  list-style:none;padding:0;margin:0;
+  display:grid;grid-template-columns:1fr 1fr;gap:0.4rem 1.5rem;
+  counter-reset:toc;
+}
+@media(max-width:600px){.toc ol{grid-template-columns:1fr}}
+.toc li{
+  counter-increment:toc;
+  font-size:0.85rem;color:var(--text-muted);
+  padding-left:1.5rem;position:relative;
+}
+.toc li::before{
+  content:counter(toc) ".";
+  position:absolute;left:0;
+  color:var(--accent);font-weight:600;
+}
+.toc a{color:var(--text-muted);text-decoration:none;transition:var(--transition)}
+.toc a:hover{color:var(--accent)}
 
 /* === STEP SECTION === */
 .step-section{
   margin-bottom:3rem;
+  scroll-margin-top:80px;
 }
 .step-section h2{
   font-family:var(--font-display);
-  font-size:1.65rem;font-weight:400;
+  font-size:1.7rem;font-weight:400;
   letter-spacing:-0.02em;
   margin-bottom:1rem;
   padding-bottom:0.75rem;
   border-bottom:1px solid var(--border);
 }
 .step-section h2 em{font-style:italic;color:var(--accent)}
+.step-section h3{
+  font-size:1rem;font-weight:600;
+  margin:1.5rem 0 0.6rem;
+  color:var(--text);
+}
 .step-section p{
   color:var(--text-muted);font-size:0.92rem;
   line-height:1.75;margin-bottom:1rem;
 }
 .step-section p strong{color:var(--text)}
 .step-section ul,.step-section ol{
-  padding-left:1.5rem;margin-bottom:1rem;
+  padding-left:1.5rem;margin-bottom:1.25rem;
 }
 .step-section li{
   color:var(--text-muted);font-size:0.92rem;
-  line-height:1.75;margin-bottom:0.4rem;
+  line-height:1.75;margin-bottom:0.5rem;
 }
 .step-section li strong{color:var(--text)}
+.step-section a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:var(--transition)}
+.step-section a:hover{border-bottom-color:var(--accent)}
 
 /* === STEP CARDS === */
 .step-grid{
@@ -223,33 +265,31 @@ header{
   color:var(--accent);
   margin-bottom:0.65rem;
 }
-.step-card h3{font-size:0.88rem;font-weight:600;margin-bottom:0.35rem}
+.step-card h3{font-size:0.88rem;font-weight:600;margin-bottom:0.35rem;margin-top:0}
 .step-card p{font-size:0.78rem;color:var(--text-dim);line-height:1.55;margin:0}
 
 /* === RESOURCE LINKS === */
 .resource-list{
   list-style:none;
   padding:0;
-  margin:1rem 0;
+  margin:1rem 0 1.5rem;
 }
 .resource-list li{
-  display:flex;align-items:center;gap:10px;
-  padding:10px 14px;
+  display:block;
+  padding:14px 16px;
   background:var(--surface);
   border:1px solid var(--border);
   border-radius:var(--radius-sm);
-  margin-bottom:6px;
-  font-size:0.85rem;
+  margin-bottom:8px;
+  font-size:0.88rem;
   transition:var(--transition);
+  color:var(--text-muted);
 }
 .resource-list li:hover{border-color:var(--border-hover)}
-.resource-list li::before{
-  content:'→';
-  color:var(--accent);font-weight:600;flex-shrink:0;
-}
-.resource-list a{color:var(--text);text-decoration:none;font-weight:500}
-.resource-list a:hover{color:var(--accent)}
-.resource-list .desc{color:var(--text-dim);font-size:0.78rem;margin-left:auto}
+.resource-list li strong{color:var(--text);font-weight:600;display:block;margin-bottom:0.3rem}
+.resource-list li strong a{color:var(--text);text-decoration:none}
+.resource-list li strong a:hover{color:var(--accent)}
+.resource-list li .desc{color:var(--text-dim);font-size:0.82rem;line-height:1.6}
 
 /* === TIP BOX === */
 .tip-box{
@@ -258,12 +298,94 @@ header{
   border-left:3px solid var(--accent-dim);
   border-radius:var(--radius-sm);
   padding:1rem 1.25rem;
-  margin:1.25rem 0;
-  font-size:0.85rem;
+  margin:1.5rem 0;
+  font-size:0.88rem;
   color:var(--text-muted);
-  line-height:1.6;
+  line-height:1.7;
 }
-.tip-box strong{color:var(--accent);display:block;margin-bottom:0.25rem;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.07em}
+.tip-box strong.label{color:var(--accent);display:block;margin-bottom:0.35rem;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em}
+.tip-box strong{color:var(--text)}
+.tip-box a{color:var(--accent);text-decoration:none}
+
+/* === FAQ === */
+.faq-item{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius-sm);
+  margin-bottom:0.75rem;
+  overflow:hidden;
+  transition:var(--transition);
+}
+.faq-item:hover{border-color:var(--border-hover)}
+.faq-q{
+  display:block;width:100%;
+  text-align:left;
+  padding:1rem 1.25rem;
+  font-family:var(--font-body);
+  font-size:0.92rem;font-weight:600;
+  color:var(--text);
+  background:transparent;
+  border:none;cursor:pointer;
+  position:relative;
+}
+.faq-q::after{
+  content:'+';
+  position:absolute;right:1.25rem;top:50%;transform:translateY(-50%);
+  color:var(--accent);font-size:1.25rem;font-weight:300;
+  transition:var(--transition);
+}
+.faq-item.open .faq-q::after{transform:translateY(-50%) rotate(45deg)}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height 0.3s ease;
+}
+.faq-item.open .faq-a{max-height:600px}
+.faq-a-inner{
+  padding:0 1.25rem 1.25rem;
+  font-size:0.88rem;color:var(--text-muted);
+  line-height:1.7;
+}
+.faq-a-inner a{color:var(--accent);text-decoration:none}
+
+/* === MISTAKE LIST === */
+.mistake-list{
+  list-style:none;padding:0;margin:1rem 0 1.5rem;
+}
+.mistake-list li{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-left:3px solid var(--danger);
+  border-radius:var(--radius-sm);
+  padding:1rem 1.25rem;
+  margin-bottom:0.75rem;
+  font-size:0.88rem;
+  color:var(--text-muted);
+  line-height:1.7;
+}
+.mistake-list li strong{color:var(--text);display:block;margin-bottom:0.3rem;font-size:0.92rem}
+
+/* === COMPARISON TABLE === */
+.compare-table{
+  width:100%;border-collapse:collapse;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  overflow:hidden;
+  margin:1.25rem 0 1.5rem;
+  font-size:0.85rem;
+}
+.compare-table th,.compare-table td{
+  padding:10px 14px;text-align:left;
+  border-bottom:1px solid var(--border);
+  color:var(--text-muted);
+}
+.compare-table th{
+  background:var(--surface-2);
+  color:var(--text);font-weight:600;
+  font-size:0.78rem;text-transform:uppercase;letter-spacing:0.05em;
+}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table td strong{color:var(--text)}
 
 /* === CTA === */
 .cta-block{
@@ -340,8 +462,18 @@ footer{
 }
 footer a{color:var(--text-muted);text-decoration:none}
 footer a:hover{color:var(--accent)}
+.footer-nav{
+  display:flex;align-items:center;justify-content:center;
+  gap:1rem;flex-wrap:wrap;
+  margin-top:0.75rem;
+}
+.footer-nav a{
+  font-weight:500;color:var(--text-muted);
+  font-size:0.82rem;
+}
+.footer-sep{color:var(--text-dim);opacity:0.5}
 .footer-seo{
-  max-width:700px;margin:1rem auto 0;
+  max-width:700px;margin:1.25rem auto 0;
   font-size:0.72rem;color:var(--text-dim);
   line-height:1.7;opacity:0.6;
 }
@@ -349,10 +481,13 @@ footer a:hover{color:var(--accent)}
 @media(max-width:600px){
   .hero{padding:2rem 1.5rem 1rem}
   .content{padding:1.5rem 1rem 3rem}
+  header{padding:0 1rem}
   .header-right{gap:8px}
   .header-badge{display:none}
+  .header-nav a{padding:6px 8px;font-size:0.72rem}
   .step-grid{grid-template-columns:1fr}
-  .resource-list .desc{display:none}
+  .compare-table{font-size:0.78rem}
+  .compare-table th,.compare-table td{padding:8px 10px}
 }
 </style>
 </head>
@@ -370,6 +505,8 @@ footer a:hover{color:var(--accent)}
         <a href="https://coverstitch.io">Tool</a>
         <a href="how-to-print.html" class="active">Print Guide</a>
         <a href="dimensions.html">Dimensions</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
       </nav>
       <div class="header-badge">Free Tool</div>
     </div>
@@ -378,12 +515,26 @@ footer a:hover{color:var(--accent)}
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">2026 Guide</div>
-  <h1>How to Print Game &amp; Movie <em>Covers</em></h1>
-  <p>Find the right art, stitch it together with CoverStitch, and print professional-looking covers at home. This guide covers everything from sourcing to cutting.</p>
+  <div class="hero-badge">2026 Complete Guide</div>
+  <h1>How to Print Game &amp; Movie <em>Covers</em> at Home</h1>
+  <p>Everything a collector needs to make professional-looking cover prints — from sourcing the right artwork at the right resolution, to choosing paper, configuring your printer, cutting clean folds, and laminating for shelf-ready durability.</p>
 </section>
 
 <main class="content">
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-label">In this guide</div>
+    <ol>
+      <li><a href="#why-print">Why Print Custom Covers?</a></li>
+      <li><a href="#find-art">Where to Find High-Quality Cover Art</a></li>
+      <li><a href="#scanning">Scanning Your Own Covers</a></li>
+      <li><a href="#stitch">Step-by-Step: Using CoverStitch</a></li>
+      <li><a href="#printing">Printing Best Practices</a></li>
+      <li><a href="#mistakes">Common Mistakes to Avoid</a></li>
+      <li><a href="#faq">Frequently Asked Questions</a></li>
+    </ol>
+  </div>
 
   <div class="ad-space">
     <ins class="adsbygoogle"
@@ -395,135 +546,250 @@ footer a:hover{color:var(--accent)}
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 
-  <!-- STEP 1: Find cover art -->
-  <section class="step-section">
-    <h2>Step 1 — Where to Find <em>Cover Art</em></h2>
-    <p>High-resolution cover art is the foundation. Blurry source images will produce blurry prints no matter how good your printer is. Here are the best sources:</p>
+  <!-- 1. Why print -->
+  <section class="step-section" id="why-print">
+    <h2>Why Print <em>Custom Covers</em>?</h2>
+
+    <p>Anyone who has spent time hunting for older games or movies knows that the case is often in worse shape than the disc. Sun-faded inserts, water-stained back covers, ex-rental stickers that took the artwork off when peeled, and missing covers entirely on loose-disc copies are part of the territory. Reprinting the cover is the cheapest, fastest way to restore a case to display quality without the cost (or scarcity) of a sealed replacement copy. A four-cent sheet of photo paper and ten minutes of your time can rescue a £40 game from looking like junk on the shelf.</p>
+
+    <p>The second reason is curatorial. Collectors who buy loose-disc copies — common with PS1, PS2, GameCube, and DVD-format movies — usually want a presentable case. Printing the original retail cover is the obvious move, but custom collections go further: matching back-covers for digital-only Switch games so they line up alongside physical ones, alternate "what if" art, region variants (Japanese boxart on a US-region case), or full custom box sets for ROM hacks, fan translations, and indie titles that never got a physical release. None of that is possible without a tool to combine front, back, and spine into one print-ready file at the correct dimensions.</p>
+
+    <p>The third reason is the satisfying part: a complete shelf. Anyone who has stared at their collection long enough has noticed how much one mismatched or damaged spine throws off a row of cases. Reprinting one cover so the spine title aligns with the rest of the row — or so a faded yellow PS1 spine matches its neighbours — is a small thing that changes how the whole shelf reads. For a hobby that's largely about visual presentation, that consistency matters more than the cost of the paper.</p>
+  </section>
+
+  <!-- 2. Find art -->
+  <section class="step-section" id="find-art">
+    <h2>Where to Find <em>High-Quality Cover Art</em></h2>
+
+    <p>The single biggest factor in print quality is the source image. A blurry 800-pixel-wide JPG will produce a blurry print no matter how good your printer is, because no amount of upscaling adds detail that wasn't captured in the first place. The goal is to find a scan at 300 DPI or higher — for a standard PS2 cover, that's roughly 3235 × 2173 pixels for the full wrap. Here are the sources collectors actually use:</p>
 
     <ul class="resource-list">
       <li>
-        <a href="https://www.thecoverproject.net" target="_blank" rel="noopener">The Cover Project</a>
-        <span class="desc">Best for game cases</span>
+        <strong><a href="https://www.thecoverproject.net" target="_blank" rel="noopener">The Cover Project</a></strong>
+        <span class="desc">The single most important resource for game cover scans. Community-uploaded covers spanning PS1, PS2, PS3, Xbox, GameCube, Wii, DVD, and Blu-ray. Most uploads are scanned at print resolution and saved as full wraps (front, spine, back combined). When the full wrap is provided, you can crop it into separate panels for use in CoverStitch, or use the Custom preset to print as-is.</span>
       </li>
       <li>
-        <a href="https://www.mobygames.com" target="_blank" rel="noopener">MobyGames</a>
-        <span class="desc">Huge game database, scanned covers</span>
+        <strong><a href="https://vgboxart.com" target="_blank" rel="noopener">VGBoxArt</a></strong>
+        <span class="desc">The best resource for fan-made and custom box art. Useful when the original retail cover is ugly, the digital-only release never had a physical cover, or you want region-swapped artwork. Quality varies by uploader, so check the resolution and DPI before committing to a print.</span>
       </li>
       <li>
-        <a href="https://www.laserdisc-database.com" target="_blank" rel="noopener">Laser Disc Database</a>
-        <span class="desc">Classic film covers</span>
+        <strong><a href="https://www.mobygames.com" target="_blank" rel="noopener">MobyGames</a></strong>
+        <span class="desc">A general games database that includes cover art uploads from contributors. Front covers are well-represented but back covers and spines are inconsistent. Best as a backup source if The Cover Project is missing the title you need.</span>
       </li>
       <li>
-        <a href="https://fanart.tv" target="_blank" rel="noopener">Fanart.tv</a>
-        <span class="desc">High-res movie &amp; TV covers</span>
+        <strong><a href="https://archive.org" target="_blank" rel="noopener">Internet Archive</a></strong>
+        <span class="desc">Hosts huge media collections including scanned magazine inserts, console manuals, and full disc libraries with cover scans. Particularly useful for obscure regional releases and pre-2000 PC titles where dedicated scan sites have thin coverage.</span>
       </li>
       <li>
-        <a href="https://gamesdb.launchbox-app.com" target="_blank" rel="noopener">LaunchBox Games Database</a>
-        <span class="desc">Large game art library, community-sourced</span>
+        <strong><a href="https://gamesdb.launchbox-app.com" target="_blank" rel="noopener">LaunchBox Games Database</a></strong>
+        <span class="desc">Aggregates community-sourced art from across the front-end emulation scene. Front box art is excellent; full wraps less common. Worth checking when you can't find a scan elsewhere.</span>
       </li>
     </ul>
 
     <div class="tip-box">
-      <strong>Pro Tip</strong>
-      Always look for images at 300 DPI or larger. For PS2 covers, the full wrap at 300 DPI is about 3235×2173px. If you can only find smaller images, scale them up with an AI upscaler like Upscayl or Topaz before stitching.
+      <strong class="label">Resolution Check</strong>
+      Before downloading, look at the file dimensions. A full PS2 wrap should be around <strong>3200 × 2100 pixels</strong> or larger. Anything significantly smaller will print soft or pixelated. If you're stuck with low-res source art, run it through an AI upscaler like <strong>Upscayl</strong> (free, open-source) or <strong>Topaz Photo AI</strong> before stitching — these add real detail rather than just stretching the pixels.
     </div>
-
-    <h3 style="font-size:0.95rem;font-weight:600;margin:1.25rem 0 0.5rem">Scanning your own covers</h3>
-    <p>If you own the original case and want a perfect digital copy, scanning is the gold standard. Use a flatbed scanner at 600 DPI, scan front and back separately, then crop and clean up in an image editor. Import both panels into CoverStitch alongside any spine art.</p>
   </section>
 
-  <!-- STEP 2: CoverStitch -->
-  <section class="step-section">
-    <h2>Step 2 — Combine Images with <em>CoverStitch</em></h2>
-    <p>CoverStitch stitches your front, spine, and back cover into a single print-ready image. Everything runs in your browser — your images are never uploaded anywhere.</p>
+  <!-- 3. Scanning -->
+  <section class="step-section" id="scanning">
+    <h2>Scanning Your Own <em>Covers</em></h2>
+
+    <p>If you own the original case and the cover is in good shape, scanning it yourself produces the highest-quality result possible — better than most online uploads, because no one else has compressed the file or rescaled it. The tradeoff is that scanning takes ten minutes per cover and requires either a flatbed scanner or a careful phone setup.</p>
+
+    <h3>Flatbed scanning (recommended)</h3>
+    <p>Set your scanner to <strong>600 DPI</strong> in colour mode and scan the front and back panels separately. (Trying to scan the unfolded full wrap usually exceeds the scanner bed.) Most flatbed scans come out slightly skewed — straighten them in any image editor (Photoshop, GIMP, Photopea, or even Preview on Mac) using a "rotate by angle" tool. Crop tight to the printed area and save as PNG to avoid JPEG compression artifacts. 600 DPI is overkill for actually printing, but it gives you headroom to crop and clean up without losing detail. CoverStitch will downsample to the correct print resolution automatically when you select a preset.</p>
+
+    <h3>Phone scanning (when you don't have a flatbed)</h3>
+    <p>Lay the unfolded cover flat on a clean, evenly-lit surface — a table near a window in indirect daylight is ideal. Avoid direct sunlight (creates harsh shadows) and overhead room lights (cause uneven brightness). Hold the phone parallel to the cover and shoot from directly above. Apps like <strong>Adobe Scan</strong>, <strong>Microsoft Lens</strong>, or <strong>Apple Notes' built-in scanner</strong> automatically de-skew and crop the result, which is much faster than doing it manually. Phone scans are noisier than flatbed scans but acceptable for most prints.</p>
+
+    <h3>Post-processing</h3>
+    <p>Once you have a clean scan, the main fixes are: white-balance correction (paper should look neutral white, not yellow or blue), spot removal for any dust or scuff marks, and a light sharpen pass. Don't aggressively colour-correct — printer drivers will shift colours anyway, and over-saturated source files end up looking wrong on paper. If you're scanning a faded or damaged cover, a single curves adjustment to lift midtones is usually enough.</p>
+  </section>
+
+  <!-- 4. CoverStitch walkthrough -->
+  <section class="step-section" id="stitch">
+    <h2>Step-by-Step: Using <em>CoverStitch</em></h2>
+
+    <p>Once you have your front, back, and (optionally) spine images, CoverStitch combines them into a single print-ready file. Everything runs in your browser — your images are never uploaded to a server, and there's no signup. Here's the flow:</p>
 
     <div class="step-grid">
       <div class="step-card">
         <div class="step-num">1</div>
         <h3>Choose a Case Preset</h3>
-        <p>Select your case type (PS2, PS5, Switch, DVD, Blu-ray, or Steelbook) to apply the exact pixel dimensions at 300 DPI.</p>
+        <p>Select PS2, PS5, Switch, DVD, Blu-ray, or Steelbook. The preset sets the exact pixel dimensions at 300 DPI for that case format.</p>
       </div>
       <div class="step-card">
         <div class="step-num">2</div>
         <h3>Upload Your Images</h3>
-        <p>Drop your back cover, spine (optional), and front cover into the upload zones. JPG, PNG, and WebP are all supported.</p>
+        <p>Drop your back cover, spine (optional), and front cover into the upload zones. JPG, PNG, and WebP all work.</p>
       </div>
       <div class="step-card">
         <div class="step-num">3</div>
         <h3>Click Stitch</h3>
-        <p>CoverStitch resizes each panel to the correct preset dimensions and combines them side-by-side into one wide image.</p>
+        <p>Each panel is resized to the preset dimensions and combined side-by-side: back, spine, front — the standard wrap order.</p>
       </div>
       <div class="step-card">
         <div class="step-num">4</div>
         <h3>Download</h3>
-        <p>Save as PNG (lossless, best quality) or JPG. The filename is pre-filled from your front cover image for easy organisation.</p>
+        <p>Save as PNG (lossless, recommended) or JPG. The filename pre-fills from your front cover name for easy organisation.</p>
       </div>
     </div>
 
+    <h3>Single mode vs. Batch mode</h3>
+    <p>Single mode is the default — one cover at a time, full preview, fast. Use it for one-off prints. Batch mode is for collectors restoring a whole shelf: drop dozens of images into a pool, drag them visually into Back/Spine/Front slots for each cover, then stitch all of them at once and download the lot. The batch interface is built specifically for the workflow of "I have a folder of 50 cover scans, I want to turn them into 20 finished wraps."</p>
+
+    <h3>Custom dimensions</h3>
+    <p>If your case is non-standard — an oversized Steelbook, a digipak, a multi-disc case, an old PC big-box, or a regional variant — pick the Custom preset. CoverStitch will stitch your images at their original dimensions without resizing, which is the right behaviour when you've already prepared each panel to the exact pixel size you need. See the <a href="dimensions.html">case dimensions reference</a> for measurements you can use to prepare custom panels.</p>
+
     <div class="tip-box">
-      <strong>Use the correct preset</strong>
-      A PS2 cover is not the same size as a PS5 cover. Using the wrong preset means your print will need trimming in the wrong places, or the spine will be misaligned. Check the <a href="dimensions.html" style="color:var(--accent)">dimensions reference page</a> if you're unsure which preset matches your case.
+      <strong class="label">Preset matters</strong>
+      A PS2 cover preset (130×184mm) is not the same size as a PS5 preset (128×148mm). Using the wrong preset means the spine title won't sit centred when folded, and the front/back will overhang the case edges. If you're not sure which preset to use, measure the inside of your physical case with a ruler and match it to the <a href="dimensions.html">dimensions table</a>.
     </div>
   </section>
 
-  <!-- STEP 3: Printing tips -->
-  <section class="step-section">
-    <h2>Step 3 — Printing <em>Tips</em></h2>
+  <!-- 5. Printing -->
+  <section class="step-section" id="printing">
+    <h2>Printing <em>Best Practices</em></h2>
 
-    <h3 style="font-size:0.95rem;font-weight:600;margin:0 0 0.75rem">Paper selection</h3>
-    <p><strong>Photo paper (glossy or satin) is the best choice.</strong> Matte photo paper works if you prefer a less reflective finish. Plain printer paper will look washed out and won't hold up inside the case. Use 200–250 gsm weight for a feel close to original inserts.</p>
+    <h3>Choosing paper</h3>
+    <p>Paper choice does more for the final look than the printer itself. Plain copier paper looks washed out, feels wrong inside the case, and curls within weeks. Photo paper is the standard for a reason. Here's how the common options compare:</p>
 
-    <h3 style="font-size:0.95rem;font-weight:600;margin:1.25rem 0 0.75rem">Print at 100% scale — no scaling</h3>
-    <p>This is the most common mistake. When you open the image in your photo viewer or print dialog, <strong>make sure "Scale to fit" or "Fit to page" is turned OFF.</strong> Print at exactly 100% / actual size. CoverStitch already outputs the image at the exact physical dimensions for the selected preset at 300 DPI.</p>
+    <table class="compare-table">
+      <thead>
+        <tr><th>Paper</th><th>Finish</th><th>Best for</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Glossy photo paper</strong></td><td>High shine, vivid colour</td><td>Original retail-style covers, most modern game cases</td></tr>
+        <tr><td><strong>Satin / lustre photo paper</strong></td><td>Subtle sheen, less reflection</td><td>A close match to most real DVD/Blu-ray inserts; hides fingerprints</td></tr>
+        <tr><td><strong>Matte photo paper</strong></td><td>Flat, no glare</td><td>Indie/custom designs; shelves with strong overhead lighting</td></tr>
+        <tr><td><strong>Plain copier paper</strong></td><td>Flat, thin</td><td>Test prints only — never for final covers</td></tr>
+      </tbody>
+    </table>
 
-    <div class="tip-box">
-      <strong>Recommended print settings</strong>
-      Paper size: A4 or Letter (depending on case — see dimensions guide). Orientation: Landscape. Scale: 100% / Actual Size. Quality: Best / Photo. Colour profile: sRGB. Borderless printing: On if available.
-    </div>
+    <p>Aim for <strong>200–250 gsm</strong> paper weight. Thinner paper feels cheap and bows inside the case; thicker paper than 250 gsm often won't fit cleanly behind the case window. If your printer specs cap at 220 gsm in the photo paper tray, don't push past that — you'll jam the rollers.</p>
 
-    <h3 style="font-size:0.95rem;font-weight:600;margin:1.25rem 0 0.75rem">Cutting</h3>
-    <p>A paper trimmer (guillotine cutter) gives clean, straight edges. Scissors work but are harder to keep straight over a long cut. Mark your fold lines lightly with a bone folder before folding the spine — this prevents cracking on glossy paper.</p>
+    <h3>Printer settings — actual size, every time</h3>
+    <p>This is where most prints go wrong. Open the file in your printer dialog and check that "<strong>Scale to fit</strong>", "<strong>Fit to page</strong>", "<strong>Shrink oversized pages</strong>" — whatever your driver calls it — is <strong>turned off</strong>. Set the print scale to <strong>100% / Actual Size</strong>. CoverStitch already outputs the file at the precise physical dimensions for the preset you chose. Any scaling at print time defeats the entire point of using preset dimensions.</p>
 
-    <h3 style="font-size:0.95rem;font-weight:600;margin:1.25rem 0 0.75rem">Laminating (optional)</h3>
-    <p>Running the printed cover through a laminator adds durability and gives it a finish very close to a commercial insert. Use <strong>80-micron pouches</strong> for a flexible result — thicker pouches can make the cover too stiff to fit back in the case. Always trim after laminating, not before.</p>
-
-    <div class="step-grid">
-      <div class="step-card">
-        <div class="step-num">✓</div>
-        <h3>Photo Paper</h3>
-        <p>Glossy or satin, 200–250 gsm. Avoid plain paper — it won't match the look or feel of an original insert.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">✓</div>
-        <h3>100% Scale</h3>
-        <p>Disable "fit to page" in your print dialog. The image is already sized for the exact case dimensions.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">✓</div>
-        <h3>Paper Cutter</h3>
-        <p>A guillotine trimmer gives the cleanest straight cuts. Score the spine fold with a bone folder before bending.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">✓</div>
-        <h3>Laminate Last</h3>
-        <p>Laminate after printing, trim after laminating. 80-micron pouches keep the cover flexible enough for the case.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- STEP 4: Case presets -->
-  <section class="step-section">
-    <h2>Step 4 — Choosing the Right <em>Case Preset</em></h2>
-    <p>Each case format has different physical dimensions. Getting these right means your print will fold at exactly the right point and fit perfectly inside the case. CoverStitch has built-in presets for all major formats:</p>
+    <p>Other settings worth getting right:</p>
     <ul>
-      <li><strong>PS2 / DVD Game:</strong> 130×184mm front &amp; back panels, 14mm spine. Full wrap is approximately 274×184mm.</li>
-      <li><strong>PS5:</strong> 128×148mm front &amp; back panels, 14mm spine. Slightly smaller height than PS2.</li>
-      <li><strong>Nintendo Switch:</strong> 128×160mm front &amp; back panels, 10mm spine. Narrower spine than PS2.</li>
-      <li><strong>DVD:</strong> Same as PS2 — 130×184mm covers, 14mm spine.</li>
-      <li><strong>Blu-ray:</strong> 128×148mm covers, 12mm spine.</li>
-      <li><strong>Steelbook:</strong> 138×172mm covers, 14mm spine.</li>
+      <li><strong>Paper size:</strong> A4 or US Letter, depending on what your printer takes. Landscape orientation for wide covers.</li>
+      <li><strong>Quality:</strong> Best, Photo, or 1200 DPI — whichever your printer's highest quality option is.</li>
+      <li><strong>Colour profile:</strong> sRGB. Not Adobe RGB, not ProPhoto. Source files are sRGB and your printer driver expects sRGB.</li>
+      <li><strong>Borderless printing:</strong> Enable it if your printer supports it. PS2, DVD, and Steelbook full-wraps come close to A4 width, so borderless avoids forcing the print smaller.</li>
+      <li><strong>Paper type:</strong> Match the actual paper loaded — set "Glossy photo paper" if that's what you're using. The driver adjusts ink density based on this.</li>
     </ul>
-    <p>For a full breakdown of dimensions in mm and pixels, see the <a href="dimensions.html" style="color:var(--accent)">case dimensions reference</a>.</p>
+
+    <h3>Trimming</h3>
+    <p>A <strong>guillotine paper trimmer</strong> gives clean straight cuts in seconds and keeps the front/back edges parallel. Scissors work but are slow and rarely produce perfectly straight cuts over a 270mm edge. Cut just inside the printed area — printers usually leave a 3–5mm white margin even with borderless mode on, and trimming inside the print is what makes the result look factory-made instead of homemade.</p>
+
+    <p>Score the spine fold lines lightly with a <strong>bone folder</strong> (or the back of a butter knife) before bending. This prevents the printed surface from cracking or "checking" along the fold, which is especially noticeable on glossy paper with dark spine art.</p>
+
+    <h3>Laminating (optional but worth it)</h3>
+    <p>Running the trimmed cover through a laminator gives it the same scuff-resistance as a commercial insert and roughly doubles its lifespan. Use <strong>80-micron pouches</strong> — thicker pouches (125-micron+) make the cover too stiff to fold cleanly and often won't fit behind the case window. Laminate first, then trim — the lamination film extends a couple of millimetres past the paper edge and needs trimming flush. Cold laminating sheets (peel-and-stick) work too if you don't want a hot laminator; the result is slightly less durable but no equipment investment.</p>
+  </section>
+
+  <div class="ad-space">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-3564278316450647"
+         data-ad-slot="auto"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <!-- 6. Mistakes -->
+  <section class="step-section" id="mistakes">
+    <h2>Common <em>Mistakes</em> to Avoid</h2>
+
+    <ul class="mistake-list">
+      <li>
+        <strong>Printing with "Fit to Page" enabled</strong>
+        The single most common failure. Your driver shrinks the print by 3–8% to add a margin, and now your spine doesn't sit centred when folded and the front overhangs the case. Always print at 100% / Actual Size.
+      </li>
+      <li>
+        <strong>Using the wrong case preset</strong>
+        PS2 and PS5 covers look similar but have different heights (184mm vs 148mm). Using a PS2 preset on a PS5 case wastes paper and produces a cover that's noticeably too tall. Match the preset to the physical case before stitching.
+      </li>
+      <li>
+        <strong>Sourcing low-resolution art</strong>
+        A 1000-pixel-wide JPG of a PS2 cover will print blurry no matter what you do. Either find a higher-resolution scan or upscale with an AI tool before stitching. Don't just let the printer driver scale up — that produces the worst result.
+      </li>
+      <li>
+        <strong>Skipping the spine fold score line</strong>
+        Folding glossy paper without scoring it first cracks the printed surface along the fold. The cracks are subtle but noticeable on dark spine artwork. Always score with a bone folder or knife back before folding.
+      </li>
+      <li>
+        <strong>Using plain printer paper</strong>
+        Tempting because it's cheap and already loaded, but the result looks and feels obviously wrong inside the case. Plain paper is fine for a test print to check sizing — never for the finished cover.
+      </li>
+      <li>
+        <strong>Trimming before laminating</strong>
+        If you trim first, the laminate film extends past the paper edge and looks like a clear plastic border around the print. Always laminate first, trim second, and trim flush with the printed edge.
+      </li>
+      <li>
+        <strong>Wrong colour profile</strong>
+        Source files are sRGB but some image editors save in Adobe RGB or ProPhoto by default. Printer drivers assume sRGB and will produce muted, washed-out colour if you feed them anything else. Re-export as sRGB before printing if you've edited the image.
+      </li>
+    </ul>
+  </section>
+
+  <!-- 7. FAQ -->
+  <section class="step-section" id="faq">
+    <h2>Frequently Asked <em>Questions</em></h2>
+
+    <div class="faq-item">
+      <button class="faq-q">What size paper should I use to print game covers?</button>
+      <div class="faq-a"><div class="faq-a-inner">For PS2, PS5, DVD, Blu-ray, Switch, and Steelbook covers, A4 (210×297mm) or US Letter (216×279mm) in landscape orientation will fit. Steelbook full-wraps at 290mm wide are the closest to A4 width — enable borderless printing if your printer supports it. For oversized cases like PC big-boxes or multi-disc collections, you may need A3.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">Why does my printed cover have a white border around it?</button>
+      <div class="faq-a"><div class="faq-a-inner">Most printers leave a 3–5mm unprintable margin by default. Either enable "borderless printing" in your driver settings, or trim the white margin off with a guillotine cutter after printing. The CoverStitch output itself doesn't add any margin — the white space is added by the printer.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">Do I need a special printer to print covers?</button>
+      <div class="faq-a"><div class="faq-a-inner">No. Any modern inkjet or colour laser printer that accepts photo paper and prints in landscape A4/Letter will work. Inkjets (especially photo-focused ones from Canon, Epson, and HP) generally produce richer colour on glossy paper. Colour lasers are sharper for text-heavy back covers but can struggle with photo-quality colour. Even a basic home printer will produce acceptable results on good paper.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">What is 300 DPI and why does it matter?</button>
+      <div class="faq-a"><div class="faq-a-inner">DPI (dots per inch) is the resolution at which printers render images. 300 DPI is the print industry standard — at that resolution, individual dots are too small for the human eye to see at normal viewing distance, so the print looks smooth. CoverStitch outputs all presets at 300 DPI by default. Source images at lower DPI will print soft because there isn't enough detail to fill the printed area.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">Can I use CoverStitch for cases that aren't in the preset list?</button>
+      <div class="faq-a"><div class="faq-a-inner">Yes. Pick the Custom preset and CoverStitch will stitch your images at their original dimensions without resizing. Prepare each panel (front, back, optionally spine) at the exact pixel dimensions you need, then upload. This is the right approach for PC big-boxes, oversized collector editions, multi-disc cases, region-specific variants, and other non-standard formats.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">Will my images be uploaded to a server?</button>
+      <div class="faq-a"><div class="faq-a-inner">No. CoverStitch processes everything locally in your browser using the HTML5 Canvas API. Your images never leave your device. There's no account, no upload, and no server-side image storage. You can verify this by opening browser DevTools → Network tab while using the tool — you'll see no requests carrying your image data.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">My spine looks misaligned when I fold the cover. What went wrong?</button>
+      <div class="faq-a"><div class="faq-a-inner">Three usual causes. First: you printed with "fit to page" or "scale to fit" enabled, so the whole image shrank and the spine no longer matches the physical case width. Reprint at 100% / Actual Size. Second: you used the wrong preset (PS2 spine is 14mm, Switch is 10mm, Blu-ray is 12mm). Third: the source spine image was the wrong width before you uploaded it. CoverStitch resizes panels but can't fix a misshapen source — start from a correctly-proportioned spine.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">What's the best file format to download — PNG or JPG?</button>
+      <div class="faq-a"><div class="faq-a-inner">PNG. PNG is lossless, so what you see in the preview is exactly what gets printed. JPG compresses the image and can introduce subtle artifacts, especially around sharp text on the spine. The file size is larger but disk space is cheap and the quality difference is visible on close inspection.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">Can I print double-sided so the inside of the cover has art too?</button>
+      <div class="faq-a"><div class="faq-a-inner">Yes, but it requires a duplex-capable printer and careful alignment. Most retail covers don't have inside artwork, so this is a niche use case — usually for custom collectors' editions. CoverStitch outputs the outer wrap; you'd need to prepare the inside art as a separate file and run the paper through a second time. Test the alignment with plain paper first before committing to photo paper.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">How do I keep my prints from fading?</button>
+      <div class="faq-a"><div class="faq-a-inner">Use pigment-based ink rather than dye-based if your printer supports it (most photo-focused Epson and Canon printers offer pigment inks). Pigment inks resist fading from UV light and last decades; dye inks can fade noticeably within a few years on display. Laminating also blocks UV and adds protection. For a shelf out of direct sunlight, dye-based prints on photo paper still hold up fine for many years.</div></div>
+    </div>
   </section>
 
   <!-- CTA -->
@@ -536,6 +802,7 @@ footer a:hover{color:var(--accent)}
     </a>
     <div class="secondary-links">
       <a href="dimensions.html">Case Dimensions Reference →</a>
+      <a href="about.html">About CoverStitch →</a>
     </div>
   </div>
 
@@ -554,9 +821,21 @@ footer a:hover{color:var(--accent)}
 <!-- FOOTER -->
 <footer>
   <p>CoverStitch &copy; 2026 &mdash; Free game &amp; movie cover stitching tool. Built for collectors.</p>
-  <p style="margin-top:0.5rem"><a href="https://coverstitch.io">Home</a> &middot; <a href="how-to-print.html">Print Guide</a> &middot; <a href="dimensions.html">Dimensions</a> &middot; <a href="#privacy">Privacy</a> &middot; <a href="mailto:spencergallardo@gmail.com">Contact</a></p>
+  <nav class="footer-nav">
+    <a href="https://coverstitch.io">Home</a>
+    <span class="footer-sep">&middot;</span>
+    <a href="how-to-print.html">How to Print</a>
+    <span class="footer-sep">&middot;</span>
+    <a href="dimensions.html">Dimensions</a>
+    <span class="footer-sep">&middot;</span>
+    <a href="about.html">About</a>
+    <span class="footer-sep">&middot;</span>
+    <a href="contact.html">Contact</a>
+    <span class="footer-sep">&middot;</span>
+    <a href="#privacy">Privacy</a>
+  </nav>
   <div class="footer-seo">
-    Learn how to print custom game and movie covers at home. This guide covers finding cover art at The Cover Project and MobyGames, stitching panels with CoverStitch, and printing tips including photo paper, 100% scale, cutting, and laminating.
+    The complete guide to printing game and movie covers at home. Find high-resolution cover art at The Cover Project, VGBoxArt, MobyGames, Internet Archive, and LaunchBox Database. Scan your own covers at 600 DPI for print-quality results. Use CoverStitch to combine front, spine, and back panels into one print-ready image at 300 DPI for PS2, PS5, Switch, DVD, Blu-ray, and Steelbook cases.
   </div>
 </footer>
 
@@ -574,7 +853,7 @@ footer a:hover{color:var(--accent)}
       <p><strong style="color:var(--text)">Google Analytics:</strong> We use Google Analytics to understand how visitors use our site (page views, time on site, general location). This service uses cookies. You can opt out by installing the Google Analytics Opt-out Browser Add-on.</p><br>
       <p><strong style="color:var(--text)">Google AdSense:</strong> We display ads through Google AdSense, which may use cookies to serve ads based on your browsing history. You can manage your ad preferences at Google's Ad Settings page.</p><br>
       <p><strong style="color:var(--text)">Cookies:</strong> CoverStitch itself does not set cookies. However, the third-party services above (Google Analytics and Google AdSense) may set cookies on your device.</p><br>
-      <p><strong style="color:var(--text)">Contact:</strong> If you have any questions about this privacy policy, please contact us via the link in the footer.</p>
+      <p><strong style="color:var(--text)">Contact:</strong> If you have any questions about this privacy policy, please <a href="contact.html" style="color:var(--accent)">contact us</a>.</p>
     </div>
   </div>
 </div>
@@ -583,6 +862,13 @@ footer a:hover{color:var(--accent)}
 document.querySelector('a[href="#privacy"]').addEventListener('click', function(e) {
   e.preventDefault();
   document.getElementById('privacy').style.display = 'block';
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    btn.parentElement.classList.toggle('open');
+  });
 });
 </script>
 </body>

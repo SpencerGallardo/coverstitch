@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact CoverStitch — Bug Reports, Feature Requests, Dimension Corrections</title>
+<meta name="description" content="Get in touch with CoverStitch. Send bug reports, feature requests, dimension corrections, and new case format suggestions. Direct email contact and a brief FAQ for common questions.">
+<meta name="keywords" content="contact coverstitch, coverstitch feedback, coverstitch bug report, cover stitcher support, game cover tool feedback">
+<meta property="og:title" content="Contact CoverStitch">
+<meta property="og:description" content="Bug reports, feature requests, dimension corrections, and case format requests welcome. Direct email contact.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact CoverStitch">
+<meta name="twitter:description" content="Send feedback, bug reports, and feature requests directly.">
+<link rel="canonical" href="https://coverstitch.io/contact.html">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7ZK4FTN6N5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7ZK4FTN6N5');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3564278316450647"
+     crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --bg:#0a0a0c;
+  --surface:#121216;
+  --surface-2:#1a1a20;
+  --surface-3:#22222a;
+  --border:#2a2a35;
+  --border-hover:#3a3a48;
+  --text:#e8e6f0;
+  --text-muted:#8887a0;
+  --text-dim:#5a5972;
+  --accent:#c4f04d;
+  --accent-dim:#8aad2a;
+  --accent-glow:rgba(196,240,77,0.12);
+  --accent-glow-strong:rgba(196,240,77,0.22);
+  --danger:#ff6b6b;
+  --radius:14px;
+  --radius-sm:8px;
+  --font-display:'Instrument Serif', Georgia, serif;
+  --font-body:'DM Sans', system-ui, sans-serif;
+  --transition:0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+body::before{
+  content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  background-repeat:repeat;
+}
+
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--border-hover)}
+
+/* === HEADER === */
+header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(10,10,12,0.8);
+  backdrop-filter:blur(20px) saturate(1.4);
+  border-bottom:1px solid var(--border);
+  padding:0 2rem;
+}
+.header-inner{
+  max-width:1200px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  height:64px;
+}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{
+  width:32px;height:32px;
+  background:var(--accent);
+  border-radius:6px;
+  position:relative;overflow:hidden;
+  flex-shrink:0;
+}
+.logo-icon::before{
+  content:'';position:absolute;
+  width:2px;height:100%;background:var(--bg);
+  left:40%;
+}
+.logo-icon::after{
+  content:'';position:absolute;
+  width:2px;height:100%;background:var(--bg);
+  left:66%;
+}
+.logo-text{
+  font-family:var(--font-display);
+  font-size:1.35rem;color:var(--text);
+  letter-spacing:-0.02em;
+}
+.logo-text span{color:var(--accent)}
+.header-right{display:flex;align-items:center;gap:12px}
+.header-nav{display:flex;align-items:center;gap:2px;flex-wrap:wrap}
+.header-nav a{
+  padding:7px 12px;
+  font-size:0.78rem;font-weight:500;
+  color:var(--text-dim);
+  text-decoration:none;
+  border-radius:8px;
+  transition:var(--transition);
+  white-space:nowrap;
+}
+.header-nav a:hover{color:var(--text-muted)}
+.header-nav a.active{color:var(--text);background:var(--surface-3)}
+.header-badge{
+  font-size:0.68rem;font-weight:600;
+  color:var(--accent);
+  background:var(--accent-glow);
+  padding:4px 10px;border-radius:20px;
+  letter-spacing:0.06em;text-transform:uppercase;
+}
+
+/* === HERO === */
+.hero{
+  text-align:center;
+  padding:3.5rem 2rem 1.5rem;
+  position:relative;
+}
+.hero::before{
+  content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);
+  width:600px;height:400px;
+  background:radial-gradient(ellipse,var(--accent-glow) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-badge{
+  display:inline-block;
+  font-size:0.72rem;font-weight:600;
+  color:var(--accent);background:var(--accent-glow);
+  border:1px solid rgba(196,240,77,0.25);
+  padding:5px 14px;border-radius:20px;
+  letter-spacing:0.06em;text-transform:uppercase;
+  margin-bottom:1.25rem;
+  position:relative;
+}
+.hero h1{
+  font-family:var(--font-display);
+  font-size:clamp(2rem,5vw,3.2rem);
+  font-weight:400;line-height:1.15;
+  letter-spacing:-0.03em;
+  margin-bottom:0.75rem;
+  position:relative;
+}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero p{
+  color:var(--text-muted);font-size:1rem;
+  max-width:580px;margin:0 auto 2rem;line-height:1.6;
+}
+
+/* === MAIN CONTENT === */
+.content{
+  max-width:760px;margin:0 auto;
+  padding:2rem 2rem 4rem;
+}
+
+/* === EMAIL CARD === */
+.email-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:2rem 2rem;
+  text-align:center;
+  margin-bottom:2rem;
+  position:relative;overflow:hidden;
+}
+.email-card::before{
+  content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);
+  width:400px;height:200px;
+  background:radial-gradient(ellipse,var(--accent-glow) 0%,transparent 70%);
+  pointer-events:none;
+}
+.email-card .label{
+  font-size:0.7rem;font-weight:700;
+  color:var(--accent);
+  text-transform:uppercase;letter-spacing:0.08em;
+  margin-bottom:0.75rem;
+  position:relative;
+}
+.email-card .email{
+  font-family:var(--font-display);
+  font-size:clamp(1.4rem,4vw,1.9rem);
+  font-weight:400;
+  letter-spacing:-0.01em;
+  margin-bottom:0.5rem;
+  position:relative;
+}
+.email-card .email a{color:var(--text);text-decoration:none;border-bottom:1px solid var(--border);transition:var(--transition)}
+.email-card .email a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.email-card .response{
+  font-size:0.85rem;color:var(--text-dim);
+  position:relative;
+}
+
+/* === SECTION === */
+.section{
+  margin-bottom:3rem;
+}
+.section h2{
+  font-family:var(--font-display);
+  font-size:1.7rem;font-weight:400;
+  letter-spacing:-0.02em;
+  margin-bottom:1rem;
+  padding-bottom:0.75rem;
+  border-bottom:1px solid var(--border);
+}
+.section h2 em{font-style:italic;color:var(--accent)}
+.section p{
+  color:var(--text-muted);font-size:0.95rem;
+  line-height:1.8;margin-bottom:1.1rem;
+}
+.section p strong{color:var(--text)}
+.section a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:var(--transition)}
+.section a:hover{border-bottom-color:var(--accent)}
+
+/* === WELCOME GRID === */
+.welcome-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1rem;
+  margin:1.5rem 0 2rem;
+}
+.welcome-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:1.25rem;
+  transition:var(--transition);
+}
+.welcome-card:hover{border-color:var(--border-hover)}
+.welcome-icon{
+  width:36px;height:36px;border-radius:8px;
+  background:var(--accent-glow);
+  display:grid;place-items:center;
+  margin-bottom:0.75rem;
+}
+.welcome-icon svg{width:18px;height:18px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.welcome-card h3{font-size:0.92rem;font-weight:600;margin-bottom:0.4rem}
+.welcome-card p{font-size:0.82rem;color:var(--text-dim);line-height:1.6;margin:0}
+
+/* === TIP BOX === */
+.tip-box{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-left:3px solid var(--accent-dim);
+  border-radius:var(--radius-sm);
+  padding:1rem 1.25rem;
+  margin:1.5rem 0 2rem;
+  font-size:0.9rem;
+  color:var(--text-muted);
+  line-height:1.7;
+}
+.tip-box strong.label{color:var(--accent);display:block;margin-bottom:0.35rem;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em}
+.tip-box strong{color:var(--text)}
+.tip-box ul{padding-left:1.25rem;margin-top:0.5rem}
+.tip-box li{margin-bottom:0.3rem;color:var(--text-muted)}
+
+/* === FAQ === */
+.faq-item{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius-sm);
+  margin-bottom:0.75rem;
+  overflow:hidden;
+  transition:var(--transition);
+}
+.faq-item:hover{border-color:var(--border-hover)}
+.faq-q{
+  display:block;width:100%;
+  text-align:left;
+  padding:1rem 1.25rem;
+  font-family:var(--font-body);
+  font-size:0.92rem;font-weight:600;
+  color:var(--text);
+  background:transparent;
+  border:none;cursor:pointer;
+  position:relative;
+}
+.faq-q::after{
+  content:'+';
+  position:absolute;right:1.25rem;top:50%;transform:translateY(-50%);
+  color:var(--accent);font-size:1.25rem;font-weight:300;
+  transition:var(--transition);
+}
+.faq-item.open .faq-q::after{transform:translateY(-50%) rotate(45deg)}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height 0.3s ease;
+}
+.faq-item.open .faq-a{max-height:600px}
+.faq-a-inner{
+  padding:0 1.25rem 1.25rem;
+  font-size:0.88rem;color:var(--text-muted);
+  line-height:1.7;
+}
+.faq-a-inner a{color:var(--accent);text-decoration:none}
+
+/* === AD SPACE === */
+.ad-space{
+  margin:2rem 0;padding:2.5rem 2rem;
+  background:var(--surface);
+  border:1px dashed var(--border);
+  border-radius:var(--radius);
+  text-align:center;color:var(--text-dim);font-size:0.78rem;
+}
+
+/* === FOOTER === */
+footer{
+  margin-top:3rem;padding:2rem;
+  border-top:1px solid var(--border);
+  text-align:center;color:var(--text-dim);font-size:0.76rem;
+}
+footer a{color:var(--text-muted);text-decoration:none}
+footer a:hover{color:var(--accent)}
+.footer-nav{
+  display:flex;align-items:center;justify-content:center;
+  gap:1rem;flex-wrap:wrap;
+  margin-top:0.75rem;
+}
+.footer-nav a{
+  font-weight:500;color:var(--text-muted);
+  font-size:0.82rem;
+}
+.footer-sep{color:var(--text-dim);opacity:0.5}
+.footer-seo{
+  max-width:700px;margin:1.25rem auto 0;
+  font-size:0.72rem;color:var(--text-dim);
+  line-height:1.7;opacity:0.6;
+}
+
+@media(max-width:600px){
+  .hero{padding:2rem 1.5rem 1rem}
+  .content{padding:1.5rem 1rem 3rem}
+  header{padding:0 1rem}
+  .header-right{gap:8px}
+  .header-badge{display:none}
+  .header-nav a{padding:6px 8px;font-size:0.72rem}
+  .welcome-grid{grid-template-columns:1fr}
+  .email-card{padding:1.5rem 1rem}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="https://coverstitch.io" class="logo">
+      <div class="logo-icon"></div>
+      <div class="logo-text">Cover<span>Stitch</span></div>
+    </a>
+    <div class="header-right">
+      <nav class="header-nav">
+        <a href="https://coverstitch.io">Tool</a>
+        <a href="how-to-print.html">Print Guide</a>
+        <a href="dimensions.html">Dimensions</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+      <div class="header-badge">Free Tool</div>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">Get in Touch</div>
+  <h1>Send <em>feedback</em>, requests, or just say hi</h1>
+  <p>Bug reports, feature requests, case dimension corrections, requests for new case formats — all welcome. CoverStitch is a small project run by one person, so feedback genuinely shapes what gets built next.</p>
+</section>
+
+<main class="content">
+
+  <!-- Email card -->
+  <div class="email-card">
+    <div class="label">Email</div>
+    <div class="email">
+      <a href="mailto:spencergallardo@gmail.com?subject=CoverStitch%20feedback">spencergallardo@gmail.com</a>
+    </div>
+    <div class="response">Typical response time: <strong style="color:var(--text-muted)">2–5 days</strong></div>
+  </div>
+
+  <!-- What's welcomed -->
+  <section class="section">
+    <h2>What I'd <em>love</em> to hear about</h2>
+
+    <p>The most useful feedback comes from collectors actually using the tool — things that worked well, things that didn't, and gaps that would make CoverStitch genuinely more useful. Here are the kinds of messages I respond to fastest:</p>
+
+    <div class="welcome-grid">
+      <div class="welcome-card">
+        <div class="welcome-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="0.5" fill="currentColor"/></svg></div>
+        <h3>Bug reports</h3>
+        <p>Something broken, slow, or behaving wrong. Include browser + OS, what you did, and what happened vs what you expected.</p>
+      </div>
+      <div class="welcome-card">
+        <div class="welcome-icon"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
+        <h3>Feature requests</h3>
+        <p>Something missing that would make your workflow easier. Even rough ideas — "I wish it could X" is enough to start a conversation.</p>
+      </div>
+      <div class="welcome-card">
+        <div class="welcome-icon"><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4M3 7v10l9 4M3 7l9 4M21 7v10l-9 4M21 7l-9 4M12 11v10"/></svg></div>
+        <h3>Dimension corrections</h3>
+        <p>If a preset doesn't quite match your specific case, tell me. Include the format, your measurements, and what's off — I'll verify and update.</p>
+      </div>
+      <div class="welcome-card">
+        <div class="welcome-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg></div>
+        <h3>New case formats</h3>
+        <p>Currently missing GameCube, Xbox-original, or PC big-box presets. If you'd use one, request it — popular requests get added.</p>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <strong class="label">Useful info to include in a bug report</strong>
+      The more context, the faster I can fix it. Helpful things to mention:
+      <ul>
+        <li>Browser name and version (Chrome 130, Firefox 129, Safari 18, etc.)</li>
+        <li>Operating system (Windows 11, macOS 14, Linux)</li>
+        <li>Which mode you were using (Single, Batch, Visual Batch)</li>
+        <li>Which case preset you selected, if any</li>
+        <li>What you did, what you expected to happen, what actually happened</li>
+        <li>Any error messages from the browser console (F12 → Console tab)</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="ad-space">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-3564278316450647"
+         data-ad-slot="auto"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <!-- FAQ -->
+  <section class="section">
+    <h2>Quick <em>FAQ</em> Before You Email</h2>
+
+    <p>Most questions I get are variations of a handful of common ones. If your question is on this list, you'll get an answer faster by reading the answer here than by waiting for an email reply.</p>
+
+    <div class="faq-item">
+      <button class="faq-q">My printed cover doesn't fit my case. Why?</button>
+      <div class="faq-a"><div class="faq-a-inner">95% of the time this is because "Fit to Page" or "Scale to Fit" was enabled in the print dialog. Reprint at exactly 100% / Actual Size with no scaling. The other 5% is using the wrong preset (PS2 vs PS5, Switch vs Blu-ray) or having a non-standard case variant. See the <a href="how-to-print.html">printing guide</a> for full troubleshooting.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">Are my images uploaded to your server?</button>
+      <div class="faq-a"><div class="faq-a-inner">No. CoverStitch processes everything locally in your browser using the HTML5 Canvas API. Open browser DevTools (F12) → Network tab while using the tool — you'll see no requests carrying your image data. Your scans never leave your device.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">Can you add a preset for [case format I use]?</button>
+      <div class="faq-a"><div class="faq-a-inner">Probably yes, if the format is reasonably common and I can verify the dimensions from physical samples or reliable references. Send the format name, exact dimensions in millimetres (front cover width × height, spine width), and ideally a photo or link confirming the measurements. GameCube, original Xbox, PC big-box, and PS1 long-box are the most-requested missing presets right now.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">My output is black or blank when I have no spine. Why?</button>
+      <div class="faq-a"><div class="faq-a-inner">This was a bug in earlier versions of the batch mode and should be fixed in the current build. If you're still seeing it, send a bug report with your browser version and which mode (Single, Batch, Visual Batch) you were using. Include a screenshot of the result if possible.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">Can I support the project financially?</button>
+      <div class="faq-a"><div class="faq-a-inner">No need — there's no donation page, no Patreon, no "buy me a coffee" link. Hosting costs are covered by the single AdSense unit on each page. The most useful thing you can do is tell another collector about the tool. If you have a YouTube channel or write about collecting, a link or mention reaches the right audience for free.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">Will CoverStitch ever charge money or add a paid tier?</button>
+      <div class="faq-a"><div class="faq-a-inner">No. The whole premise is that a tool this simple shouldn't cost anything. There will never be a paid tier, a watermark to remove, or a premium preset. See the <a href="about.html">about page</a> for the longer version of why.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">Can I use CoverStitch's output commercially?</button>
+      <div class="faq-a"><div class="faq-a-inner">CoverStitch itself is free to use however you like, including commercially. However, the cover artwork you stitch usually belongs to game publishers, studios, or other rights holders — using it commercially (selling printed covers, for example) would be a copyright issue between you and the rights holder, not something CoverStitch is involved in. For personal use restoring or curating your own collection, no rights issue arises.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">Can I open-source contribute or fork the code?</button>
+      <div class="faq-a"><div class="faq-a-inner">The source is just one HTML file — view-source on the page shows everything. There's no public repo right now, but if there's enough interest in contributions I'm open to publishing it on GitHub. Email me if that would be useful for you.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">Why do you collect Google Analytics data?</button>
+      <div class="faq-a"><div class="faq-a-inner">To understand which pages get visited and where users come from — page views, time on site, general country-level location. No personally identifiable information is collected by CoverStitch directly. You can opt out by installing the Google Analytics Opt-out Browser Add-on. Full details are in the <a href="#privacy">privacy policy</a>.</div></div>
+    </div>
+  </section>
+
+  <!-- CTA back to tool -->
+  <section class="section">
+    <h2>Other <em>useful</em> pages</h2>
+    <p>If you haven't already, these are worth a look:</p>
+    <p>
+      &rarr; <a href="https://coverstitch.io">The CoverStitch tool itself</a> &mdash; if you got here without trying it<br>
+      &rarr; <a href="how-to-print.html">How to print game and movie covers</a> &mdash; complete guide to source art, scanning, paper, settings, and laminating<br>
+      &rarr; <a href="dimensions.html">Case dimensions reference</a> &mdash; PS2, PS5, Switch, DVD, Blu-ray, Steelbook in mm and pixels<br>
+      &rarr; <a href="about.html">About CoverStitch</a> &mdash; the story behind the tool and the principles it's built on
+    </p>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>CoverStitch &copy; 2026 &mdash; Free game &amp; movie cover stitching tool. Built for collectors.</p>
+  <nav class="footer-nav">
+    <a href="https://coverstitch.io">Home</a>
+    <span class="footer-sep">&middot;</span>
+    <a href="how-to-print.html">How to Print</a>
+    <span class="footer-sep">&middot;</span>
+    <a href="dimensions.html">Dimensions</a>
+    <span class="footer-sep">&middot;</span>
+    <a href="about.html">About</a>
+    <span class="footer-sep">&middot;</span>
+    <a href="contact.html">Contact</a>
+    <span class="footer-sep">&middot;</span>
+    <a href="#privacy">Privacy</a>
+  </nav>
+  <div class="footer-seo">
+    Contact CoverStitch with bug reports, feature requests, case dimension corrections, and requests for new case formats. Email spencergallardo@gmail.com directly. CoverStitch is a free, privacy-first browser tool for stitching game and movie cover art into print-ready full covers for PS2, PS5, Switch, DVD, Blu-ray, and Steelbook cases.
+  </div>
+</footer>
+
+<!-- Privacy Policy Modal -->
+<div id="privacy" style="display:none;position:fixed;inset:0;z-index:300;background:rgba(10,10,12,0.9);backdrop-filter:blur(12px);overflow-y:auto;padding:2rem">
+  <div style="max-width:700px;margin:2rem auto;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2.5rem">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem">
+      <h2 style="font-family:var(--font-display);font-size:1.5rem">Privacy Policy</h2>
+      <a href="#" onclick="document.getElementById('privacy').style.display='none';return false" style="color:var(--text-muted);font-size:1.5rem;text-decoration:none">&times;</a>
+    </div>
+    <div style="font-size:0.85rem;color:var(--text-muted);line-height:1.8">
+      <p><strong style="color:var(--text)">Last updated:</strong> 2026</p><br>
+      <p><strong style="color:var(--text)">What CoverStitch does:</strong> CoverStitch is a free browser-based tool that stitches cover art images together. All image processing happens entirely in your browser. Your images are never uploaded to any server.</p><br>
+      <p><strong style="color:var(--text)">Data we collect:</strong> We do not collect, store, or process any of your images or personal data directly. However, we use the following third-party services:</p><br>
+      <p><strong style="color:var(--text)">Google Analytics:</strong> We use Google Analytics to understand how visitors use our site (page views, time on site, general location). This service uses cookies. You can opt out by installing the Google Analytics Opt-out Browser Add-on.</p><br>
+      <p><strong style="color:var(--text)">Google AdSense:</strong> We display ads through Google AdSense, which may use cookies to serve ads based on your browsing history. You can manage your ad preferences at Google's Ad Settings page.</p><br>
+      <p><strong style="color:var(--text)">Cookies:</strong> CoverStitch itself does not set cookies. However, the third-party services above (Google Analytics and Google AdSense) may set cookies on your device.</p><br>
+      <p><strong style="color:var(--text)">Contact:</strong> If you have any questions about this privacy policy, please email <a href="mailto:spencergallardo@gmail.com" style="color:var(--accent)">spencergallardo@gmail.com</a>.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+document.querySelector('a[href="#privacy"]').addEventListener('click', function(e) {
+  e.preventDefault();
+  document.getElementById('privacy').style.display = 'block';
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    btn.parentElement.classList.toggle('open');
+  });
+});
+</script>
+</body>
+</html>

@@ -929,18 +929,29 @@ footer a:hover{color:var(--accent)}
 
 </main>
 
-<!-- CONTENT LINKS SECTION -->
+<!-- RESOURCES SECTION -->
 <section style="max-width:1100px;margin:0 auto;padding:0 2rem 2rem">
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem">
+  <div style="font-family:var(--font-display);font-size:1.5rem;font-weight:400;letter-spacing:-0.02em;margin-bottom:1rem;color:var(--text)">Resources</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem">
     <a href="how-to-print.html" style="text-decoration:none;display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;transition:var(--transition)" onmouseover="this.style.borderColor='var(--border-hover)'" onmouseout="this.style.borderColor='var(--border)'">
       <div style="font-size:0.68rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);margin-bottom:0.5rem">Guide</div>
       <div style="font-family:var(--font-display);font-size:1.15rem;color:var(--text);margin-bottom:0.4rem;letter-spacing:-0.01em">How to Print Game Covers</div>
-      <div style="font-size:0.8rem;color:var(--text-dim);line-height:1.5">Find cover art, stitch with CoverStitch, and print at home. Photo paper tips, correct scale, cutting, and laminating.</div>
+      <div style="font-size:0.8rem;color:var(--text-dim);line-height:1.5">Find cover art, scan your own, stitch with CoverStitch, and print at home. Paper, settings, cutting, laminating.</div>
     </a>
     <a href="dimensions.html" style="text-decoration:none;display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;transition:var(--transition)" onmouseover="this.style.borderColor='var(--border-hover)'" onmouseout="this.style.borderColor='var(--border)'">
       <div style="font-size:0.68rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);margin-bottom:0.5rem">Reference</div>
       <div style="font-family:var(--font-display);font-size:1.15rem;color:var(--text);margin-bottom:0.4rem;letter-spacing:-0.01em">Case Dimensions Reference</div>
-      <div style="font-size:0.8rem;color:var(--text-dim);line-height:1.5">PS2, PS5, Switch, DVD, Blu-ray, and Steelbook cover dimensions in mm and pixels at 300 DPI.</div>
+      <div style="font-size:0.8rem;color:var(--text-dim);line-height:1.5">PS2, PS5, Switch, DVD, Blu-ray, and Steelbook dimensions in mm and pixels at 300 DPI, with format history.</div>
+    </a>
+    <a href="about.html" style="text-decoration:none;display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;transition:var(--transition)" onmouseover="this.style.borderColor='var(--border-hover)'" onmouseout="this.style.borderColor='var(--border)'">
+      <div style="font-size:0.68rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);margin-bottom:0.5rem">About</div>
+      <div style="font-family:var(--font-display);font-size:1.15rem;color:var(--text);margin-bottom:0.4rem;letter-spacing:-0.01em">About CoverStitch</div>
+      <div style="font-size:0.8rem;color:var(--text-dim);line-height:1.5">The story behind the tool — built by a collector, privacy-first, browser-only, and free forever.</div>
+    </a>
+    <a href="contact.html" style="text-decoration:none;display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;transition:var(--transition)" onmouseover="this.style.borderColor='var(--border-hover)'" onmouseout="this.style.borderColor='var(--border)'">
+      <div style="font-size:0.68rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);margin-bottom:0.5rem">Contact</div>
+      <div style="font-family:var(--font-display);font-size:1.15rem;color:var(--text);margin-bottom:0.4rem;letter-spacing:-0.01em">Feedback &amp; Support</div>
+      <div style="font-size:0.8rem;color:var(--text-dim);line-height:1.5">Bug reports, feature requests, dimension corrections, and new case format requests welcome.</div>
     </a>
   </div>
 </section>
@@ -948,7 +959,19 @@ footer a:hover{color:var(--accent)}
 <!-- FOOTER -->
 <footer>
   <p>CoverStitch &copy; 2026 &mdash; Free game &amp; movie cover stitching tool. Built for collectors.</p>
-  <p style="margin-top:0.5rem"><a href="how-to-print.html">Print Guide</a> &middot; <a href="dimensions.html">Dimensions</a> &middot; <a href="#privacy">Privacy</a> &middot; <a href="mailto:spencergallardo@gmail.com">Contact</a></p>
+  <nav style="display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;margin-top:0.75rem">
+    <a href="https://coverstitch.io">Home</a>
+    <span style="color:var(--text-dim);opacity:0.5">&middot;</span>
+    <a href="how-to-print.html">How to Print</a>
+    <span style="color:var(--text-dim);opacity:0.5">&middot;</span>
+    <a href="dimensions.html">Dimensions</a>
+    <span style="color:var(--text-dim);opacity:0.5">&middot;</span>
+    <a href="about.html">About</a>
+    <span style="color:var(--text-dim);opacity:0.5">&middot;</span>
+    <a href="contact.html">Contact</a>
+    <span style="color:var(--text-dim);opacity:0.5">&middot;</span>
+    <a href="#privacy">Privacy</a>
+  </nav>
   <div class="footer-seo">
     CoverStitch is a free online tool for creating printable full game and movie covers. Supports PlayStation 2, PlayStation 5, Nintendo Switch, DVD, Blu-ray, and Steelbook case formats. Combine front cover, back cover, and spine art into a single print-ready image. Perfect for retro game collectors, custom case projects, and media archiving.
   </div>
