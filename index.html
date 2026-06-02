@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="yE6HnIY4j-aJd0WuMkXSptYLU_GDpoht1O7fg58mcEA" />
 <title>CoverStitch — Free Game & Movie Cover Stitcher | Printable Full Covers</title>
-<meta name="description" content="Free online tool to stitch game and movie cover art. Combine front, back, and spine images into printable full covers for PS2, PS5, Switch, DVD, Blu-ray, Steelbook cases. 100% browser-based.">
-<meta name="keywords" content="game cover maker, movie cover maker, printable game cover, custom game case, box art stitcher, game cover template, DVD cover maker, Blu-ray cover, PS5 cover, Switch cover, steelbook cover, full cover art, retro game cover">
+<meta name="description" content="Free online tool to stitch game and movie cover art. Combine front, back, and spine images into printable full covers for PS2, PS4, PS5, Xbox 360, Switch, DVD, Blu-ray, Steelbook cases. 100% browser-based.">
+<meta name="keywords" content="game cover maker, movie cover maker, printable game cover, custom game case, box art stitcher, game cover template, DVD cover maker, Blu-ray cover, PS4 cover size, PS5 cover, Xbox 360 cover art dimensions, Switch cover, steelbook cover, full cover art, retro game cover">
 <meta property="og:title" content="CoverStitch — Stitch Game & Movie Covers Instantly">
 <meta property="og:description" content="Free browser-based tool to combine front, back, and spine into printable full covers for games and movies.">
 <meta property="og:type" content="website">
@@ -745,7 +745,7 @@ footer a:hover{color:var(--accent)}
 <!-- HERO -->
 <section class="hero">
   <h1>Stitch your <em>game, movie</em><br>covers in seconds</h1>
-  <p>Drop your front, back, and spine art — get a print-ready full cover. Use Batch mode to drag-and-drop any images into cover sets. Supports PS2, PS5, Switch, DVD, Blu-ray, Steelbook and more.</p>
+  <p>Drop your front, back, and spine art — get a print-ready full cover. Use Batch mode to drag-and-drop any images into cover sets. Supports PS2, PS4, PS5, Xbox 360, Switch, DVD, Blu-ray, Steelbook and more.</p>
 </section>
 
 <!-- WORKSPACE -->
@@ -761,8 +761,10 @@ footer a:hover{color:var(--accent)}
         <button class="preset-chip active" data-preset="custom" onclick="setPreset('custom')">Custom</button>
         <button class="preset-chip" data-preset="ps2" onclick="setPreset('ps2')">PS2</button>
         <button class="preset-chip" data-preset="ps5" onclick="setPreset('ps5')">PS5</button>
+        <button class="preset-chip" data-preset="ps4" onclick="setPreset('ps4')">PS4</button>
         <button class="preset-chip" data-preset="switch" onclick="setPreset('switch')">Switch</button>
         <button class="preset-chip" data-preset="dvd" onclick="setPreset('dvd')">DVD</button>
+        <button class="preset-chip" data-preset="xbox360" onclick="setPreset('xbox360')">Xbox 360</button>
         <button class="preset-chip" data-preset="bluray" onclick="setPreset('bluray')">Blu-ray</button>
         <button class="preset-chip" data-preset="steelbook" onclick="setPreset('steelbook')">Steelbook</button>
       </div>
@@ -845,8 +847,10 @@ footer a:hover{color:var(--accent)}
         <button class="preset-chip active" data-preset="custom" onclick="setVbPreset('custom')">Custom</button>
         <button class="preset-chip" data-preset="ps2" onclick="setVbPreset('ps2')">PS2</button>
         <button class="preset-chip" data-preset="ps5" onclick="setVbPreset('ps5')">PS5</button>
+        <button class="preset-chip" data-preset="ps4" onclick="setVbPreset('ps4')">PS4</button>
         <button class="preset-chip" data-preset="switch" onclick="setVbPreset('switch')">Switch</button>
         <button class="preset-chip" data-preset="dvd" onclick="setVbPreset('dvd')">DVD</button>
+        <button class="preset-chip" data-preset="xbox360" onclick="setVbPreset('xbox360')">Xbox 360</button>
         <button class="preset-chip" data-preset="bluray" onclick="setVbPreset('bluray')">Blu-ray</button>
         <button class="preset-chip" data-preset="steelbook" onclick="setVbPreset('steelbook')">Steelbook</button>
       </div>
@@ -962,7 +966,7 @@ footer a:hover{color:var(--accent)}
     <a href="#privacy">Privacy</a>
   </nav>
   <div class="footer-seo">
-    CoverStitch is a free online tool for creating printable full game and movie covers. Supports PlayStation 2, PlayStation 5, Nintendo Switch, DVD, Blu-ray, and Steelbook case formats. Combine front cover, back cover, and spine art into a single print-ready image. Perfect for retro game collectors, custom case projects, and media archiving.
+    CoverStitch is a free online tool for creating printable full game and movie covers. Supports PlayStation 2, PlayStation 4, PlayStation 5, Xbox 360, Nintendo Switch, DVD, Blu-ray, and Steelbook case formats. Combine front cover, back cover, and spine art into a single print-ready image. Perfect for retro game collectors, custom case projects, and media archiving.
   </div>
 </footer>
 
@@ -989,8 +993,10 @@ const PRESETS = {
   custom: { name: 'Custom', desc: 'No resizing — images stitched at original dimensions.', front: null, back: null, spine: null },
   ps2:    { name: 'PS2 / DVD Game', desc: 'Standard PS2 case: 130×184mm covers, 14mm spine.', front: [1535, 2173], back: [1535, 2173], spine: [165, 2173] },
   ps5:    { name: 'PS5', desc: 'PS5 Blu-ray case: 128×148mm covers, 14mm spine.', front: [1512, 1748], back: [1512, 1748], spine: [165, 1748] },
+  ps4:    { name: 'PS4', desc: 'PS4 Blu-ray case: 128×148mm covers, 14mm spine.', front: [1512, 1748], back: [1512, 1748], spine: [165, 1748] },
   switch: { name: 'Nintendo Switch', desc: 'Switch game case: 128×160mm covers, 10mm spine.', front: [1512, 1890], back: [1512, 1890], spine: [118, 1890] },
   dvd:    { name: 'DVD', desc: 'Standard DVD case: 130×184mm covers, 14mm spine.', front: [1535, 2173], back: [1535, 2173], spine: [165, 2173] },
+  xbox360: { name: 'Xbox 360', desc: 'Xbox 360 DVD-style case: 130×184mm covers, 14mm spine.', front: [1535, 2173], back: [1535, 2173], spine: [165, 2173] },
   bluray: { name: 'Blu-ray', desc: 'Standard Blu-ray case: 128×148mm covers, 12mm spine.', front: [1512, 1748], back: [1512, 1748], spine: [142, 1748] },
   steelbook: { name: 'Steelbook', desc: 'Standard Steelbook: 138×172mm covers, 14mm spine.', front: [1630, 2031], back: [1630, 2031], spine: [165, 2031] },
 };
